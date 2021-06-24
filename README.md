@@ -1,6 +1,10 @@
 # FeatureVectorGeneration
 
-## Development and Dependencies
+## Abstract 
+
+Abstract comes here
+
+## Development and DependenciesCancel changes
 
 - [Python 3.7.3](https://www.python.org/downloads/release/python-373/)
 - [Pandas 1.1.4](https://pandas.pydata.org/pandas-docs/version/1.1.4/getting_started/install.html)
@@ -34,7 +38,22 @@ Datasets that are used to create machine learning models are provided in **datas
 
 ### sample_run
 
-Results of a sample run from **sample_input.txt** input file. Files in **out_files** folder are created by running the script on **sample_input.txt** file. 
+Contains results of a sample run from **sample_input.txt** input file. Example input file is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
+
+```
+P12694	C	264	W
+P13637	T	613	M
+P05067	I	716	V
+P41180	E	604	K
+P08123	G	646	C
+P06731	I	80	V
+P29474	D	298	E
+Q16363	Y	498	H
+P23560	V	66	M
+Q00889	H	85	D
+```
+Files in **out_files** folder are created by running the script on **sample_input.txt** file.
+
 - **feature_vector.txt** : Sample feature vector.
 - **pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable.
 - **swissmodel_structures** : Contains downloaded model files from SwissModel for input proteins when applicable.
