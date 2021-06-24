@@ -12,6 +12,7 @@
 
 ## Descriptions of folders and files in the FeatureVectorGeneration repository
 
+### input_files
 Inside **input_files** folder, users can find files that are necessary to work the code. Below, explanations related to the files can be found.
 
 - **domains.txt** : Includes InterPro domains simplified as in the following order *(tab separated)* --> 
@@ -19,6 +20,29 @@ Inside **input_files** folder, users can find files that are necessary to work t
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
 - **H_sapiens_interfacesHQ.txt** :  High confidence interfaces downloaded from [Interactome Insider](http://interactomeinsider.yulab.org/downloads.html) for *Homo sapiens*
 - **index.json** : [Swiss-Model metadata](https://swissmodel.expasy.org/repository) for model information is downloaded to obtain Swiss-Models. Please unzip the file before using. 
+
+### datasets
+
+Datasets that are used to create machine learning models are provided in **datasets** folder. 
+
+- **training_uptodate_full.txt** : Full training dataset obtained from UniProt, PMD and ClinVar.
+- **training_uptodate_full_2014selected.txt** : 2014 subset of the training set.
+- **swiss_ready.txt** : Benchmark set obtained from SwissVar database.
+- **varibench_ready.txt** : Benchmark set obtained from VariBench database.
+- **psnp_ready.txt** : Benchmark set obtained from PredictSNP database.
+- **test_MT_benchmark_datapoints_wo_training_datapoints** : Benchmark set obtained from MutationTaster data.
+
+### sample_run
+
+Results of a sample run from **sample_input.txt** input file. Files in **out_files** folder are created by running the script on **sample_input.txt** file. 
+- **feature_vector.txt** : Sample feature vector.
+- **pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable.
+- **swissmodel_structures** : Contains downloaded model files from SwissModel for input proteins when applicable.
+- **modbase_structures** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains all models related to one protein.
+- **modbase_structures_individual** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains individual models related to one protein.
+- **alignment_files** : Contains alignment files of protein sequences with structure files. 
+- **3D_alignment** : Contains alignment files of structure files. This step is performed in order to avoid missing residues in the PDB files.
+- **freesasa_files** : Contains calculated FreeSASA values for each data point.
 
 ## Output File Legend
 
@@ -44,5 +68,3 @@ Inside **input_files** folder, users can find files that are necessary to work t
 As can be seen in the figure below, dimensions 1-4 correspond to physicochemical property values, 5-6 correspond to domain-related information, 7-36 correspond to binary information of mutations with respect to their presence within annotation regions, 37-66 coorespond to Euclidian distance between mutation point and closest point of the annotation, 67-68 coorespond to information regarding mutation's position on the protein in terms of core, interface or surface.
 
 <img width="1082" alt="Screen Shot 2021-06-24 at 12 32 04 AM" src="https://user-images.githubusercontent.com/26777185/123170836-a640c900-d483-11eb-90eb-473d826a2a75.png">
-
-# FeatureVector
