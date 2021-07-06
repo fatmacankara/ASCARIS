@@ -87,3 +87,10 @@ Files in **out_files** folder are created by running the script on **sample_inpu
 As can be seen in the figure below, dimensions 1-4 correspond to physicochemical property values, 5-6 correspond to domain-related information, 7-36 correspond to binary information of mutations with respect to their presence within annotation regions, 37-66 coorespond to Euclidian distance between mutation point and closest point of the annotation, 67-68 coorespond to information regarding mutation's position on the protein in terms of core, interface or surface.
 
 <img width="1082" alt="Screen Shot 2021-06-24 at 12 32 04 AM" src="https://user-images.githubusercontent.com/26777185/123170836-a640c900-d483-11eb-90eb-473d826a2a75.png">
+
+
+## Overall process
+
+<img width="654" alt="Screen Shot 2021-07-06 at 6 07 30 PM" src="https://user-images.githubusercontent.com/26777185/124623980-22c0a800-de85-11eb-9b32-ff31a1f0a758.png">
+
+
