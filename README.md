@@ -72,7 +72,7 @@ Q00889	H	85	D
 Files in **out_files** folder are created by running the script on **sample_input.txt** file.
 
 - **feature_vector.txt** : Sample feature vector.
-- **pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable.
+- **pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable. If the user has a folder wherein PDB structures are stored, this folder might be used to decrease run time.
 - **swissmodel_structures** : Contains downloaded model files from SwissModel for input proteins when applicable.
 - **modbase_structures** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains all models related to one protein.
 - **modbase_structures_individual** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains individual models related to one protein.
