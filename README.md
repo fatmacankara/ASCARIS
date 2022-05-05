@@ -24,7 +24,7 @@ Inside **input_files** folder, users can find files that are necessary to work t
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
 - **H_sapiens_interfacesHQ.txt** :  High confidence interfaces downloaded from [Interactome Insider](http://interactomeinsider.yulab.org/downloads.html) for *Homo sapiens*
 - **index.json** : [Swiss-Model metadata](https://swissmodel.expasy.org/repository) for model information is downloaded to obtain Swiss-Models. Please unzip the file before using. 
-
+- **UP000005640_9606_HUMAN** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/) for structure predictions from Alphafold. Please unzip the file to 'alphafold_structures' folder before using. 
 ### datasets
 
 Datasets that are used to create machine learning models are provided in **datasets** folder. 
@@ -35,6 +35,20 @@ Datasets that are used to create machine learning models are provided in **datas
 - **varibench_ready.txt** : Benchmark set obtained from VariBench database.
 - **psnp_ready.txt** : Benchmark set obtained from PredictSNP database.
 - **test_MT_benchmark_datapoints_wo_training_datapoints** : Benchmark set obtained from MutationTaster data.
+
+
+### usage
+
+python main.py
+
+### input arguments
+
+- Enter Query DataPoin
+  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))
+  Option 2: Enter comma-separated file path
+- Enter 1 to use PDB-ModBase-SwissModel structures, Enter 2 to use Alphafold structures
+
+
 
 ### sample_run
 
