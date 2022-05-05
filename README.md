@@ -44,8 +44,8 @@ python main.py
 ### input arguments
 
 - Enter Query DataPoint
-**  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))
-**  Option 2: Enter comma-separated file path
+>  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
+>  Option 2: Enter comma-separated file path
 - Enter 1 to use PDB-ModBase-SwissModel structures, Enter 2 to use Alphafold structures
 
 
