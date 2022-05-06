@@ -14,7 +14,7 @@ Abstract comes here
 - [Requests 2.22.0](https://pypi.org/project/requests/)
 - [Biopython 1.78](https://biopython.org/docs/1.78/api/Bio.html)
 
-## Descriptions of folders and files in the FeatureVectorGeneration repository
+## Descriptions of folders and files in the FeatureVectorGeneration repository 
 
 ### input_files
 Inside **input_files** folder, users can find files that are necessary to work the code. Below, explanations related to the files can be found.
