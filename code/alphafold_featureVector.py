@@ -97,7 +97,7 @@ def alphafold(input_set, mode):
     ## Standardizing input
     data = clean_data(input_set)
 
-    path_to_output_files, path_to_domains, fisher_path, path_to_interfaces, alphafold_path, alphafold_summary= manage_files(mode)
+    path_to_input_files, path_to_output_files, path_to_domains, fisher_path, path_to_interfaces, alphafold_path, alphafold_summary= manage_files(mode)
     sys.stdout = open(f'{path_to_output_files}/log.txt', 'w')
     print('Creating directories...')
     ## Physicochemical properties
@@ -380,6 +380,7 @@ def alphafold(input_set, mode):
                     info_per_model[mod][annot] = annotation_pos_on_pdb_
 
                 pdb_path = f'{alphafold_path}/AF-{uniprotID}-F{mod}-model_v1.pdb.gz'
+
                 if get_alignments_3D(uniprotID, mod, pdb_path, pdbSequence, 'nan', 'nan', 'nan', mode, path_to_output_files + '/3D_alignment/',
                                      'gzip') != None:
 
@@ -396,6 +397,8 @@ def alphafold(input_set, mode):
                             except:
                                 ValueError
                                 coordMut = 'nan'
+                        else:
+                            coordMut = np.NaN
 
                         sasa_pos = get_coords(mutationPositionOnPDB, alignments, coords, resnums_for_sasa, mode)[2]
                         sasa_val = sasa('alphafold', 'nan', uniprotID, sasa_pos, uniprot_matched.at[i, 'wt'], mode,
@@ -406,16 +409,18 @@ def alphafold(input_set, mode):
                         coordMut = 'nan'
                         sasa_val = 'nan'
                         uniprot_matched.at[i, 'sasa'] = sasa_val
-
                     domainPositionOnPDB_list = list(
                         range(int(uniprot_matched.at[i, 'domStart']), int(uniprot_matched.at[i, 'domEnd'])))
                     domain_distances = []
-                    for domain_ in domainPositionOnPDB_list:
-                        coordDomain = get_coords(domain_, alignments, coords, resnums_for_sasa, mode)[0]
-                        distance_dom = float(find_distance(coordMut,
-                                                           coordDomain))  # bu bir anotasyonun bir modeldeki bir tane pozisyonu için.
-                        domain_distances.append(distance_dom)
-                    minimum_domain = min(domain_distances)  # minimum for one model.
+                    if len(domainPositionOnPDB_list) != 0:
+                        for domain_ in domainPositionOnPDB_list:
+                            coordDomain = get_coords(domain_, alignments, coords, resnums_for_sasa, mode)[0]
+                            distance_dom = float(find_distance(coordMut,
+                                                               coordDomain))  # bu bir anotasyonun bir modeldeki bir tane pozisyonu için.
+                            domain_distances.append(distance_dom)
+                        minimum_domain = min(domain_distances)  # minimum for one model.
+                    else:
+                        minimum_domain = np.NaN
                     all_domain_distances.append(minimum_domain)
                     list_dist_of_annots = []
 
@@ -452,11 +457,15 @@ def alphafold(input_set, mode):
                 #                uniprot_matched.at[i, annotation_type] = minimum_position
                 else:
                     print('Model File Not Found')
+                    uniprot_matched.at[i, 'sasa'] = np.NaN
 
             else:
+                uniprot_matched.at[i, 'sasa'] = np.NaN
                 continue
-
-        uniprot_matched.at[i, 'domaindistance3D'] = min(all_domain_distances)
+        if len(all_domain_distances) != 0:
+            uniprot_matched.at[i, 'domaindistance3D'] = min(all_domain_distances)
+        else:
+            uniprot_matched.at[i, 'domaindistance3D'] = np.NaN
         dist_of_annots_min_of_all = {}
         flat = [item for sublist in list(dist_of_annots.values()) for item in sublist]
         for f in flat:
@@ -490,7 +499,6 @@ def alphafold(input_set, mode):
         elif str(uniprot_matched.at[i, 'sasa']) == 'nan':
             uniprot_matched.at[i, 'trsh4'] = 'nan'
         else:
-            print(uniprot_matched.at[i, 'sasa'])
             uniprot_matched.at[i, 'trsh4'] = 'nan'
         if (str(uniprot_matched.at[i, 'pos']) in uniprot_matched.at[i, 'interface_positions']) and uniprot_matched.at[
             i, 'trsh4'] == 'surface':
@@ -517,7 +525,7 @@ def alphafold(input_set, mode):
 
     uniprot_matched = pd.read_csv(f'{path_to_output_files}/featurevector_alphafold.txt', sep='\t', names = final_cols_to_keep)
     uniprot_matched[ 'domain'] = uniprot_matched['domain'].replace({'-1': 'domainX'})
-
+    uniprot_matched = uniprot_matched.drop_duplicates()
     uniprot_matched.rename(
         columns={'uniprotID': 'prot_uniprotAcc', 'wt': 'wt_residue', 'pos': 'position', 'mut': 'mut_residue',
                  'datapoint': 'meta_merged', 'datapoint_disease': 'meta-lab_merged', 'label': 'source_db',

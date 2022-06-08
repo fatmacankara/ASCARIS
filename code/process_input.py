@@ -3,11 +3,9 @@ import pandas as pd
 def clean_data(input_set):
     data = pd.DataFrame()
     try:
-        if '-' in input_set:
-            data = data.append(pd.Series([j.strip() for j in input_set.split('-')]), ignore_index=True)
-            data.columns = ['uniprotID', 'wt', 'pos', 'mut']
         if ',' in input_set:
             input_set = [i.strip() for i in input_set.split(',')]
+            print('HERE')
             for i in input_set:
                 data = data.append(pd.Series([j.strip() for j in i.split('-')]), ignore_index=True)
             data.columns = ['uniprotID', 'wt', 'pos', 'mut']
@@ -16,11 +14,11 @@ def clean_data(input_set):
             for i in input_set:
                 data = data.append(pd.Series([j.strip() for j in i.split('-')]), ignore_index=True)
             data.columns = ['uniprotID', 'wt', 'pos', 'mut']
-        #elif ' ' in input_set:
-        #    input_set = [i.strip() for i in input_set.split(' ')]
-        #    for i in input_set:
-        #        data = data.append(pd.Series([j.strip() for j in i.split('-')]), ignore_index=True)
-        #    data.columns = ['uniprotID', 'wt', 'pos', 'mut']
+
+        elif '-' in input_set:
+            data = data.append(pd.Series([j.strip() for j in input_set.split('-')]), ignore_index=True)
+            data.columns = ['uniprotID', 'wt', 'pos', 'mut']
+
         elif '.txt' in input_set:
             data = pd.read_csv(input_set, sep='\t', names=['uniprotID', 'wt', 'pos', 'mut'])
         data = data[['uniprotID', 'wt', 'pos', 'mut']]

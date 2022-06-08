@@ -173,6 +173,8 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski 
                     coordWeWant = 'nan'
                     residue_number_we_want = 'nan'
                     return coordWeWant, posAtom, residue_number_we_want
+            else:
+                return np.NaN, np.NaN, np.NaN
         else:
             return np.NaN, np.NaN, np.NaN
 

@@ -504,7 +504,8 @@ def pdb(input_set, mode):
         to_swiss.drop(['index'], axis=1, inplace=True)
         to_swiss = to_swiss.astype('str')
         to_swiss = to_swiss.replace({'NaN': 'nan'})
-        # Create model summary dataframe.
+        # to_swiss.to_csv('/Users/fatmacankara/Desktop/new_benchmark/to_swiss.txt', sep='\t', index=False)
+        # Modellerin özeti olan dosyayı oluştur.
         if len(to_swiss) != 0:
             print('Generating SwissModel file...\n')
 
@@ -512,7 +513,37 @@ def pdb(input_set, mode):
                                       dtype=str, header=None, skiprows=1,
                                       names=['UniProtKB_ac', 'iso_id', 'uniprot_seq_length', 'uniprot_seq_md5',
                                              'coordinate_id', 'provider', 'from', 'to', 'template', 'qmean', 'qmean_norm','seqid', 'url'])
-
+            """
+            for i in swiss_model.index:
+                k = ((swiss_model.at[i, 'input']).split(','))
+                for j in k:
+                    if ('Uniprot_ac' in str(j)):
+                        swiss_model.at[i, 'UniProtKB_ac'] = j.split(':')[1].strip('\"')
+                    if 'iso_id' in str(j):
+                        swiss_model.at[i, 'iso_id'] = j.split(':')[1].strip('\"')
+                    if 'uniprot_seq_length' in str(j):
+                        swiss_model.at[i, 'uniprot_seq_length'] = j.split(':')[1].strip('\"')
+                    if 'uniprot_seq_md5' in str(j):
+                        swiss_model.at[i, 'uniprot_seq_md5'] = j.split(':')[1].strip('\"')
+                    if 'coordinate_id' in str(j):
+                        swiss_model.at[i, 'coordinate_id'] = j.split(':')[1s].strip('\"')
+                    if 'provider' in str(j) and 'http' not in str(j):
+                        swiss_model.at[i, 'provider'] = j.split(':')[1].strip('\"')
+                    if 'from' in str(j) and 'http' not in str(j):
+                        swiss_model.at[i, 'from'] = j.split(':')[1].strip('\"')
+                    if 'to' in str(j) and 'http' not in str(j):
+                        swiss_model.at[i, 'to'] = j.split(':')[1].strip('\"')
+                    if 'template' in str(j) and 'http' not in str(j):
+                        swiss_model.at[i, 'template'] = j.split(':')[1].strip('\"')
+                    if 'qmean' in str(j) and 'norm' not in str(j):
+                        swiss_model.at[i, 'qmean'] = j.split(':')[1].strip('\"')
+                    if 'qmean_norm' in str(j):
+                        swiss_model.at[i, 'qmean_norm'] = j.split(':')[1].strip('\"')
+                    if 'seqid' in str(j):
+                        swiss_model.at[i, 'seqid'] = j.split(':')[1].strip('\"')
+                    if 'url' in str(j):
+                        swiss_model.at[i, 'url'] = ''.join(j.split(':')[1:])
+                """
         else:
             swiss_model = pd.DataFrame(
                 columns=['UniProtKB_ac', 'iso_id', 'uniprot_seq_length', 'uniprot_seq_md5', 'coordinate_id',
