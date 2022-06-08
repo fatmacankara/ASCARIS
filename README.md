@@ -112,6 +112,7 @@ As can be seen in the figure below, dimensions 1-4 correspond to physicochemical
 
 ## Overall process
 
-<img width="654" alt="Screen Shot 2021-07-06 at 6 07 30 PM" src="https://user-images.githubusercontent.com/26777185/124623980-22c0a800-de85-11eb-9b32-ff31a1f0a758.png">
+<img width="706" alt="Screen Shot 2022-06-08 at 7 14 23 PM" src="https://user-images.githubusercontent.com/26777185/172726336-8ccc2914-4253-4ba7-b534-3581526651e0.png">
+
 
 
