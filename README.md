@@ -19,7 +19,7 @@ Abstract comes here
 ### input_files
 Inside **input_files** folder, users can find files that are necessary to work the code. Below, explanations related to the files can be found.
 
-- **swissmodel_structures.txt.zip : Includes summary file for Swiss-Model structure summary. Swiss model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository and all of them manually merged into a single file.
+- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structure summary. Swiss model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository and all of them manually merged into a single file. Must be unzipped to input files folder prior to usage.
 - **domains.txt** : Includes InterPro domains simplified as in the following order *(tab separated)* --> 
   [uniprotID      domainID        domainStartPosition     domainEndPosition]
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
