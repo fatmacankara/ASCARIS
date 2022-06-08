@@ -44,15 +44,15 @@ Datasets that are used to create machine learning models are provided in **datas
 
 ### usage
 
-python3 main.py -o 1 -i P13637-T-613-M
-python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'
-python3 main.py -o 2 -i sample_input.txt
+python3 main.py -o 1 -i P13637-T-613-M<br/>
+python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'<br/>
+python3 main.py -o 2 -i sample_input.txt<br/>
 
 ### input arguments
 
--o :  input option. 1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures
--i :  input datapoint. Datapoint/input file name.
-      >  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
+-o :  input option. 1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures<br/>
+-i :  input datapoint. Datapoint/input file name.<br/>
+      >  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  <br/>
       >  Option 2: Enter tab-separated file path
 
 
