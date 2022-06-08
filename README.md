@@ -19,13 +19,15 @@ Abstract comes here
 ### input_files
 Inside **input_files** folder, users can find files that are necessary to work the code. Below, explanations related to the files can be found.
 
+- **swissmodel_structures.txt.zip : Includes summary file for Swiss-Model structure summary. Swiss model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository and all of them manually merged into a single file.
 - **domains.txt** : Includes InterPro domains simplified as in the following order *(tab separated)* --> 
   [uniprotID      domainID        domainStartPosition     domainEndPosition]
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
 - **H_sapiens_interfacesHQ.txt** :  High confidence interfaces downloaded from [Interactome Insider](http://interactomeinsider.yulab.org/downloads.html) for *Homo sapiens*
 - **index.json** : [Swiss-Model metadata](https://swissmodel.expasy.org/repository) for model information is downloaded to obtain Swiss-Models. Zipped version can be found under zipped_/. 
 - **alphafold_structures** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/) for structure predictions from Alphafold. zipped_/UP000005640_9606_HUMAN.tar file is unzipped to alphafold_structures folder. 
-- **zipped_**: This folder contains unzipped files and folders.
+- **alphafold_summary: Processed data for AlphaFold structures. Includes protein ideentifier, chain id, sequence, model count for each entry.
+- **zipped_**: This folder contains zipped files for AlphaFold structues and SwissModel index file.
 
 
 ### datasets
@@ -42,14 +44,16 @@ Datasets that are used to create machine learning models are provided in **datas
 
 ### usage
 
-python main.py
+python3 main.py -o 1 -i P13637-T-613-M
+python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'
+python3 main.py -o 2 -i sample_input.txt
 
 ### input arguments
 
-- Enter Query DataPoint
->  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
->  Option 2: Enter comma-separated file path
-- Enter 1 to use PDB-ModBase-SwissModel structures, Enter 2 to use Alphafold structures
+-o :  input option. 1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures
+-i :  input datapoint. Datapoint/input file name.
+      >  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
+      >  Option 2: Enter tab-separated file path
 
 
 
