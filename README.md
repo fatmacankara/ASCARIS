@@ -74,9 +74,7 @@ python3 main.py -o 2 -i sample_input.txt
 
 Contains results of a sample run from **sample_input.txt** input file. Example input file is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
 
-```
-python3 main.py -o 2 -i sample_input.txt
-```
+
 ```
 P12694	C	264	W
 P13637	T	613	M
@@ -92,9 +90,11 @@ Q00889	H	85	D
 
 Files in **out_files** folder are created by running the script **main.py** on **sample_input.txt** file. Depending on the input selection, two type of folders are created. 
 
-** PDB-ModBase-SwissModel structures are selected. **
+**PDB-ModBase-SwissModel structures are selected.**
 
+```
 python3 main.py -o 1 -i sample_input.txt
+```
 
 - **pdb/pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable. If the user has a folder wherein PDB structures are stored, this folder might be used to decrease run time. In this case, please change the extension of files in the folder to '.txt' and rename the folder as pdb/pdb_structures.
 - **pdb/wissmodel_structures** : Contains downloaded model files from SwissModel for input proteins when applicable.
@@ -107,7 +107,11 @@ python3 main.py -o 1 -i sample_input.txt
 - **pdb/log.txt** : Log file
 
 
-** AlphaFold structures are selected. **
+**AlphaFold structures are selected.**
+
+```
+python3 main.py -o 2 -i sample_input.txt
+```
 
 - **alphafold/alignment_files** : Contains alignment of UniProt sequence files.
 - **alphafold/3D_alignment** :  Contains alignment of UniProt sequence files to PDB sequence files.
@@ -115,7 +119,7 @@ python3 main.py -o 1 -i sample_input.txt
 - **alphafold/featurevector_alphafold.txt** : Final feature vector file.
 - **alphafold/log.txt** : Log file
 
-python3 main.py -o 2 -i sample_input.txt
+
 
 
 ## Description of Output Vector
