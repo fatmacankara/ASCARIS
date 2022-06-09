@@ -89,18 +89,33 @@ Q16363	Y	498	H
 P23560	V	66	M
 Q00889	H	85	D
 ```
-Files in **out_files** folder are created by running the script on **sample_input.txt** file.
 
-- **feature_vector.txt** : Sample feature vector.
-- **pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable. If the user has a folder wherein PDB structures are stored, this folder might be used to decrease run time. In this case,please change the extension to .txt
-- **swissmodel_structures** : Contains downloaded model files from SwissModel for input proteins when applicable.
-- **modbase_structures** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains all models related to one protein.
-- **modbase_structures_individual** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains individual models related to one protein.
-- **alignment_files** : Contains alignment files of protein sequences with structure files. 
-- **3D_alignment** : Contains alignment files of structure files. This step is performed in order to avoid missing residues in the PDB files.
-- **sasa_files** : Contains calculated solvent accessible surface area values for each data point.
+Files in **out_files** folder are created by running the script **main.py** on **sample_input.txt** file. Depending on the input selection, two type of folders are created. 
+
+** PDB-ModBase-SwissModel structures are selected. **
+
+python3 main.py -o 1 -i sample_input.txt
+
+- **pdb/pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable. If the user has a folder wherein PDB structures are stored, this folder might be used to decrease run time. In this case, please change the extension of files in the folder to '.txt' and rename the folder as pdb/pdb_structures.
+- **pdb/wissmodel_structures** : Contains downloaded model files from SwissModel for input proteins when applicable.
+- **pdb/modbase_structures** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains all models related to one protein.
+- **pdb/modbase_structures_individual** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains individual models related to one protein.
+- **pdb/alignment_files** : Contains alignment files of protein sequences. 
+- **pdb/3D_alignment** : Contains alignment files of structure files. This step is performed in order to avoid missing residues in the PDB files.
+- **pdb/sasa_files** : Contains calculated solvent accessible surface area values for each data point.
+- **pdb/feature_vector.txt** : Final feature vector file.
+- **pdb/log.txt** : Log file
 
 
+** AlphaFold structures are selected. **
+
+- **alphafold/alignment_files** : Contains alignment of UniProt sequence files.
+- **alphafold/3D_alignment** :  Contains alignment of UniProt sequence files to PDB sequence files.
+- **alphafold/sasa_files** : Contains calculated solvent accessible surface area values for each data point.
+- **alphafold/featurevector_alphafold.txt** : Final feature vector file.
+- **alphafold/log.txt** : Log file
+
+python3 main.py -o 2 -i sample_input.txt
 
 
 ## Description of Output Vector
