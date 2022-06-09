@@ -26,7 +26,7 @@ We quantitatively investigated the relationships between each of these features 
 
 ## Descriptions of folders and files in the ASCARIS repository 
 
-### input_files 
+### Input Files 
 
 Inside **input_files** folder, users can find files that are necessary to run the code. Below, explanations of the files can be found.
 
@@ -39,7 +39,7 @@ Inside **input_files** folder, users can find files that are necessary to run th
 - **alphafold_summary**: Processed data for AlphaFold structures. Includes protein ideentifier, chain id, sequence, model count for each entry.
 
 
-### datasets
+### Datasets
 
 Datasets that are used to create machine learning models are provided in **datasets** folder. 
 
@@ -70,7 +70,7 @@ python3 main.py -o 2 -i sample_input.txt
 - *Option 2: Enter tab-separated file path*
 
 
-### sample_run
+### Sample Run
 
 Contains results of a sample run from **sample_input.txt** input file. Example input file format is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
 
