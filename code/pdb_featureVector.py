@@ -1318,7 +1318,6 @@ def pdb(input_set, mode):
 
         print('Generating FreeSASA files...')
         print('------------------------------------\n')
-        data.to_csv(buffer , sep='\t', index=False)
         # Folder to calculated RSA values.
 
         existing_free_sasa = glob.glob(path_to_output_files + 'freesasa_files/*')
