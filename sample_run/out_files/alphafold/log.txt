@@ -1,0 +1,33 @@
+Creating directories...
+Adding physicochemical properties...
+
+Adding domains
+
+Retrieving UniProt sequences...
+
+Fetching UniProt Sequences for ID:  Q9Y4W6
+Fetching UniProt Sequences for ID:  P13637
+Fetching UniProt Isoforms for ID:  Q9Y4W6
+Fetching UniProt Isoforms for ID:  P13637
+Sequence files created...
+
+You have 0 data points that failed to match a UniProt Sequence
+Proceeding with 2 remaining...
+
+Processing 0 of 2
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P13637T613M
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+---------PRINTING FOR MODEL-------- 3
+---------PRINTING FOR MODEL-------- 4
+Processing 1 of 2
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: Q9Y4W6N432T
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+---------PRINTING FOR MODEL-------- 3
+Feature vector successfully created...
+Time passed: 00:00:31.53
