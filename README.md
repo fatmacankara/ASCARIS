@@ -35,7 +35,7 @@ Inside **input_files** folder, users can find files that are necessary to run th
   [uniprotID      domainID        domainStartPosition     domainEndPosition]
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
 - **H_sapiens_interfacesHQ.txt** :  High confidence interfaces downloaded from [Interactome Insider](http://interactomeinsider.yulab.org/downloads.html) for *Homo sapiens*
-- **alphafold_structures** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000005640_9606_HUMAN_v2.tar) for structure predictions from Alphafold. UP000005640_9606_HUMAN.tar file should be unzipped to input_files/alphafold_structures folder. 
+- **alphafold_structures** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000005640_9606_HUMAN_v2.tar) for structure predictions from Alphafold. UP000005640_9606_HUMAN.tar file should be unzipped to input_files/alphafold_structures folder. This file contains 100 structure files for demo purposes.
 - **alphafold_summary**: Processed data for AlphaFold structures. Includes protein ideentifier, chain id, sequence, model count for each entry.
 
 
