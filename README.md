@@ -65,8 +65,8 @@ python3 main.py -o 2 -i sample_input.txt<br/>
 
 -o :  selection for input structure data. (1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures)<br/>
 -i :  input variation. Enter datapoint to predict or input file name in the following form:<br/>
-     >  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
-     > Option 2: Enter tab-separated file path
+- *Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))*  
+- *Option 2: Enter tab-separated file path*
 
 
 
