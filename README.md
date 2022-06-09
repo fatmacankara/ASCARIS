@@ -2,7 +2,14 @@
 
 ## Abstract 
 
-Abstract comes here
+Genomic variations may cause deleterious effects on protein functionality and perturb biological processes. Elucidating the effects of variations is important for developing novel treatments for diseases of genetic origin. Computational approaches have been aiding the work in this field by modeling and analyzing the mutational landscape. However, new approaches are required for accurate/comprehensive representation and cutting-edge data-centric analysis of sequence variations. 
+
+In this study, we propose a new method for featurizing single amino acid variations (SAVs) on proteins called ASCARIS (Annotation and StruCture-bAsed RepresentatIon of SAVs) to be used in data-driven modeling of variations for various purposes such as predicting the functions of protein variants or constructing multi-omics-based models. We evaluated variations’ function-related properties by utilizing a combination of sequence annotations from UniProt and 3-D structural information from PDB and AlphaFold-DB. For this, we extracted and analyzed the correspondence between the varied residue and 30 different sequence-based feature annotations (e.g., active/lipidation/glycosylation sites; calcium/metal/DNA binding, inter/transmembrane regions, etc.), together with structural features such as protein domains, the location of variation (e.g., core/interface/surface), and the change in physicochemical properties due to the variation. We also mapped mutated and annotated residues to the 3-D structures of corresponding proteins and calculated the spatial distances in-between since proximity (e.g., sharing an interface) may also effect functionality
+
+We quantitatively investigated the relationships between each of these features and the consequences of variations, and finally constructed 68-dimensional feature vectors to represent SAVs in a large dataset composed of ~100,000 data points. To analyze potential applications of ASCARIS, we trained machine learning-based variant effect predictor models that utilise ASCARIS representations as input. We carried out both an ablation study and comparison against the state-of-the-art methods over well-known benchmark datasets. According to our results, our method displays competing and complementary performance against widely-used predictors. ASCARIS can be used either alone or in combination with other approaches, to universally represent SAVs from a functional perspective, for intensive data-driven analysis of genomic variations.
+
+
+<img width="706" alt="Screen Shot 2022-06-08 at 7 14 23 PM" src="https://user-images.githubusercontent.com/26777185/172726336-8ccc2914-4253-4ba7-b534-3581526651e0.png">
 
 ## Development and DependenciesCancel changes 
 
@@ -41,12 +48,12 @@ Datasets that are used to create machine learning models are provided in **datas
 - **test_MT_benchmark_datapoints_wo_training_datapoints** : Benchmark set obtained from MutationTaster data.
 
 
-### usage
-
+## Usage
+```
 python3 main.py -o 1 -i P13637-T-613-M<br/>
 python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'<br/>
 python3 main.py -o 2 -i sample_input.txt<br/>
-
+```
 ### input arguments
 
 -o :  input option. 1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures<br/>
@@ -83,7 +90,14 @@ Files in **out_files** folder are created by running the script on **sample_inpu
 - **3D_alignment** : Contains alignment files of structure files. This step is performed in order to avoid missing residues in the PDB files.
 - **freesasa_files** : Contains calculated FreeSASA values for each data point.
 
-## Output File Legend
+
+
+
+## Description of Output Vector
+
+As can be seen in the figure below, dimensions 1-4 correspond to physicochemical property values, 5-6 correspond to domain-related information, 7-36 correspond to binary information of mutations with respect to their presence within annotation regions, 37-66 coorespond to Euclidian distance between mutation point and closest point of the annotation, 67-68 coorespond to information regarding mutation's position on the protein in terms of core, interface or surface.
+
+<img width="1082" alt="Screen Shot 2021-06-24 at 12 32 04 AM" src="https://user-images.githubusercontent.com/26777185/123170836-a640c900-d483-11eb-90eb-473d826a2a75.png">
 
 
 | Column name in the output file  | Description | 
@@ -100,18 +114,4 @@ Files in **out_files** folder are created by running the script on **sample_inpu
 | disulfideBinary,  intMetBinary, intramembraneBinary, naturalVariantBinary, dnaBindingBinary, activeSiteBinary, nucleotideBindingBinary, lipidationBinary, siteBinary, transmembraneBinary, crosslinkBinary, mutagenesisBinary, strandBinary, helixBinary, turnBinary, metalBindingBinary, repeatBinary, caBindingBinary, topologicalDomainBinary, bindingSiteBinary, regionBinary, signalPeptideBinary, modifiedResidueBinary, zincFingerBinary, motifBinary, coiledCoilBinary, peptideBinary, transitPeptideBinary, glycosylationBinary, propeptideBinary | Binary labels for UniProt annotations: 0: not annotated, 1: annotation present, but mutation is not on annotation, 2: mutation is on the annotation :  Binary |
 | sasa | SASA values :  Real values |
 | threeState_trsh4_HQ| categories for SASA values: categorical (surface-core-interface) |
-
-
-## Description of Output Vector
-
-As can be seen in the figure below, dimensions 1-4 correspond to physicochemical property values, 5-6 correspond to domain-related information, 7-36 correspond to binary information of mutations with respect to their presence within annotation regions, 37-66 coorespond to Euclidian distance between mutation point and closest point of the annotation, 67-68 coorespond to information regarding mutation's position on the protein in terms of core, interface or surface.
-
-<img width="1082" alt="Screen Shot 2021-06-24 at 12 32 04 AM" src="https://user-images.githubusercontent.com/26777185/123170836-a640c900-d483-11eb-90eb-473d826a2a75.png">
-
-
-## Overall process
-
-<img width="706" alt="Screen Shot 2022-06-08 at 7 14 23 PM" src="https://user-images.githubusercontent.com/26777185/172726336-8ccc2914-4253-4ba7-b534-3581526651e0.png">
-
-
 
