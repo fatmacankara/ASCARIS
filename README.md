@@ -63,8 +63,10 @@ python3 main.py -o 2 -i sample_input.txt
 ```
 ### Input Arguments
 
--o :  selection for input structure data. (1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures)
--i :  input variation. Enter datapoint to predict or input file name in the following form:
+<br>-o :  selection for input structure data. (1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures) </br>
+<br>-i :  input variation. Enter datapoint to predict or input file name in the following form:</br>
+
+
 <font size="-2">
 - *Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))*  
 - *Option 2: Enter tab-separated file path*
@@ -73,9 +75,9 @@ python3 main.py -o 2 -i sample_input.txt
 ### sample_run
 
 Contains results of a sample run from **sample_input.txt** input file. Example input file is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
+
 ```
 python3 main.py -o 2 -i sample_input.txt
-
 ```
 ```
 P12694	C	264	W
