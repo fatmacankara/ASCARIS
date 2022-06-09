@@ -12,7 +12,9 @@ We quantitatively investigated the relationships between each of these features 
 <img width="706" alt="Screen Shot 2022-06-08 at 7 14 23 PM" src="https://user-images.githubusercontent.com/26777185/172726336-8ccc2914-4253-4ba7-b534-3581526651e0.png">
 
  </p>
-## Development and DependenciesCancel changes 
+ 
+ 
+## Development and Dependencies
 
 - [Python 3.7.3](https://www.python.org/downloads/release/python-373/)
 - [Pandas 1.1.4](https://pandas.pydata.org/pandas-docs/version/1.1.4/getting_started/install.html)
@@ -22,7 +24,7 @@ We quantitatively investigated the relationships between each of these features 
 - [Requests 2.22.0](https://pypi.org/project/requests/)
 - [Biopython 1.78](https://biopython.org/docs/1.78/api/Bio.html)
 
-## Descriptions of folders and files in the FeatureVectorGeneration repository 
+## Descriptions of folders and files in the ASCARIS repository 
 
 ### input_files
 Inside **input_files** folder, users can find files that are necessary to work the code. Below, explanations related to the files can be found.
@@ -59,8 +61,8 @@ python3 main.py -o 2 -i sample_input.txt<br/>
 
 -o :  input option. 1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures<br/>
 -i :  input datapoint. Datapoint/input file name.<br/>
- *     >  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
- *     > Option 2: Enter tab-separated file path
+     >  Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))  
+     > Option 2: Enter tab-separated file path
 
 
 
@@ -89,7 +91,7 @@ Files in **out_files** folder are created by running the script on **sample_inpu
 - **modbase_structures_individual** : Contains downloaded model files from ModBase for input proteins when applicable. Each file contains individual models related to one protein.
 - **alignment_files** : Contains alignment files of protein sequences with structure files. 
 - **3D_alignment** : Contains alignment files of structure files. This step is performed in order to avoid missing residues in the PDB files.
-- **freesasa_files** : Contains calculated FreeSASA values for each data point.
+- **sasa_files** : Contains calculated solvent accessible surface area values for each data point.
 
 
 
