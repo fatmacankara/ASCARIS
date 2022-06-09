@@ -27,7 +27,6 @@ Inside **input_files** folder, users can find files that are necessary to work t
 - **index.json** : [Swiss-Model metadata](https://swissmodel.expasy.org/repository) for model information is downloaded to obtain Swiss-Models. Zipped version can be found under zipped_/. 
 - **alphafold_structures** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/) for structure predictions from Alphafold. zipped_/UP000005640_9606_HUMAN.tar file is unzipped to alphafold_structures folder. 
 - **alphafold_summary: Processed data for AlphaFold structures. Includes protein ideentifier, chain id, sequence, model count for each entry.
-- **zipped_**: This folder contains zipped files for AlphaFold structues and SwissModel index file.
 
 
 ### datasets
