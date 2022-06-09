@@ -56,25 +56,25 @@ Datasets that are used to create machine learning models are provided in **datas
 Please unzip required files prior to running the code.
 
 ```
-python3 main.py -o 1 -i P13637-T-613-M<br/>
-python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'<br/>
-python3 main.py -o 2 -i sample_input.txt<br/>
+python3 main.py -o 1 -i P13637-T-613-M
+python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'
+python3 main.py -o 2 -i sample_input.txt
 
 ```
 ### Input Arguments
 
--o :  selection for input structure data. (1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures)<br/>
--i :  input variation. Enter datapoint to predict or input file name in the following form:<br/>
+-o :  selection for input structure data. (1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures)
+-i :  input variation. Enter datapoint to predict or input file name in the following form:
+<font size="-2">
 - *Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))*  
 - *Option 2: Enter tab-separated file path*
-
-
+</font>
 
 ### sample_run
 
 Contains results of a sample run from **sample_input.txt** input file. Example input file is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
 ```
-python3 main.py -o 2 -i sample_input.txt<br/>
+python3 main.py -o 2 -i sample_input.txt
 
 ```
 ```
