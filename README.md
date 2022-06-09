@@ -30,7 +30,12 @@ We quantitatively investigated the relationships between each of these features 
 
 Inside **input_files** folder, users can find files that are necessary to run the code. Below, explanations of the files can be found.
 
-- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structures. Swiss-Model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository, and merged into a single file by running create_swissmodelSummary.py code file. This zip file must be unzipped to input_files folder prior to usage or used directly from [here](https://drive.google.com/drive/u/1/folders/1pJyXcguupyGggl25fzbRWwwqC6qUbDka). Uploaded file is created on June 9, 2022. If needed, the user can create an updated file by running script create_swissmodelSummary.py in the folder where downloaded newly meta-data is found.
+- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structures. Swiss-Model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository, and merged into a single file by running create_swissmodelSummary.py code file. Generated file is uploaded to GitHub as a zip file, thus it must be unzipped to input_files folder prior to usage. Alternatively it can be downloaded from [here](https://drive.google.com/drive/u/1/folders/1pJyXcguupyGggl25fzbRWwwqC6qUbDka). If needed, the user can create an updated file by running script create_swissmodelSummary.py in the folder where downloaded newly meta-data is found. Relevant file will be created under /input_files.
+```
+cd ascaris
+python3 codes/create_swissmodelSummary.py -folder_name folder_to_meta_data
+```
+
 - **domains.txt** : Includes InterPro domains simplified as in the following order *(tab separated)* --> 
   [uniprotID      domainID        domainStartPosition     domainEndPosition]
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
