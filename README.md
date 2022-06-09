@@ -26,17 +26,17 @@ We quantitatively investigated the relationships between each of these features 
 
 ## Descriptions of folders and files in the ASCARIS repository 
 
-### input_files
-Inside **input_files** folder, users can find files that are necessary to work the code. Below, explanations related to the files can be found.
+### input_files 
 
-- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structure summary. Swiss model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository and all of them manually merged into a single file. Must be unzipped to input files folder prior to usage.
+Inside **input_files** folder, users can find files that are necessary to run the code. Below, explanations of the files can be found.
+
+- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structures. Swiss-Model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository, and manually merged into a single file. This file must be unzipped to input_files folder prior to usage.
 - **domains.txt** : Includes InterPro domains simplified as in the following order *(tab separated)* --> 
   [uniprotID      domainID        domainStartPosition     domainEndPosition]
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
 - **H_sapiens_interfacesHQ.txt** :  High confidence interfaces downloaded from [Interactome Insider](http://interactomeinsider.yulab.org/downloads.html) for *Homo sapiens*
-- **index.json** : [Swiss-Model metadata](https://swissmodel.expasy.org/repository) for model information is downloaded to obtain Swiss-Models. Zipped version can be found under zipped_/. 
-- **alphafold_structures** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/) for structure predictions from Alphafold. zipped_/UP000005640_9606_HUMAN.tar file is unzipped to alphafold_structures folder. 
-- **alphafold_summary: Processed data for AlphaFold structures. Includes protein ideentifier, chain id, sequence, model count for each entry.
+- **alphafold_structures** : [AlphaFold Human proteome predictions](http://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000005640_9606_HUMAN_v2.tar) for structure predictions from Alphafold. UP000005640_9606_HUMAN.tar file should be unzipped to input_files/alphafold_structures folder. 
+- **alphafold_summary**: Processed data for AlphaFold structures. Includes protein ideentifier, chain id, sequence, model count for each entry.
 
 
 ### datasets
@@ -72,7 +72,7 @@ python3 main.py -o 2 -i sample_input.txt
 
 ### sample_run
 
-Contains results of a sample run from **sample_input.txt** input file. Example input file is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
+Contains results of a sample run from **sample_input.txt** input file. Example input file format is shown below. Columns represent UniProt ID of the protein, wild type amino acid, position of the amino acid change and mutated amino acid, respectively. Input file must be given without a header.
 
 
 ```
