@@ -5,16 +5,59 @@ Adding domains
 
 Retrieving UniProt sequences...
 
-Fetching UniProt Sequences for ID:  Q9Y4W6
+Fetching UniProt Sequences for ID:  Q00889
 Fetching UniProt Sequences for ID:  P13637
-Fetching UniProt Isoforms for ID:  Q9Y4W6
+Fetching UniProt Sequences for ID:  P41180
+Fetching UniProt Sequences for ID:  P05067
+Fetching UniProt Sequences for ID:  P08123
+Fetching UniProt Sequences for ID:  Q16363
+Fetching UniProt Sequences for ID:  P06731
+Fetching UniProt Sequences for ID:  P12694
+Fetching UniProt Sequences for ID:  P29474
+Fetching UniProt Sequences for ID:  P23560
+Fetching UniProt Isoforms for ID:  Q00889
 Fetching UniProt Isoforms for ID:  P13637
+Fetching UniProt Isoforms for ID:  P41180
+Fetching UniProt Isoforms for ID:  P05067
+Fetching UniProt Isoforms for ID:  P08123
+Fetching UniProt Isoforms for ID:  Q16363
+Fetching UniProt Isoforms for ID:  P06731
+Fetching UniProt Isoforms for ID:  P12694
+Fetching UniProt Isoforms for ID:  P29474
+Fetching UniProt Isoforms for ID:  P23560
 Sequence files created...
 
 You have 0 data points that failed to match a UniProt Sequence
-Proceeding with 2 remaining...
+Proceeding with 10 remaining...
 
-Processing 0 of 2
+Processing 0 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P05067I716V
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+---------PRINTING FOR MODEL-------- 3
+---------PRINTING FOR MODEL-------- 4
+Processing 1 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P06731I80V
+Calculating surface area...
+
+Processing 2 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P08123G646C
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+---------PRINTING FOR MODEL-------- 3
+---------PRINTING FOR MODEL-------- 4
+Processing 3 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P12694C264W
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+Processing 4 of 10
 ---------PRINTING FOR MODEL-------- 1
 Aligning Datapoint: P13637T613M
 Calculating surface area...
@@ -22,12 +65,36 @@ Calculating surface area...
 ---------PRINTING FOR MODEL-------- 2
 ---------PRINTING FOR MODEL-------- 3
 ---------PRINTING FOR MODEL-------- 4
-Processing 1 of 2
+Processing 5 of 10
 ---------PRINTING FOR MODEL-------- 1
-Aligning Datapoint: Q9Y4W6N432T
+Aligning Datapoint: P23560V66M
+Calculating surface area...
+
+Processing 6 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P29474D298E
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+Processing 7 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: P41180E604K
+Calculating surface area...
+
+---------PRINTING FOR MODEL-------- 2
+---------PRINTING FOR MODEL-------- 3
+---------PRINTING FOR MODEL-------- 4
+Processing 8 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: Q00889H85D
+Calculating surface area...
+
+Processing 9 of 10
+---------PRINTING FOR MODEL-------- 1
+Aligning Datapoint: Q16363Y498H
 Calculating surface area...
 
 ---------PRINTING FOR MODEL-------- 2
 ---------PRINTING FOR MODEL-------- 3
 Feature vector successfully created...
-Time passed: 00:00:31.53
+Time passed: 00:01:03.58
