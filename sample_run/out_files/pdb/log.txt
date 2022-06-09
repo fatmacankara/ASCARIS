@@ -1,0 +1,810 @@
+Creating directories...
+Feature vector generation started...
+
+Adding physicochemical properties...
+
+Adding domains
+
+Retrieving UniProt sequences...
+
+Fetching UniProt Sequences for ID:  P05067
+Fetching UniProt Sequences for ID:  P23560
+Fetching UniProt Sequences for ID:  P41180
+Fetching UniProt Sequences for ID:  Q00889
+Fetching UniProt Sequences for ID:  P06731
+Fetching UniProt Sequences for ID:  P08123
+Fetching UniProt Sequences for ID:  P13637
+Fetching UniProt Sequences for ID:  P12694
+Fetching UniProt Sequences for ID:  Q16363
+Fetching UniProt Sequences for ID:  P29474
+Fetching UniProt Isoforms for ID:  P05067
+Fetching UniProt Isoforms for ID:  P23560
+Fetching UniProt Isoforms for ID:  P41180
+Fetching UniProt Isoforms for ID:  Q00889
+Fetching UniProt Isoforms for ID:  P06731
+Fetching UniProt Isoforms for ID:  P08123
+Fetching UniProt Isoforms for ID:  P13637
+Fetching UniProt Isoforms for ID:  P12694
+Fetching UniProt Isoforms for ID:  Q16363
+Fetching UniProt Isoforms for ID:  P29474
+Sequence files created...
+
+You have 0 data points that failed to match a UniProt Sequence
+Proceeding with 10 remaining...
+
+Retrieving PDB structures...
+
+Processing PDB structures...
+
+Starting PDB structures download...
+
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+PDB structure file exists..
+
+PDB file processing finished..
+PDB Information successfully added...
+PDB structures are found for 7 of 10.
+3 of 10 failed to match with PDB structure.
+
+Downloading UniProt sequence annotations...
+
+Downloading annotations for P05067
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '38..62'], ['DISULFID', '73..117'], ['DISULFID', '98..105'], ['DISULFID', '133..187'], ['DISULFID', '144..174'], ['DISULFID', '158..186'], ['DISULFID', '291..341'], ['DISULFID', '300..324'], ['DISULFID', '316..337'], ['VARIANT', '501'], ['VARIANT', '665'], ['VARIANT', '670..671'], ['VARIANT', '678'], ['VARIANT', '692'], ['VARIANT', '693'], ['VARIANT', '693'], ['VARIANT', '693'], ['VARIANT', '694'], ['VARIANT', '705'], ['VARIANT', '713'], ['VARIANT', '713'], ['VARIANT', '714'], ['VARIANT', '714'], ['VARIANT', '715'], ['VARIANT', '716'], ['VARIANT', '717'], ['VARIANT', '717'], ['VARIANT', '717'], ['VARIANT', '717'], ['VARIANT', '723'], ['SITE', '170'], ['SITE', '197..198'], ['SITE', '219..220'], ['SITE', '301..302'], ['SITE', '671..672'], ['SITE', '672..673'], ['SITE', '687..688'], ['SITE', '690..691'], ['SITE', '704'], ['SITE', '706'], ['SITE', '711..712'], ['SITE', '713..714'], ['SITE', '720..721'], ['SITE', '739..740'], ['TRANSMEM', '702..722'], ['CROSSLNK', '763'], ['MUTAGEN', '99..102'], ['MUTAGEN', '108'], ['MUTAGEN', '110'], ['MUTAGEN', '137'], ['MUTAGEN', '141'], ['MUTAGEN', '144'], ['MUTAGEN', '147..149'], ['MUTAGEN', '147'], ['MUTAGEN', '147'], ['MUTAGEN', '147'], ['MUTAGEN', '147'], ['MUTAGEN', '151'], ['MUTAGEN', '151'], ['MUTAGEN', '151'], ['MUTAGEN', '198'], ['MUTAGEN', '206'], ['MUTAGEN', '499'], ['MUTAGEN', '503'], ['MUTAGEN', '656'], ['MUTAGEN', '676'], ['MUTAGEN', '681'], ['MUTAGEN', '684'], ['MUTAGEN', '695'], ['MUTAGEN', '704'], ['MUTAGEN', '706'], ['MUTAGEN', '706'], ['MUTAGEN', '717'], ['MUTAGEN', '717'], ['MUTAGEN', '717'], ['MUTAGEN', '728'], ['MUTAGEN', '739'], ['MUTAGEN', '739'], ['MUTAGEN', '743'], ['MUTAGEN', '743'], ['MUTAGEN', '756'], ['MUTAGEN', '757..762'], ['MUTAGEN', '757'], ['MUTAGEN', '757'], ['MUTAGEN', '759'], ['MUTAGEN', '760'], ['MUTAGEN', '762'], ['STRAND', '33..35'], ['STRAND', '43..45'], ['STRAND', '52..54'], ['STRAND', '56..58'], ['STRAND', '82..87'], ['STRAND', '92..94'], ['STRAND', '97..99'], ['STRAND', '103..106'], ['STRAND', '110..112'], ['STRAND', '115..119'], ['STRAND', '134..139'], ['STRAND', '163..174'], ['STRAND', '178..188'], ['STRAND', '299..301'], ['STRAND', '304..310'], ['STRAND', '315..321'], ['STRAND', '323..325'], ['STRAND', '331..333'], ['STRAND', '421..423'], ['STRAND', '482..484'], ['STRAND', '620..622'], ['STRAND', '683..685'], ['STRAND', '688..691'], ['STRAND', '692..694'], ['STRAND', '701..703'], ['STRAND', '707..712'], ['STRAND', '721..725'], ['STRAND', '756..758'], ['STRAND', '763..765'], ['HELIX', '26..28'], ['HELIX', '66..76'], ['HELIX', '147..160'], ['HELIX', '288..292'], ['HELIX', '334..341'], ['HELIX', '374..380'], ['HELIX', '389..418'], ['HELIX', '425..480'], ['HELIX', '487..518'], ['HELIX', '520..546'], ['HELIX', '547..550'], ['HELIX', '552..566'], ['HELIX', '615..618'], ['HELIX', '673..675'], ['HELIX', '713..715'], ['HELIX', '744..754'], ['TURN', '47..49'], ['TURN', '100..102'], ['TURN', '175..177'], ['TURN', '311..314'], ['TURN', '677..680'], ['TURN', '695..698'], ['METAL', '147'], ['METAL', '151'], ['METAL', '168'], ['METAL', '677'], ['METAL', '677'], ['METAL', '681'], ['METAL', '681'], ['METAL', '684'], ['METAL', '684'], ['METAL', '685'], ['METAL', '685'], ['TOPO_DOM', '18..701'], ['TOPO_DOM', '723..770'], ['REGION', '28..123'], ['REGION', '96..110'], ['REGION', '131..189'], ['REGION', '181..188'], ['REGION', '194..284'], ['REGION', '391..423'], ['REGION', '491..522'], ['REGION', '523..540'], ['REGION', '695..722'], ['REGION', '732..751'], ['REGION', '756..770'], ['SIGNAL', '1..17'], ['MOD_RES', '198'], ['MOD_RES', '206'], ['MOD_RES', '217'], ['MOD_RES', '262'], ['MOD_RES', '336'], ['MOD_RES', '441'], ['MOD_RES', '497'], ['MOD_RES', '729'], ['MOD_RES', '730'], ['MOD_RES', '743'], ['MOD_RES', '757'], ['MOTIF', '344..365'], ['MOTIF', '724..734'], ['MOTIF', '757..762'], ['PEPTIDE', '688..713'], ['PEPTIDE', '688..711'], ['CARBOHYD', '542'], ['CARBOHYD', '571'], ['CARBOHYD', '633'], ['CARBOHYD', '651'], ['CARBOHYD', '652'], ['CARBOHYD', '656'], ['CARBOHYD', '659'], ['CARBOHYD', '663'], ['CARBOHYD', '667'], ['CARBOHYD', '681']]
+Downloading annotations for P23560
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '141..208'], ['DISULFID', '186..237'], ['DISULFID', '196..239'], ['VARIANT', '2'], ['VARIANT', '66'], ['VARIANT', '75'], ['VARIANT', '122'], ['VARIANT', '125'], ['VARIANT', '127'], ['SITE', '57..58'], ['MUTAGEN', '54'], ['STRAND', '138..141'], ['STRAND', '143..149'], ['STRAND', '155..158'], ['STRAND', '163..166'], ['STRAND', '168..171'], ['STRAND', '173..178'], ['STRAND', '180..186'], ['STRAND', '204..220'], ['STRAND', '226..243'], ['HELIX', '150..153'], ['HELIX', '191..193'], ['TURN', '201..203'], ['SIGNAL', '1..18'], ['CARBOHYD', '121'], ['PROPEP', '19..128']]
+Downloading annotations for P41180
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '60..101'], ['DISULFID', '129'], ['DISULFID', '131'], ['DISULFID', '236..561'], ['DISULFID', '358..395'], ['DISULFID', '437..449'], ['DISULFID', '542..562'], ['DISULFID', '546..565'], ['DISULFID', '568..582'], ['DISULFID', '585..598'], ['VARIANT', '11'], ['VARIANT', '13'], ['VARIANT', '14'], ['VARIANT', '21'], ['VARIANT', '27'], ['VARIANT', '39'], ['VARIANT', '42'], ['VARIANT', '47'], ['VARIANT', '53'], ['VARIANT', '55'], ['VARIANT', '62'], ['VARIANT', '66'], ['VARIANT', '66'], ['VARIANT', '81'], ['VARIANT', '100'], ['VARIANT', '110'], ['VARIANT', '116'], ['VARIANT', '118'], ['VARIANT', '122'], ['VARIANT', '125'], ['VARIANT', '125'], ['VARIANT', '127'], ['VARIANT', '128'], ['VARIANT', '129'], ['VARIANT', '131'], ['VARIANT', '136'], ['VARIANT', '138'], ['VARIANT', '143'], ['VARIANT', '143'], ['VARIANT', '151'], ['VARIANT', '158'], ['VARIANT', '159'], ['VARIANT', '166'], ['VARIANT', '171'], ['VARIANT', '172'], ['VARIANT', '174'], ['VARIANT', '178'], ['VARIANT', '180'], ['VARIANT', '185'], ['VARIANT', '191'], ['VARIANT', '215'], ['VARIANT', '220'], ['VARIANT', '221'], ['VARIANT', '221'], ['VARIANT', '221'], ['VARIANT', '225'], ['VARIANT', '227'], ['VARIANT', '227'], ['VARIANT', '228'], ['VARIANT', '250'], ['VARIANT', '271'], ['VARIANT', '297'], ['VARIANT', '336'], ['VARIANT', '339'], ['VARIANT', '354'], ['VARIANT', '397'], ['VARIANT', '459'], ['VARIANT', '465'], ['VARIANT', '509'], ['VARIANT', '549'], ['VARIANT', '550'], ['VARIANT', '551'], ['VARIANT', '553'], ['VARIANT', '555'], ['VARIANT', '557'], ['VARIANT', '562'], ['VARIANT', '565'], ['VARIANT', '569'], ['VARIANT', '571'], ['VARIANT', '582'], ['VARIANT', '582'], ['VARIANT', '583..1078'], ['VARIANT', '604'], ['VARIANT', '612'], ['VARIANT', '616'], ['VARIANT', '623'], ['VARIANT', '650'], ['VARIANT', '657'], ['VARIANT', '661'], ['VARIANT', '670'], ['VARIANT', '670'], ['VARIANT', '680'], ['VARIANT', '681'], ['VARIANT', '681'], ['VARIANT', '686'], ['VARIANT', '689'], ['VARIANT', '697'], ['VARIANT', '707'], ['VARIANT', '727'], ['VARIANT', '728'], ['VARIANT', '742'], ['VARIANT', '748'], ['VARIANT', '761'], ['VARIANT', '767'], ['VARIANT', '773'], ['VARIANT', '774'], ['VARIANT', '788'], ['VARIANT', '788'], ['VARIANT', '795'], ['VARIANT', '802'], ['VARIANT', '802'], ['VARIANT', '806'], ['VARIANT', '817'], ['VARIANT', '820'], ['VARIANT', '830'], ['VARIANT', '832'], ['VARIANT', '832'], ['VARIANT', '839'], ['VARIANT', '843'], ['VARIANT', '851'], ['VARIANT', '881'], ['VARIANT', '886'], ['VARIANT', '898'], ['VARIANT', '951'], ['VARIANT', '972'], ['VARIANT', '986'], ['VARIANT', '988'], ['VARIANT', '988'], ['VARIANT', '990'], ['VARIANT', '1011'], ['SITE', '482'], ['TRANSMEM', '613..635'], ['TRANSMEM', '650..670'], ['TRANSMEM', '682..700'], ['TRANSMEM', '725..745'], ['TRANSMEM', '770..792'], ['TRANSMEM', '806..828'], ['TRANSMEM', '837..862'], ['MUTAGEN', '69'], ['MUTAGEN', '102'], ['MUTAGEN', '145'], ['MUTAGEN', '147'], ['MUTAGEN', '170'], ['MUTAGEN', '218'], ['MUTAGEN', '297'], ['MUTAGEN', '417'], ['MUTAGEN', '458'], ['MUTAGEN', '482'], ['STRAND', '22..24'], ['STRAND', '26..28'], ['STRAND', '31..38'], ['STRAND', '40..44'], ['STRAND', '51..53'], ['STRAND', '60..63'], ['STRAND', '85..90'], ['STRAND', '93..99'], ['STRAND', '129..131'], ['STRAND', '133..135'], ['STRAND', '138..142'], ['STRAND', '164..168'], ['STRAND', '183..187'], ['STRAND', '208..216'], ['STRAND', '237..243'], ['STRAND', '266..270'], ['STRAND', '292..295'], ['STRAND', '318..322'], ['STRAND', '343..345'], ['STRAND', '358..360'], ['STRAND', '384..386'], ['STRAND', '441..444'], ['STRAND', '468..470'], ['STRAND', '472..474'], ['STRAND', '476..478'], ['STRAND', '481..485'], ['STRAND', '489..496'], ['STRAND', '502..511'], ['STRAND', '513..515'], ['STRAND', '519..523'], ['STRAND', '550..554'], ['STRAND', '556..558'], ['STRAND', '563..567'], ['STRAND', '576..578'], ['STRAND', '579..581'], ['STRAND', '587..591'], ['STRAND', '596..600'], ['STRAND', '602..604'], ['STRAND', '608..610'], ['STRAND', '638..640'], ['STRAND', '669..671'], ['STRAND', '749..753'], ['STRAND', '758..766'], ['HELIX', '65..82'], ['HELIX', '104..114'], ['HELIX', '116..123'], ['HELIX', '125..128'], ['HELIX', '147..159'], ['HELIX', '172..175'], ['HELIX', '191..203'], ['HELIX', '219..232'], ['HELIX', '249..261'], ['HELIX', '273..285'], ['HELIX', '297..300'], ['HELIX', '308..310'], ['HELIX', '311..314'], ['HELIX', '330..335'], ['HELIX', '348..356'], ['HELIX', '374..378'], ['HELIX', '387..389'], ['HELIX', '401..403'], ['HELIX', '416..435'], ['HELIX', '445..447'], ['HELIX', '452..454'], ['HELIX', '457..465'], ['HELIX', '525..527'], ['HELIX', '611..636'], ['HELIX', '641..645'], ['HELIX', '650..663'], ['HELIX', '664..668'], ['HELIX', '681..696'], ['HELIX', '725..745'], ['HELIX', '771..793'], ['HELIX', '803..820'], ['HELIX', '822..827'], ['HELIX', '834..852'], ['HELIX', '854..862'], ['HELIX', '863..865'], ['HELIX', '869..872'], ['HELIX', '880..885'], ['TURN', '177..179'], ['TURN', '303..305'], ['TURN', '339..341'], ['TURN', '407..409'], ['TURN', '498..500'], ['TURN', '531..533'], ['TURN', '674..678'], ['TURN', '701..705'], ['TURN', '755..757'], ['TURN', '794..796'], ['TURN', '800..802'], ['TURN', '829..831'], ['TURN', '866..868'], ['METAL', '81'], ['METAL', '84'], ['METAL', '87'], ['METAL', '88'], ['METAL', '100'], ['METAL', '145'], ['METAL', '231'], ['METAL', '234'], ['METAL', '557'], ['TOPO_DOM', '20..612'], ['TOPO_DOM', '636..649'], ['TOPO_DOM', '671..681'], ['TOPO_DOM', '701..724'], ['TOPO_DOM', '746..769'], ['TOPO_DOM', '793..805'], ['TOPO_DOM', '829..836'], ['TOPO_DOM', '863..1078'], ['BINDING', '147'], ['BINDING', '168'], ['BINDING', '170'], ['BINDING', '297'], ['REGION', '22..188'], ['REGION', '66..70'], ['REGION', '189..324'], ['REGION', '415..417'], ['REGION', '542..612'], ['REGION', '880..900'], ['REGION', '892..963'], ['REGION', '986..1006'], ['REGION', '1030..1055'], ['SIGNAL', '1..19'], ['MOD_RES', '920'], ['MOD_RES', '1061'], ['CARBOHYD', '90'], ['CARBOHYD', '130'], ['CARBOHYD', '261'], ['CARBOHYD', '287'], ['CARBOHYD', '386'], ['CARBOHYD', '400'], ['CARBOHYD', '446'], ['CARBOHYD', '468'], ['CARBOHYD', '488'], ['CARBOHYD', '541'], ['CARBOHYD', '594']]
+Downloading annotations for P06731
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '167..215'], ['DISULFID', '259..299'], ['DISULFID', '345..393'], ['DISULFID', '437..477'], ['DISULFID', '523..571'], ['DISULFID', '615..655'], ['VARIANT', '80'], ['VARIANT', '83'], ['VARIANT', '137'], ['VARIANT', '340'], ['VARIANT', '398'], ['VARIANT', '664'], ['VARIANT', '678'], ['LIPID', '685'], ['MUTAGEN', '63'], ['MUTAGEN', '63'], ['MUTAGEN', '66'], ['MUTAGEN', '68'], ['MUTAGEN', '68'], ['MUTAGEN', '69'], ['MUTAGEN', '73'], ['MUTAGEN', '74'], ['MUTAGEN', '74'], ['MUTAGEN', '78'], ['MUTAGEN', '125'], ['MUTAGEN', '129'], ['MUTAGEN', '129'], ['MUTAGEN', '133'], ['STRAND', '37..46'], ['STRAND', '51..57'], ['STRAND', '60..72'], ['STRAND', '78..83'], ['STRAND', '88..91'], ['STRAND', '99..101'], ['STRAND', '107..109'], ['STRAND', '118..126'], ['STRAND', '132..141'], ['HELIX', '75..77'], ['HELIX', '114..116'], ['TURN', '84..87'], ['SIGNAL', '1..34'], ['CARBOHYD', '104'], ['CARBOHYD', '115'], ['CARBOHYD', '152'], ['CARBOHYD', '182'], ['CARBOHYD', '197'], ['CARBOHYD', '204'], ['CARBOHYD', '208'], ['CARBOHYD', '246'], ['CARBOHYD', '256'], ['CARBOHYD', '274'], ['CARBOHYD', '288'], ['CARBOHYD', '292'], ['CARBOHYD', '309'], ['CARBOHYD', '330'], ['CARBOHYD', '351'], ['CARBOHYD', '360'], ['CARBOHYD', '375'], ['CARBOHYD', '432'], ['CARBOHYD', '466'], ['CARBOHYD', '480'], ['CARBOHYD', '508'], ['CARBOHYD', '529'], ['CARBOHYD', '553'], ['CARBOHYD', '560'], ['CARBOHYD', '580'], ['CARBOHYD', '612'], ['CARBOHYD', '650'], ['CARBOHYD', '665'], ['PROPEP', '686..702']]
+Downloading annotations for P08123
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '1163..1195'], ['DISULFID', '1203..1364'], ['DISULFID', '1272..1317'], ['VARIANT', '59'], ['VARIANT', '76..93'], ['VARIANT', '109'], ['VARIANT', '181..198'], ['VARIANT', '193'], ['VARIANT', '196'], ['VARIANT', '202'], ['VARIANT', '211'], ['VARIANT', '234'], ['VARIANT', '247'], ['VARIANT', '249'], ['VARIANT', '253'], ['VARIANT', '256'], ['VARIANT', '270'], ['VARIANT', '276'], ['VARIANT', '283'], ['VARIANT', '319'], ['VARIANT', '325'], ['VARIANT', '328'], ['VARIANT', '331'], ['VARIANT', '334'], ['VARIANT', '337'], ['VARIANT', '337'], ['VARIANT', '344'], ['VARIANT', '345'], ['VARIANT', '349'], ['VARIANT', '358'], ['VARIANT', '397'], ['VARIANT', '409'], ['VARIANT', '433'], ['VARIANT', '454'], ['VARIANT', '457'], ['VARIANT', '460'], ['VARIANT', '461..466'], ['VARIANT', '483'], ['VARIANT', '511'], ['VARIANT', '517'], ['VARIANT', '526'], ['VARIANT', '528'], ['VARIANT', '547'], ['VARIANT', '549'], ['VARIANT', '562'], ['VARIANT', '562'], ['VARIANT', '564'], ['VARIANT', '586'], ['VARIANT', '592'], ['VARIANT', '601'], ['VARIANT', '625'], ['VARIANT', '634'], ['VARIANT', '637'], ['VARIANT', '640'], ['VARIANT', '670'], ['VARIANT', '676..855'], ['VARIANT', '676'], ['VARIANT', '676'], ['VARIANT', '678'], ['VARIANT', '705..707'], ['VARIANT', '708'], ['VARIANT', '715'], ['VARIANT', '730'], ['VARIANT', '733'], ['VARIANT', '736'], ['VARIANT', '739'], ['VARIANT', '743'], ['VARIANT', '748'], ['VARIANT', '751'], ['VARIANT', '754'], ['VARIANT', '754'], ['VARIANT', '766'], ['VARIANT', '778'], ['VARIANT', '784'], ['VARIANT', '787'], ['VARIANT', '790'], ['VARIANT', '796'], ['VARIANT', '798'], ['VARIANT', '806..811'], ['VARIANT', '811'], ['VARIANT', '820'], ['VARIANT', '822'], ['VARIANT', '835'], ['VARIANT', '835'], ['VARIANT', '856'], ['VARIANT', '856'], ['VARIANT', '877'], ['VARIANT', '892'], ['VARIANT', '895'], ['VARIANT', '949'], ['VARIANT', '955'], ['VARIANT', '955'], ['VARIANT', '973'], ['VARIANT', '982'], ['VARIANT', '989'], ['VARIANT', '991'], ['VARIANT', '997'], ['VARIANT', '1003'], ['VARIANT', '1012'], ['VARIANT', '1022'], ['VARIANT', '1027'], ['VARIANT', '1058..1062'], ['VARIANT', '1066'], ['VARIANT', '1067'], ['VARIANT', '1078'], ['VARIANT', '1087'], ['VARIANT', '1094..1096'], ['VARIANT', '1096'], ['VARIANT', '1101'], ['VARIANT', '1102'], ['VARIANT', '1119'], ['VARIANT', '1148'], ['VARIANT', '1189'], ['VARIANT', '1195'], ['VARIANT', '1198'], ['VARIANT', '1354'], ['METAL', '1181'], ['METAL', '1183'], ['METAL', '1184'], ['METAL', '1186'], ['METAL', '1189'], ['REGION', '28..1130'], ['SIGNAL', '1..22'], ['MOD_RES', '23'], ['MOD_RES', '47'], ['MOD_RES', '50'], ['MOD_RES', '62'], ['MOD_RES', '65'], ['MOD_RES', '68'], ['MOD_RES', '71'], ['MOD_RES', '80'], ['MOD_RES', '84'], ['MOD_RES', '102'], ['MOD_RES', '108'], ['MOD_RES', '177'], ['MOD_RES', '420'], ['MOD_RES', '441'], ['MOD_RES', '444'], ['CARBOHYD', '177'], ['CARBOHYD', '1267'], ['PROPEP', '23..79'], ['PROPEP', '1120..1366']]
+Downloading annotations for P12694
+XDLDŞLJŞLSFJGFJL
+[['VARIANT', '39'], ['VARIANT', '151'], ['VARIANT', '159'], ['VARIANT', '190'], ['VARIANT', '211'], ['VARIANT', '220'], ['VARIANT', '253'], ['VARIANT', '290'], ['VARIANT', '326'], ['VARIANT', '346'], ['VARIANT', '403'], ['VARIANT', '409'], ['VARIANT', '413'], ['VARIANT', '427..428'], ['VARIANT', '438'], ['STRAND', '61..64'], ['STRAND', '88..90'], ['STRAND', '127..129'], ['STRAND', '152..155'], ['STRAND', '232..237'], ['STRAND', '260..266'], ['STRAND', '268..270'], ['STRAND', '280..282'], ['STRAND', '294..299'], ['STRAND', '324..329'], ['STRAND', '412..415'], ['HELIX', '91..93'], ['HELIX', '99..124'], ['HELIX', '138..146'], ['HELIX', '161..166'], ['HELIX', '171..179'], ['HELIX', '212..226'], ['HELIX', '240..242'], ['HELIX', '244..255'], ['HELIX', '275..277'], ['HELIX', '285..287'], ['HELIX', '289..291'], ['HELIX', '303..320'], ['HELIX', '342..344'], ['HELIX', '351..357'], ['HELIX', '360..368'], ['HELIX', '376..399'], ['HELIX', '405..408'], ['HELIX', '418..434'], ['HELIX', '435..437'], ['HELIX', '440..442'], ['TURN', '135..137'], ['TURN', '185..188'], ['TURN', '198..201'], ['TURN', '209..211'], ['TURN', '369..372'], ['TURN', '409..411'], ['METAL', '206'], ['METAL', '211'], ['METAL', '212'], ['REGION', '33..52'], ['REGION', '157..159'], ['MOD_RES', '337'], ['MOD_RES', '338'], ['MOD_RES', '339'], ['MOD_RES', '347'], ['MOD_RES', '356'], ['MOD_RES', '356'], ['MOD_RES', '380'], ['TRANSIT', '1..45']]
+Downloading annotations for P29474
+XDLDŞLJŞLSFJGFJL
+[['INIT_MET', '1'], ['VARIANT', '112'], ['VARIANT', '298'], ['VARIANT', '474'], ['VARIANT', '602'], ['VARIANT', '665'], ['VARIANT', '827'], ['VARIANT', '885'], ['VARIANT', '982'], ['NP_BIND', '649..680'], ['NP_BIND', '793..804'], ['NP_BIND', '935..945'], ['NP_BIND', '1010..1028'], ['NP_BIND', '1108..1123'], ['LIPID', '2'], ['LIPID', '15'], ['LIPID', '26'], ['MUTAGEN', '114'], ['STRAND', '70..73'], ['STRAND', '79..81'], ['STRAND', '88..90'], ['STRAND', '104..107'], ['STRAND', '141..143'], ['STRAND', '194..197'], ['STRAND', '227..230'], ['STRAND', '236..238'], ['STRAND', '245..249'], ['STRAND', '253..255'], ['STRAND', '257..259'], ['STRAND', '261..263'], ['STRAND', '284..286'], ['STRAND', '291..294'], ['STRAND', '296..298'], ['STRAND', '301..303'], ['STRAND', '312..314'], ['STRAND', '329..332'], ['STRAND', '340..343'], ['STRAND', '346..349'], ['STRAND', '451..453'], ['STRAND', '465..467'], ['STRAND', '470..474'], ['HELIX', '84..87'], ['HELIX', '120..137'], ['HELIX', '144..160'], ['HELIX', '167..179'], ['HELIX', '187..189'], ['HELIX', '204..219'], ['HELIX', '220..222'], ['HELIX', '265..267'], ['HELIX', '268..276'], ['HELIX', '307..309'], ['HELIX', '323..326'], ['HELIX', '359..363'], ['HELIX', '365..368'], ['HELIX', '376..382'], ['HELIX', '390..392'], ['HELIX', '394..412'], ['HELIX', '420..438'], ['HELIX', '445..448'], ['HELIX', '454..456'], ['HELIX', '458..461'], ['HELIX', '496..506'], ['HELIX', '507..509'], ['TURN', '74..76'], ['TURN', '370..373'], ['METAL', '94'], ['METAL', '99'], ['METAL', '184'], ['REGION', '1..71'], ['REGION', '98..486'], ['REGION', '491..510'], ['MOD_RES', '33'], ['MOD_RES', '114'], ['MOD_RES', '495'], ['MOD_RES', '615'], ['MOD_RES', '633'], ['MOD_RES', '638'], ['MOD_RES', '836'], ['MOD_RES', '1175'], ['MOD_RES', '1177'], ['MOD_RES', '1179']]
+
+Processing positions...
+
+Adding binary annotations...
+
+Aligning sequences...
+
+Aligning Datapoint: P05067_2FMA_A_
+Aligning Datapoint: P05067_6NB9_A_
+Aligning Datapoint: P05067_3PZZ_A_
+Aligning Datapoint: P05067_4PQD_A_
+Aligning Datapoint: P05067_6O4J_A_
+Aligning Datapoint: P05067_4PWQ_A_
+Aligning Datapoint: P05067_3Q2X_A_
+Aligning Datapoint: P05067_5TXD_Z_
+Aligning Datapoint: P05067_3IFN_P_
+Aligning Datapoint: P05067_1AAP_A_
+Aligning Datapoint: P05067_4MVK_B_
+Aligning Datapoint: P05067_3IFL_P_
+Aligning Datapoint: P05067_5AMB_P_
+Aligning Datapoint: P05067_5MYO_E_
+Aligning Datapoint: P05067_3L81_B_
+Aligning Datapoint: P05067_4JFN_A_
+Aligning Datapoint: P05067_3OVJ_A_
+Aligning Datapoint: P05067_5CSZ_D_
+Aligning Datapoint: P05067_3JTI_B_
+Aligning Datapoint: P05067_1MWP_A_
+Aligning Datapoint: P05067_5C67_C_
+Aligning Datapoint: P05067_4MDR_B_
+Aligning Datapoint: P05067_5AM8_P_
+Aligning Datapoint: P05067_5HOX_A_
+Aligning Datapoint: P05067_5W3P_P_
+Aligning Datapoint: P05067_2Y3J_A_
+Aligning Datapoint: P05067_7JXN_A_
+Aligning Datapoint: P05067_3DXE_B_
+Aligning Datapoint: P05067_3UMH_A_
+Aligning Datapoint: P05067_3AYU_B_
+Aligning Datapoint: P05067_4OJF_A_
+Aligning Datapoint: P05067_3GCI_P_
+Aligning Datapoint: P05067_3DXC_B_
+Aligning Datapoint: P05067_1CA0_D_
+Aligning Datapoint: P05067_4HIX_A_
+Aligning Datapoint: P05067_3DXD_B_
+Aligning Datapoint: P05067_6WXM_A_
+Aligning Datapoint: P05067_6GFI_C_
+Aligning Datapoint: P05067_5BUO_A_
+Aligning Datapoint: P05067_5VZY_A_
+Aligning Datapoint: P05067_4XXD_C_
+Aligning Datapoint: P05067_3L33_E_
+Aligning Datapoint: P05067_7Q4B_A_
+Aligning Datapoint: P05067_1X11_C_
+Aligning Datapoint: P05067_2FKL_A_
+Aligning Datapoint: P05067_1BRC_I_
+Aligning Datapoint: P05067_3U0T_E_
+Aligning Datapoint: P05067_6IYC_E_
+Aligning Datapoint: P05067_1ZJD_B_
+Aligning Datapoint: P05067_7JXO_A_
+Aligning Datapoint: P05067_3NYJ_A_
+Aligning Datapoint: P05067_3SV1_D_
+Aligning Datapoint: P06731_2QSQ_A_
+Aligning Datapoint: P06731_2QST_A_
+Aligning Datapoint: P08123_5CTD_B_
+Aligning Datapoint: P08123_5CVA_A_
+Aligning Datapoint: P12694_2BFD_A_
+Aligning Datapoint: P12694_2BFF_A_
+Aligning Datapoint: P12694_1X7Y_A_
+Aligning Datapoint: P12694_2BFC_A_
+Aligning Datapoint: P12694_2BFE_A_
+Aligning Datapoint: P12694_1X7Z_A_
+Aligning Datapoint: P12694_1X7W_A_
+Aligning Datapoint: P12694_2BFB_A_
+Aligning Datapoint: P12694_2BEW_A_
+Aligning Datapoint: P12694_1V1R_A_
+Aligning Datapoint: P12694_2J9F_A_
+Aligning Datapoint: P12694_1V16_A_
+Aligning Datapoint: P12694_1V11_A_
+Aligning Datapoint: P12694_1V1M_A_
+Aligning Datapoint: P12694_1X7X_A_
+Aligning Datapoint: P23560_1BND_A_
+Aligning Datapoint: P29474_4D1P_A_
+Aligning Datapoint: P29474_1M9M_A_
+Aligning Datapoint: P29474_5XOF_O_
+Aligning Datapoint: P29474_1NIW_B_
+Aligning Datapoint: P29474_3NOS_A_
+Aligning Datapoint: P41180_5FBK_A_
+Aligning Datapoint: P41180_7M3G_A_
+Aligning Datapoint: P41180_5K5S_A_
+Aligning Datapoint: P41180_7E6T_A_
+Aligning Datapoint: P41180_5K5T_A_
+Aligning Datapoint: P41180_7DTV_A_
+PDB matching is completed...
+
+SUMMARY
+-------
+0 data points that failed to match a UniProt Sequence are discarded.
+Of the remaining 10:
+--4 of 7 successfully aligned with PDB structures.
+--3 of 7 not found on the covered area by the structure.
+--PDB structures not found for 3 datapoints.
+--6 will be searched in Swiss-Model database.
+
+Proceeding to  SwissModel search...
+------------------------------------
+
+Generating SwissModel file...
+
+Index File Processed...
+
+Beginning SwissModel files download...
+Downloading UniProt sequence annotations...
+
+
+Processing positions...
+
+Adding binary annotations...
+
+Aligning sequences...
+
+SwissModel matching is completed...
+
+SUMMARY
+-------
+0 data points that failed to match a UniProt Sequence are discarded.
+Of the remaining 10:
+--4 of 7 successfully aligned with PDB structures.
+--0 of 6 successfully aligned with SwissModels structures.
+--6 will be searched in ModBase database.
+
+Proceeding to ModBase search...
+------------------------------------
+
+Retrieving ModBase models...
+
+Downloading Modbase models for  P23560
+This file doesnt have Quality Score. Replacer: -999 4f3d96c28e5632c8d99f148e63f1c528
+Downloading Modbase models for  Q00889
+Downloading Modbase models for  P13637
+Downloading Modbase models for  P08123
+Downloading Modbase models for  Q16363
+Downloading Modbase models for  P29474
+
+Modbase model frame constructed.
+
+Downloading UniProt sequence annotations...
+
+Downloading annotations for P23560
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '141..208'], ['DISULFID', '186..237'], ['DISULFID', '196..239'], ['VARIANT', '2'], ['VARIANT', '66'], ['VARIANT', '75'], ['VARIANT', '122'], ['VARIANT', '125'], ['VARIANT', '127'], ['SITE', '57..58'], ['MUTAGEN', '54'], ['STRAND', '138..141'], ['STRAND', '143..149'], ['STRAND', '155..158'], ['STRAND', '163..166'], ['STRAND', '168..171'], ['STRAND', '173..178'], ['STRAND', '180..186'], ['STRAND', '204..220'], ['STRAND', '226..243'], ['HELIX', '150..153'], ['HELIX', '191..193'], ['TURN', '201..203'], ['SIGNAL', '1..18'], ['CARBOHYD', '121'], ['PROPEP', '19..128']]
+Downloading annotations for Q00889
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '168..216'], ['DISULFID', '261..309'], ['DISULFID', '353..393'], ['VARIANT', '85'], ['VARIANT', '155'], ['VARIANT', '161'], ['VARIANT', '165'], ['VARIANT', '167'], ['VARIANT', '180'], ['VARIANT', '181'], ['VARIANT', '185'], ['VARIANT', '188'], ['VARIANT', '191'], ['VARIANT', '196'], ['VARIANT', '253'], ['VARIANT', '257'], ['VARIANT', '258'], ['VARIANT', '404'], ['SIGNAL', '1..34'], ['MOTIF', '126..128'], ['CARBOHYD', '61'], ['CARBOHYD', '103'], ['CARBOHYD', '110'], ['CARBOHYD', '198'], ['CARBOHYD', '267'], ['CARBOHYD', '302'], ['CARBOHYD', '386']]
+Downloading annotations for P13637
+XDLDŞLJŞLSFJGFJL
+[['VARIANT', '137'], ['VARIANT', '137'], ['VARIANT', '140'], ['VARIANT', '220'], ['VARIANT', '274'], ['VARIANT', '274'], ['VARIANT', '277'], ['VARIANT', '320'], ['VARIANT', '322'], ['VARIANT', '333'], ['VARIANT', '371'], ['VARIANT', '613'], ['VARIANT', '755'], ['VARIANT', '755'], ['VARIANT', '758'], ['VARIANT', '772'], ['VARIANT', '773'], ['VARIANT', '773'], ['VARIANT', '780'], ['VARIANT', '801'], ['VARIANT', '801'], ['VARIANT', '806'], ['VARIANT', '810'], ['VARIANT', '811'], ['VARIANT', '815'], ['VARIANT', '818'], ['VARIANT', '919'], ['VARIANT', '923'], ['VARIANT', '923'], ['VARIANT', '927'], ['VARIANT', '947'], ['VARIANT', '955'], ['VARIANT', '992'], ['VARIANT', '1013'], ['ACT_SITE', '366'], ['ACT_SITE', '366'], ['TRANSMEM', '78..98'], ['TRANSMEM', '122..142'], ['TRANSMEM', '279..298'], ['TRANSMEM', '311..328'], ['TRANSMEM', '763..782'], ['TRANSMEM', '793..813'], ['TRANSMEM', '834..856'], ['TRANSMEM', '909..928'], ['TRANSMEM', '942..960'], ['TRANSMEM', '976..996'], ['METAL', '707'], ['METAL', '711'], ['TOPO_DOM', '1..77'], ['TOPO_DOM', '99..121'], ['TOPO_DOM', '143..278'], ['TOPO_DOM', '299..310'], ['TOPO_DOM', '329..762'], ['TOPO_DOM', '783..792'], ['TOPO_DOM', '814..833'], ['TOPO_DOM', '857..908'], ['TOPO_DOM', '929..941'], ['TOPO_DOM', '961..975'], ['TOPO_DOM', '997..1013'], ['REGION', '1..24'], ['REGION', '72..74'], ['MOD_RES', '37'], ['MOD_RES', '56'], ['MOD_RES', '218'], ['MOD_RES', '265'], ['MOD_RES', '442'], ['MOD_RES', '548'], ['MOD_RES', '933']]
+Downloading annotations for P08123
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '1163..1195'], ['DISULFID', '1203..1364'], ['DISULFID', '1272..1317'], ['VARIANT', '59'], ['VARIANT', '76..93'], ['VARIANT', '109'], ['VARIANT', '181..198'], ['VARIANT', '193'], ['VARIANT', '196'], ['VARIANT', '202'], ['VARIANT', '211'], ['VARIANT', '234'], ['VARIANT', '247'], ['VARIANT', '249'], ['VARIANT', '253'], ['VARIANT', '256'], ['VARIANT', '270'], ['VARIANT', '276'], ['VARIANT', '283'], ['VARIANT', '319'], ['VARIANT', '325'], ['VARIANT', '328'], ['VARIANT', '331'], ['VARIANT', '334'], ['VARIANT', '337'], ['VARIANT', '337'], ['VARIANT', '344'], ['VARIANT', '345'], ['VARIANT', '349'], ['VARIANT', '358'], ['VARIANT', '397'], ['VARIANT', '409'], ['VARIANT', '433'], ['VARIANT', '454'], ['VARIANT', '457'], ['VARIANT', '460'], ['VARIANT', '461..466'], ['VARIANT', '483'], ['VARIANT', '511'], ['VARIANT', '517'], ['VARIANT', '526'], ['VARIANT', '528'], ['VARIANT', '547'], ['VARIANT', '549'], ['VARIANT', '562'], ['VARIANT', '562'], ['VARIANT', '564'], ['VARIANT', '586'], ['VARIANT', '592'], ['VARIANT', '601'], ['VARIANT', '625'], ['VARIANT', '634'], ['VARIANT', '637'], ['VARIANT', '640'], ['VARIANT', '670'], ['VARIANT', '676..855'], ['VARIANT', '676'], ['VARIANT', '676'], ['VARIANT', '678'], ['VARIANT', '705..707'], ['VARIANT', '708'], ['VARIANT', '715'], ['VARIANT', '730'], ['VARIANT', '733'], ['VARIANT', '736'], ['VARIANT', '739'], ['VARIANT', '743'], ['VARIANT', '748'], ['VARIANT', '751'], ['VARIANT', '754'], ['VARIANT', '754'], ['VARIANT', '766'], ['VARIANT', '778'], ['VARIANT', '784'], ['VARIANT', '787'], ['VARIANT', '790'], ['VARIANT', '796'], ['VARIANT', '798'], ['VARIANT', '806..811'], ['VARIANT', '811'], ['VARIANT', '820'], ['VARIANT', '822'], ['VARIANT', '835'], ['VARIANT', '835'], ['VARIANT', '856'], ['VARIANT', '856'], ['VARIANT', '877'], ['VARIANT', '892'], ['VARIANT', '895'], ['VARIANT', '949'], ['VARIANT', '955'], ['VARIANT', '955'], ['VARIANT', '973'], ['VARIANT', '982'], ['VARIANT', '989'], ['VARIANT', '991'], ['VARIANT', '997'], ['VARIANT', '1003'], ['VARIANT', '1012'], ['VARIANT', '1022'], ['VARIANT', '1027'], ['VARIANT', '1058..1062'], ['VARIANT', '1066'], ['VARIANT', '1067'], ['VARIANT', '1078'], ['VARIANT', '1087'], ['VARIANT', '1094..1096'], ['VARIANT', '1096'], ['VARIANT', '1101'], ['VARIANT', '1102'], ['VARIANT', '1119'], ['VARIANT', '1148'], ['VARIANT', '1189'], ['VARIANT', '1195'], ['VARIANT', '1198'], ['VARIANT', '1354'], ['METAL', '1181'], ['METAL', '1183'], ['METAL', '1184'], ['METAL', '1186'], ['METAL', '1189'], ['REGION', '28..1130'], ['SIGNAL', '1..22'], ['MOD_RES', '23'], ['MOD_RES', '47'], ['MOD_RES', '50'], ['MOD_RES', '62'], ['MOD_RES', '65'], ['MOD_RES', '68'], ['MOD_RES', '71'], ['MOD_RES', '80'], ['MOD_RES', '84'], ['MOD_RES', '102'], ['MOD_RES', '108'], ['MOD_RES', '177'], ['MOD_RES', '420'], ['MOD_RES', '441'], ['MOD_RES', '444'], ['CARBOHYD', '177'], ['CARBOHYD', '1267'], ['PROPEP', '23..79'], ['PROPEP', '1120..1366']]
+Downloading annotations for Q16363
+XDLDŞLJŞLSFJGFJL
+[['DISULFID', '82..91'], ['DISULFID', '84..98'], ['DISULFID', '101..110'], ['DISULFID', '113..129'], ['DISULFID', '132..146'], ['DISULFID', '134..155'], ['DISULFID', '157..166'], ['DISULFID', '169..184'], ['DISULFID', '187..202'], ['DISULFID', '189..209'], ['DISULFID', '212..221'], ['DISULFID', '224..238'], ['DISULFID', '273'], ['DISULFID', '276'], ['DISULFID', '1005..1035'], ['DISULFID', '1201..1227'], ['DISULFID', '1370..1402'], ['DISULFID', '1617..1640'], ['DISULFID', '1792..1820'], ['VARIANT', '94'], ['VARIANT', '154'], ['VARIANT', '283'], ['VARIANT', '492'], ['VARIANT', '498'], ['VARIANT', '950'], ['VARIANT', '1117'], ['VARIANT', '1119'], ['VARIANT', '1549'], ['VARIANT', '1815'], ['REGION', '256..832'], ['REGION', '1419..1440'], ['SIGNAL', '1..24'], ['MOTIF', '724..726'], ['COILED', '320..403'], ['COILED', '473..528'], ['COILED', '581..614'], ['COILED', '662..724'], ['COILED', '777..806'], ['CARBOHYD', '104'], ['CARBOHYD', '215'], ['CARBOHYD', '315'], ['CARBOHYD', '465'], ['CARBOHYD', '531'], ['CARBOHYD', '557'], ['CARBOHYD', '578'], ['CARBOHYD', '581'], ['CARBOHYD', '638'], ['CARBOHYD', '646'], ['CARBOHYD', '742'], ['CARBOHYD', '758'], ['CARBOHYD', '761'], ['CARBOHYD', '787'], ['CARBOHYD', '810'], ['CARBOHYD', '1093'], ['CARBOHYD', '1288'], ['CARBOHYD', '1366'], ['CARBOHYD', '1418']]
+Downloading annotations for P29474
+XDLDŞLJŞLSFJGFJL
+[['INIT_MET', '1'], ['VARIANT', '112'], ['VARIANT', '298'], ['VARIANT', '474'], ['VARIANT', '602'], ['VARIANT', '665'], ['VARIANT', '827'], ['VARIANT', '885'], ['VARIANT', '982'], ['NP_BIND', '649..680'], ['NP_BIND', '793..804'], ['NP_BIND', '935..945'], ['NP_BIND', '1010..1028'], ['NP_BIND', '1108..1123'], ['LIPID', '2'], ['LIPID', '15'], ['LIPID', '26'], ['MUTAGEN', '114'], ['STRAND', '70..73'], ['STRAND', '79..81'], ['STRAND', '88..90'], ['STRAND', '104..107'], ['STRAND', '141..143'], ['STRAND', '194..197'], ['STRAND', '227..230'], ['STRAND', '236..238'], ['STRAND', '245..249'], ['STRAND', '253..255'], ['STRAND', '257..259'], ['STRAND', '261..263'], ['STRAND', '284..286'], ['STRAND', '291..294'], ['STRAND', '296..298'], ['STRAND', '301..303'], ['STRAND', '312..314'], ['STRAND', '329..332'], ['STRAND', '340..343'], ['STRAND', '346..349'], ['STRAND', '451..453'], ['STRAND', '465..467'], ['STRAND', '470..474'], ['HELIX', '84..87'], ['HELIX', '120..137'], ['HELIX', '144..160'], ['HELIX', '167..179'], ['HELIX', '187..189'], ['HELIX', '204..219'], ['HELIX', '220..222'], ['HELIX', '265..267'], ['HELIX', '268..276'], ['HELIX', '307..309'], ['HELIX', '323..326'], ['HELIX', '359..363'], ['HELIX', '365..368'], ['HELIX', '376..382'], ['HELIX', '390..392'], ['HELIX', '394..412'], ['HELIX', '420..438'], ['HELIX', '445..448'], ['HELIX', '454..456'], ['HELIX', '458..461'], ['HELIX', '496..506'], ['HELIX', '507..509'], ['TURN', '74..76'], ['TURN', '370..373'], ['METAL', '94'], ['METAL', '99'], ['METAL', '184'], ['REGION', '1..71'], ['REGION', '98..486'], ['REGION', '491..510'], ['MOD_RES', '33'], ['MOD_RES', '114'], ['MOD_RES', '495'], ['MOD_RES', '615'], ['MOD_RES', '633'], ['MOD_RES', '638'], ['MOD_RES', '836'], ['MOD_RES', '1175'], ['MOD_RES', '1177'], ['MOD_RES', '1179']]
+
+Processing positions...
+
+Adding binary annotations...
+
+Aligning sequences...
+
+Aligning Datapoint: P08123_3fd48ee152ac7f35bd40e9ea0d686326_A_
+Aligning Datapoint: P08123_8e6b6754976a0214176e58894dfb5194_A_
+Aligning Datapoint: P08123_bf3b994ca316841008f817a14acc12d3_B_
+Aligning Datapoint: P08123_1becf6c32ffd801e212d6b3afbef40c8_B_
+Aligning Datapoint: P08123_c1c0cb03e146c5296e0aa55b85e64041_B_
+Aligning Datapoint: P08123_8f39ca27c3252218734df17f6387a91c_A_
+Aligning Datapoint: P08123_6423db58268024c2b3417230f9b93a77_B_
+Aligning Datapoint: P08123_5baf8461f044aca950330722736fa8b3_A_
+Aligning Datapoint: P08123_2bfe245ae4d4570f274e852cbd0d3197_B_
+Aligning Datapoint: P08123_1d8e52ce5d17133ef1f553c9fe091a5e_B_
+Aligning Datapoint: P08123_f0f88c3843d257306d06c0c0be60ea26_H_
+Aligning Datapoint: P08123_4a2c243a18727259686b0f13ba6d2dc8_A_
+Aligning Datapoint: P08123_3a8948afdddd1e522a2df33981e90757_A_
+Aligning Datapoint: P08123_e4fe21aa18e53f47cac6158fed4f34df_A_
+Aligning Datapoint: P08123_0bd1a1ed2998d83b4e7e702c7eed33db_A_
+Aligning Datapoint: P08123_2b1af7243a1bda2644f7756aebb9984a_A_
+Aligning Datapoint: P08123_f4ce55c7b73e462c523333e012e26a50_A_
+Aligning Datapoint: P08123_b2aaf9f642939caf2967b3bcb9a939bc_A_
+Aligning Datapoint: P08123_70795651e215805fbf2fc5458b70b551__
+Aligning Datapoint: P08123_e5c91891a595a1bc913bea3cdf487bcd_A_
+Aligning Datapoint: P08123_bdcc6bd7c2a7b006242ed3be1fcb36a0_B_
+Aligning Datapoint: P08123_995f1735341f2c3b1dd82db94173decf_A_
+Aligning Datapoint: P08123_e9c1afee77c4f6107b6e4ff28dd0c605_A_
+Aligning Datapoint: P08123_ab4017b9e892fa3abf327011de9c7336_A_
+Aligning Datapoint: P08123_d31c8d32a4b6fa9c748388a2223be86a_A_
+Aligning Datapoint: P08123_97b7afdf73d5af57e17b051470dcb44d_A_
+Aligning Datapoint: P08123_9ca4b2404165f9f4735653be03ed099e_A_
+Aligning Datapoint: P08123_72589ebeb00f80976b2d5c732ab25479_A_
+Aligning Datapoint: P08123_b569a19fcf2e94b426dc3cdb28efbdbf_A_
+Aligning Datapoint: P08123_069c4991dad8c9b18e53c3ba73bef804_A_
+Aligning Datapoint: P08123_66677199ca8607b3239253392264ba56_A_
+Aligning Datapoint: P08123_031b69d44e3b1e9a342ca407050bde95_A_
+Aligning Datapoint: P08123_854ad0369c24313601dd3d7a41001eb4_A_
+Aligning Datapoint: P08123_3a4c17abdedbe0539f9836e9e43aa2ef_A_
+Aligning Datapoint: P08123_6de3f120a240e2928dac131bbb91712b_B_
+Aligning Datapoint: P08123_7b43b2ab291e68586162449dd25a6a0f_A_
+Aligning Datapoint: P08123_716e5befb09ca159418b12d11c860346_A_
+Aligning Datapoint: P08123_9e088c9035ac07de7b288b793cca298d_A_
+Aligning Datapoint: P08123_c91d54e67acdedf169b5f437693c6ded_A_
+Aligning Datapoint: P08123_b611fa31fbccf3827962981d711f435c_A_
+Aligning Datapoint: P08123_8bad73a5a21444d849c75f8237ac978d_A_
+Aligning Datapoint: P08123_0fba41240bd46cdf24cbd01c2ecfee64_A_
+Aligning Datapoint: P08123_b42485015978bf926977a738ec9c8dea__
+Aligning Datapoint: P08123_568f340866d78923cdd8f09f0c203841_A_
+Aligning Datapoint: P08123_179be1815f224ddc4771510cf1729d4b_C_
+Aligning Datapoint: P08123_b24f2cafd1af3c1f0d541f355c877679_A_
+Aligning Datapoint: P08123_2d8a4474b9b9a0c195c7a5d80a1bc01b_A_
+Aligning Datapoint: P08123_ed81466cccac88dd6467686cfb6e9457_C_
+Aligning Datapoint: P08123_4f912938843e7176e52126be4970d52b_A_
+Aligning Datapoint: P13637_88bb48a6fa174eb50b7828d7fde4bf2c_A_
+Aligning Datapoint: P13637_50d360a943e78d6e376c778889f44886_A_
+Aligning Datapoint: P13637_b12b772546b8948c68bfe70f90d9bce8_A_
+Aligning Datapoint: P13637_500b2c65015b1601bf4175a8edb1194d_A_
+Aligning Datapoint: P13637_bac84f99d3170aa0926a3a10ae3f75bd_A_
+Aligning Datapoint: P13637_a1cf26d8af628ee4857d577139940add_A_
+Aligning Datapoint: P13637_980975a414c243e4719ff926e522ce9c_A_
+Aligning Datapoint: P13637_6af05b970a82a1111e1ae425abcfd00c_A_
+Aligning Datapoint: P13637_3956f917e3d71932fb5260a7c0c8e3b2_A_
+Aligning Datapoint: P13637_e5291bc857db357b054a3bcf08cd1972_A_
+Aligning Datapoint: P13637_7233d20fb248114ecee8b79a1fddfbd1_A_
+Aligning Datapoint: P13637_e8452a465a60bdf294dde6f08b4556fc_A_
+Aligning Datapoint: P13637_303617a4b1de5514a53f6370ebae1bd7_A_
+Aligning Datapoint: P13637_84d68087956e24e86ded52d45f80dd15_A_
+Aligning Datapoint: P13637_3e45bdfe701ddc375b3354a90aa05821_A_
+Aligning Datapoint: P13637_6315901352a6802b3bd515274860230a_A_
+Aligning Datapoint: P13637_799fd4034ba819e13484cbc2047977f6_A_
+Aligning Datapoint: P13637_82c0de8b71f194965b931fd686a6853c_A_
+Aligning Datapoint: P13637_5e6c0118b08a788147aa74809a258723_A_
+Aligning Datapoint: P13637_00a40c52b270bf77bc78c800b91c458d_A_
+Aligning Datapoint: P13637_797b09c69387cc4bd064fdb3c593f5b8_A_
+Aligning Datapoint: P13637_4e09f9a5cee4960149b51959b258d721_A_
+Aligning Datapoint: P13637_396c68dd208190fcb67a70bb93a5ef2e_A_
+Aligning Datapoint: P13637_bcfe580e582ee392eab79e82c0b88f6b_A_
+Aligning Datapoint: P13637_3c3377c012dc8c7cee952afe56a27bec_A_
+Aligning Datapoint: P13637_0c6499349a78a465e3e6cc5cd22217eb_A_
+Aligning Datapoint: P13637_be5b6c2ea508e393a3089d7025da32fd_A_
+Aligning Datapoint: P13637_f48449e9c23d14d93e6a5e4a57dca633_A_
+Aligning Datapoint: P13637_420a06f6ddcc32dcb1a315193ff16da5_A_
+Aligning Datapoint: P13637_b8eafaee5b7027ff10009e5f28a4aa42_A_
+Aligning Datapoint: P13637_e93023019b981fd99c1fe95373ed0489_A_
+Aligning Datapoint: P13637_bbdbbb9666344eb8c1148ef63fa595da_A_
+Aligning Datapoint: P13637_06819552c56f08d8a8a1aff9f77b962f_A_
+Aligning Datapoint: P13637_08424eccff5338917d68818f92e14be6_A_
+Aligning Datapoint: P13637_30d38d6106279c890ebb1bfce0f2a85b_A_
+Aligning Datapoint: P13637_7a1631038c0fcd84f045709fbec28a57_A_
+Aligning Datapoint: P13637_7d2dbeed98c250a8f6a1654c49bb15af_A_
+Aligning Datapoint: P13637_7f6e97748fd62df5eaf4d364d1658376_A_
+Aligning Datapoint: P13637_72c6aa28e021292b9880d6b6f9bc729b_A_
+Aligning Datapoint: P13637_ed2ff3fd2f929ebbd418b3875e27f246_A_
+Aligning Datapoint: P13637_5f71f95fe902e1a7aaa6e7999ff803ac_A_
+Aligning Datapoint: P13637_8056161b8666e87ea7dae812e965a532_A_
+Aligning Datapoint: P13637_155d0e7459f3c3d11ce98189348a8339_A_
+Aligning Datapoint: P13637_907ea7d922ec9dd870074b0757553b62_A_
+Aligning Datapoint: P13637_99b1f920291439d34adfc99bb521b087_A_
+Aligning Datapoint: P13637_1f283617f4f36cd310aa90913dde3574_A_
+Aligning Datapoint: P13637_9669465f4923866a75d7a078da424293_A_
+Aligning Datapoint: P13637_f02178b6c86c87ed6cae4af98b4a4f8e_A_
+Aligning Datapoint: P13637_e60a2364f0f53b62179715e6141721e4_A_
+Aligning Datapoint: P13637_3f399e0672d6927b950d1758e44217d8_A_
+Aligning Datapoint: P13637_bd2a6aeaad33c72855f08062164dbafd_A_
+Aligning Datapoint: P13637_43b3c93f9cb486e5a006ed6f512087f7_A_
+Aligning Datapoint: P13637_062529af473d963ad5aa69541f137bc9_A_
+Aligning Datapoint: P13637_fd3db11849e1aeb2a3bb5e5b28d0845f_A_
+Aligning Datapoint: P13637_f2ced2d75a67fe9493286890c5ae31b6_A_
+Aligning Datapoint: P13637_fd3fddf2e492f3363039f633fbf7cf38_A_
+Aligning Datapoint: P13637_0e83e6dd52d81a8d1480dfa2b884ec9a_A_
+Aligning Datapoint: P13637_a98cda91f2f5d57bd711670c741c06e3_A_
+Aligning Datapoint: P13637_8be1bd9040b5f18879da3eb8a0ae28cf_A_
+Aligning Datapoint: P13637_8a4100e62fb0301bbf5d6c7ba3dd5dae_A_
+Aligning Datapoint: P13637_24139274c53cfd2f11f3213c5d203601_A_
+Aligning Datapoint: P13637_c032574dc0f936ea5962719f08ee9373_A_
+Aligning Datapoint: P13637_52feacb5e76f117cc58d9d990079326a_A_
+Aligning Datapoint: P13637_54b6524454c719b209b61a39462ffa02_A_
+Aligning Datapoint: P13637_d9c437b6677355e756f07f05863dd34b_A_
+Aligning Datapoint: P13637_df7ab0cd4d6cb35c70e337b72b54c29c_A_
+Aligning Datapoint: P13637_dd91f5f8fb4263b813b644279beb38d4_A_
+Aligning Datapoint: P13637_ce983e47a998c44232b95f9847e4fbf7_A_
+Aligning Datapoint: P13637_e7574dc4d0a8c4c2ec7ce77862ec6b1a_A_
+Aligning Datapoint: P13637_4d27be8fc0a1391272ed8d413bcac296_A_
+Aligning Datapoint: P13637_d310c3bd10b0b19030900e84408cd2ef_A_
+Aligning Datapoint: P13637_2d95a8985b49a26ca9db3501bfa530da_A_
+Aligning Datapoint: P13637_bbd827b6e0ef9836454852820f2c99bc_A_
+Aligning Datapoint: P13637_f03676e2ac686e150fe310640e1d18a9_A_
+Aligning Datapoint: P23560_326860616b5619919329f1794e544184_A_
+Aligning Datapoint: P23560_bbcbbcf971093a034a5d73a3ed64122a_A_
+Aligning Datapoint: P23560_71741f053b9917126064f4cf62cd7e78_A_
+Aligning Datapoint: P23560_14bcbecc813347be4e51411438d85bd8_A_
+Aligning Datapoint: P23560_44b9be77f0037b8743f0a04bb6980ee5_B_
+Aligning Datapoint: P23560_7b643469e1d24a13793765dfabbb77da_B_
+Aligning Datapoint: P23560_d2142e67912ed8b9f794b00a71e70d01_A_
+Aligning Datapoint: P23560_9f7700e1d4856aebfcf68029cf07e5b4_A_
+Aligning Datapoint: P23560_d53daaf341b7d45881a4a85b8ae96fa3_A_
+Aligning Datapoint: P29474_83d5506a7ada86ce2ae3bffb3e9e1fc3_A_
+Aligning Datapoint: P29474_60b1f6b363c54a603e31efec044286e8_A_
+Aligning Datapoint: P29474_2531c1b705c7586ac492a21b845f3ff4_A_
+Aligning Datapoint: P29474_b15b0220775df64042b36db2639711bf_A_
+Aligning Datapoint: P29474_21342593c3660a2f43e04490a3210f8e_A_
+Aligning Datapoint: P29474_a10fd001ed7ebafc71bb5603653fa1af_A_
+Aligning Datapoint: P29474_fa53176f04ad635233cc1be8d06af274_A_
+Aligning Datapoint: P29474_68dbf933a4784b10f0903f03b49395b7_A_
+Aligning Datapoint: P29474_f0563785a6a3373f17d092e59155c293_A_
+Aligning Datapoint: P29474_acd928a5a1c9e74b94a0137a03a41092_A_
+Aligning Datapoint: P29474_5f0c9b1379d361d5742b5bfef1719869_A_
+Aligning Datapoint: P29474_f905381856f605c25a59515cfdb59d46_A_
+Aligning Datapoint: P29474_7301a046fd32fa48f075f01f9c61d0d0_A_
+Aligning Datapoint: P29474_b2990daa43bde5c2e9089bd2fc3350a1_A_
+Aligning Datapoint: P29474_0349eec190f5689d5874f751e46d3f23_B_
+Aligning Datapoint: Q00889_9ad049a4390cae606452d57b2d6bab9e_E_
+Aligning Datapoint: Q00889_ffb28de2ca59fb6e2c20eb44f5d60b51_A_
+Aligning Datapoint: Q00889_7e7cd9f1623822f4bf7444a62fce2d7e_A_
+Aligning Datapoint: Q00889_5c0eb4ca6f0c0afbf1a82883ea15d5f3_A_
+Aligning Datapoint: Q00889_570486942b90ecb89a262d9313784b13_A_
+Aligning Datapoint: Q00889_9d6146382d6435b87d0db7cc95ed4ffc_A_
+Aligning Datapoint: Q00889_1b10cba2478a1c3a94c31ed594b2e664_A_
+Aligning Datapoint: Q00889_757bf611f76d16fb0d7aa48b881a2e99_A_
+Aligning Datapoint: Q00889_d042ce533140feba644647968a17e00d_A_
+Aligning Datapoint: Q00889_2be767abd442307d4035ab79a440c4b5_A_
+Aligning Datapoint: Q00889_edbf77f8202523a32e0f9d8507c15e88_A_
+Aligning Datapoint: Q00889_4462967bb06e294384e06aa93b0aac7d_A_
+Aligning Datapoint: Q00889_6b662557255605e0b567287d93bf6714_A_
+Aligning Datapoint: Q00889_4eeb14fca86691d54ffd6a17daf209d0_E_
+Aligning Datapoint: Q00889_3f234ed8587321e9cd9353f1bc644051_A_
+Aligning Datapoint: Q00889_742f5a86869f9a678c9ddff7987617e8_A_
+Aligning Datapoint: Q00889_aa0a848a2ddac7e76b880c74369eab8a_A_
+Aligning Datapoint: Q00889_e93df804168bce0202f2a21654fcb20f_B_
+Aligning Datapoint: Q00889_89d5770bf7ae95e3894e32b6a6bdf77b_B_
+Aligning Datapoint: Q00889_7e3e037eca196fd4671a75bea73ba5c5_A_
+Aligning Datapoint: Q00889_056c1af872a620339249ef140714c2e8__
+Aligning Datapoint: Q00889_bb25577eb4d51c3c15b0eea51ae3d454_A_
+Aligning Datapoint: Q00889_69b187dcf4abe6ff285949f6edc0eb9e_A_
+Aligning Datapoint: Q00889_2e6dee1bd339fd8de6c0f8103c369e4b_A_
+Aligning Datapoint: Q00889_6dac81bffb651ff64cf7df8b7d97f829_A_
+Aligning Datapoint: Q00889_023db51749dd06f83b33db461d77af3a_A_
+Aligning Datapoint: Q00889_5f102c5574675b3c5af1184fc009d73e_A_
+Aligning Datapoint: Q00889_95dd328e9d592f570ab454a3d425393c_A_
+Aligning Datapoint: Q00889_a2c9dde867fc9c1d8fc432c2cc16bcac_A_
+Aligning Datapoint: Q00889_61383c0eed5593341b7ead9ee52e4428_A_
+Aligning Datapoint: Q00889_4a265830b6560fa2f0165b956930f2fd_A_
+Aligning Datapoint: Q00889_4092f156c49a6387de2e55439e80a494_A_
+Aligning Datapoint: Q16363_d7799442e1a16591115d0a213789fcd8_A_
+Aligning Datapoint: Q16363_89beb8d1a083de7e75e53c3efe94ab62_A_
+Aligning Datapoint: Q16363_1228df2fe63c4a9e6020865dea455d13_A_
+Aligning Datapoint: Q16363_5a4c7238452dde26d9c8bb7d608da5c8_A_
+Aligning Datapoint: Q16363_f687e1f423057bd58111cce9c715424e_A_
+Aligning Datapoint: Q16363_495a9b9e2e57d168c24a977e54078362_A_
+Aligning Datapoint: Q16363_45ae04d0875e55ce6f6df82fdc62e0a6_A_
+Aligning Datapoint: Q16363_c814cf339674f4701a31f00f88829324_A_
+Aligning Datapoint: Q16363_357066562972a9c58b4a8f2df6989a64_A_
+Aligning Datapoint: Q16363_a25897b5e25f17f7b1c0ce58f837fa26_A_
+Aligning Datapoint: Q16363_9a1b3b933ec48b80fb10fda8b12f76a7_A_
+Aligning Datapoint: Q16363_61bd070b9e147568094dbb5c40475c23_A_
+Aligning Datapoint: Q16363_475a9e5387b09925c1e4f79a81918b8c_A_
+Aligning Datapoint: Q16363_e9e7643c341975e140e8f48aeaaeb313_A_
+Aligning Datapoint: Q16363_8754f1e7f3bdebc7b9cd3059f7d429d7_A_
+Aligning Datapoint: Q16363_6569c7251e5f0628f2af745cc705cc47_A_
+Aligning Datapoint: Q16363_13f1e840261d2a8f87e93c8b74cd5e35_A_
+Aligning Datapoint: Q16363_7137377f907a04a699055b2408b981f5_A_
+Aligning Datapoint: Q16363_a93f064f181a599cccfd1d7bd24cb085_A_
+Aligning Datapoint: Q16363_e2f3b729d995e63696fbba07c1b9828d_A_
+Aligning Datapoint: Q16363_7575ed777bc67e5ddb1395106e9e4b3d_A_
+Aligning Datapoint: Q16363_906d6b0eac03f1dcc7f8164440cc8d4e_A_
+Aligning Datapoint: Q16363_18e942cc5fdbc4cca3859badeaae5ba7_A_
+Aligning Datapoint: Q16363_0d90163a98df8f498fdb9cd8f45ac0fe_A_
+Aligning Datapoint: Q16363_dbb57e5a92bc2d89da5b234ae2c31069_A_
+Aligning Datapoint: Q16363_b1f3cc1193ab5364dd35ba98c6f58228_A_
+Aligning Datapoint: Q16363_fb2f33e6e159b3c9b12249fec889d677_A_
+Aligning Datapoint: Q16363_91a6a1226753e1b84bc02b390c0405af_A_
+Aligning Datapoint: Q16363_74fe114c5f232d272ade5a0202094af6_A_
+Aligning Datapoint: Q16363_65cc5d61c5cd1df4a782cfc9fe80c0d2_A_
+Aligning Datapoint: Q16363_7d4dc4698e6a07c24968c6c7f1c16430_A_
+Aligning Datapoint: Q16363_2f0f7e9ebbdb8e853816842609fd5e51_A_
+Aligning Datapoint: Q16363_b5040c74611efbec984bd363734963fa_A_
+Aligning Datapoint: Q16363_9e7160295f669dfefe3fca785f480d46_A_
+Aligning Datapoint: Q16363_2b5de9d3a535e4fa1c34a4a0b47fe5f1_A_
+Aligning Datapoint: Q16363_f3280b611d33a1d49579abf27efa3379_A_
+Aligning Datapoint: Q16363_9f843d7537d30ff54a89f6606a8f0d62_A_
+Aligning Datapoint: Q16363_8e01fb053d8d754f39c4349caa4804a2_A_
+Aligning Datapoint: Q16363_eb317e6f0736acec3e36c00aaf9fac4b_A_
+Aligning Datapoint: Q16363_33f34dc6a1475c5175b8d38847390430_A_
+Aligning Datapoint: Q16363_cb2a6c58a00b7d1dcba98633e22c94af_B_
+Aligning Datapoint: Q16363_2a04cff1d39e381f32a1b371c61c845e_A_
+Aligning Datapoint: Q16363_76b527d22e9ce465fd847ad26cef9383_A_
+Aligning Datapoint: Q16363_2acd0aa025570f35b5c7e9b366225bdf_A_
+Aligning Datapoint: Q16363_717e322caef08b123d243da7281d336c_A_
+Aligning Datapoint: Q16363_2ddbcb4565a9d22748b45ae774b08a5f_A_
+Aligning Datapoint: Q16363_04ab26563f46bff65ebe545e893b2d7e_A_
+Aligning Datapoint: Q16363_bf8f0060dce6ed3dfdd7babb327ebbd4_A_
+Aligning Datapoint: Q16363_3caa6c16c63f880ef796b6ea2c22467f__
+Aligning Datapoint: Q16363_04abe455ce778a274adcddd02d47130d_A_
+Aligning Datapoint: Q16363_433aad6771db9f0cf74847a1d4823a9b_A_
+Aligning Datapoint: Q16363_bd3755f0c66227c76025f2a75fd63de3_A_
+Aligning Datapoint: Q16363_12fa6d8ec1d80ca54634401cd7ea378a__
+Aligning Datapoint: Q16363_662c59626e16440f2cd26a8897667d1e_A_
+Aligning Datapoint: Q16363_3faabddc3752f3ca2f0ababf92a2967c__
+Aligning Datapoint: Q16363_3f0d73256e883974bd619476e2abf04c_A_
+Aligning Datapoint: Q16363_adc4fb9a3bc8cd7e03f4237e983c95b6_A_
+Aligning Datapoint: Q16363_4e79df066e4189b4cf6ce38ed1abb7da__
+Aligning Datapoint: Q16363_b94f3a0eb2a01fff709a3955b2d3fd66_A_
+Aligning Datapoint: Q16363_78b7ea1debaec0d6a95b0dc6f7c71c7a_A_
+Aligning Datapoint: Q16363_8dc1172e19f335fc16253de93e933c2a_A_
+Aligning Datapoint: Q16363_922e031aff3e58b222ee99478cf30633_A_
+Aligning Datapoint: Q16363_5e5450cfacaf48e738f9b151c9531f31_A_
+Aligning Datapoint: Q16363_15193bb0a6f1c207e6f08222a428575e_A_
+Aligning Datapoint: Q16363_c4c8b414e3f704df95e5ff7dedf638b1_G_
+Aligning Datapoint: Q16363_35551c0cdc10b949e26bacda344ef07e_A_
+Aligning Datapoint: Q16363_a9352fda57cc9fbe86df01811f7ec559_A_
+Aligning Datapoint: Q16363_7401bf1123f05cc079820fb707297ccb_A_
+Aligning Datapoint: Q16363_f681075610fdd5af62fed19d00722a3c_A_
+Aligning Datapoint: Q16363_b5934d9d240723acd113c2229effdb6b_A_
+Aligning Datapoint: Q16363_6b4406b4b9cc48d3a770c7043e81b350_B_
+Aligning Datapoint: Q16363_1cfd7a7cca2b1177f81e0333b765dfb6_A_
+Aligning Datapoint: Q16363_765750db804adf5cc1be107b974d6c25_A_
+Aligning Datapoint: Q16363_d1a8c03880974cfaad2c63d58140c14e_A_
+Aligning Datapoint: Q16363_2d4a77428fd74cdb315c5b0442dd7ae9_A_
+Aligning Datapoint: Q16363_91f9bf03ba188870f08921c9acf17e3f_A_
+Aligning Datapoint: Q16363_32ed8b9b6d6a7d2446ebb44806dde2a8_B_
+Aligning Datapoint: Q16363_b3419b3b3a1a730e06579ce64c7ff1c0_A_
+Aligning Datapoint: Q16363_4b9245508e73993b66431e937057cb38_A_
+Aligning Datapoint: Q16363_3a5089a941b913bd5b495698e55cbed6_A_
+Aligning Datapoint: Q16363_04e8452229cfce0d0fb3f510b2f04bf8_A_
+Aligning Datapoint: Q16363_1c9edccc12fbca056062a7c267065b1d_A_
+Aligning Datapoint: Q16363_cb2ad3e62ad9e7aab252f1f6b66594c8_A_
+Aligning Datapoint: Q16363_6d21e9450b23078c30365c2d35d7d30b__
+Aligning Datapoint: Q16363_d8ddb3b911df667e3873a619d0c30fc7__
+Aligning Datapoint: Q16363_a7d7c5af59c7255e480fe4fa940043c4_A_
+Aligning Datapoint: Q16363_41a1d3f68b7ad24a01250161fc4c98f0_A_
+Aligning Datapoint: Q16363_24a8417bcd65b022ca56ba443b0cf9cc_A_
+Aligning Datapoint: Q16363_392659d97e6fe05e813ed89ebfdb4e2c_A_
+Aligning Datapoint: Q16363_22f2ef6913a8dd4b8b32d08a091a612c_A_
+Aligning Datapoint: Q16363_a05c4c40b178c12d1890321a2098da65_A_
+Aligning Datapoint: Q16363_3017f17038fd37236ae12f6695af3f14_A_
+Aligning Datapoint: Q16363_9f5a2f920a806d8e2ea1c060b9d17384_A_
+Aligning Datapoint: Q16363_0e14071f3eb2436c9e2ccdbd0883575a_A_
+Modbase matching is completed...
+
+SUMMARY
+-------
+0 data points that failed to match a UniProt Sequence are discarded.
+Of the remaining 10:
+--4 of 7 successfully aligned with PDB structures.
+--0 of 6 successfully aligned with SwissModels structures.
+--5 of 6 successfully aligned with Modbase structures.
+
+--Remaining 1 not found to match any models.
+--A total of 1 datapoints will not be evaluated.
+
+FOR CHECKING :  True
+Generating FreeSASA files...
+------------------------------------
+
+Calculation RSA for PDB Structure Files...
+
+Calculation RSA for SwissModel Files...
+
+Calculation RSA for Modbase Model Files...
+
+Proceeding to 3D distance calculation...
+
+0 of 9 P08123
+1 of 9 P13637
+2 of 9 P23560
+3 of 9 Q00889
+4 of 9 Q16363
+5 of 9 P05067
+6 of 9 P06731
+7 of 9 P12694
+8 of 9 P41180
+
+Assigning surface regions...
+------------------------------------
+
+Extracting interface residues...
+
+Final adjustments are being done...
+
