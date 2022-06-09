@@ -1,6 +1,7 @@
 import ssl
 import requests as r
 from decimal import *
+import numpy as np
 def add_annotations(dataframe):
     print('Downloading UniProt sequence annotations...\n')
     ssl._create_default_https_context = ssl._create_unverified_context
@@ -50,12 +51,20 @@ def add_annotations(dataframe):
     print('Processing positions...\n')
     for i in dataframe.index:
         for annot in dataframe.columns[-30:]:
-            if dataframe.at[i, annot] != 'nan':
-                dataframe.at[i, annot] = ([x for x in [k.strip() for k in dataframe.at[i, annot].split(';')] if x])
-                if '..' not in str(dataframe.at[i, annot]):
-                    pass
-                elif '..' in str(dataframe.at[i, annot]):
-                    dataframe.at[i, annot] = str(dataframe.at[i, annot]).replace('..', '-')
+            if annot != 'disulfide':
+                if dataframe.at[i, annot] != 'nan':
+                    dataframe.at[i, annot] = ([x for x in [k.strip() for k in dataframe.at[i, annot].split(';')] if x])
+                    if '..' not in str(dataframe.at[i, annot]):
+                        pass
+                    elif '..' in str(dataframe.at[i, annot]):
+                        dataframe.at[i, annot] = str(dataframe.at[i, annot]).replace('..', '-')
+            else:
+                disulfide_annot = []
+                if dataframe.at[i, annot] != 'nan':
+                    dataframe.at[i, annot]=  dataframe.at[i, annot].split(';')
+                    dataframe.at[i, annot] = [i.split('..') for i in dataframe.at[i, annot]]
+                    dataframe.at[i, annot] =[e for v in  dataframe.at[i, annot] for e in v]
+                    dataframe.at[i, annot] = [i for i in dataframe.at[i, annot] if i != ' ']
 
     # Add binary annotations
     print('Adding binary annotations...\n')
