@@ -119,26 +119,26 @@ As can be seen in the figure below, dimensions 1-4 correspond to physicochemical
 | domains_3Ddist | Euclidian distance between the domains from its closest residue and the mutation site. |
 | sasa | Accessible surface area values :  Real values |
 | location_3state | Classification of surface area values: categorical (surface-core-interface) |
-| 'disulfide_bin', 'intMet_bin',
-         'intramembrane_bin', 'naturalVariant_bin', 'dnaBinding_bin',
-         'activeSite_bin', 'nucleotideBinding_bin', 'lipidation_bin', 'site_bin',
-         'transmembrane_bin', 'crosslink_bin', 'mutagenesis_bin', 'strand_bin',
-         'helix_bin', 'turn_bin', 'metalBinding_bin', 'repeat_bin',
-         'caBinding_bin', 'topologicalDomain_bin', 'bindingSite_bin',
-         'region_bin', 'signalPeptide_bin', 'modifiedResidue_bin',
-         'zincFinger_bin', 'motif_bin', 'coiledCoil_bin', 'peptide_bin',
-         'transitPeptide_bin', 'glycosylation_bin', 'propeptide_bin' | Binary labels for UniProt annotations: 0: not annotated, 1: annotation present, but mutation is not on annotation, 2: mutation is on the annotation :  Binary |
-| 'disulfide_dist', 'intMet_dist',
-         'intramembrane_dist',
-         'naturalVariant_dist', 'dnaBinding_dist', 'activeSite_dist',
-         'nucleotideBinding_dist', 'lipidation_dist', 'site_dist',
-         'transmembrane_dist', 'crosslink_dist', 'mutagenesis_dist',
-         'strand_dist', 'helix_dist', 'turn_dist', 'metalBinding_dist',
-         'repeat_dist', 'caBinding_dist', 'topologicalDomain_dist',
-         'bindingSite_dist', 'region_dist', 'signalPeptide_dist',
-         'modifiedResidue_dist', 'zincFinger_dist', 'motif_dist',
-         'coiledCoil_dist', 'peptide_dist', 'transitPeptide_dist',
-         'glycosylation_dist', 'propeptide_dist' | Minimum distance of annotations from the mutation on protein structure : Real values |
+| disulfide_bin, intMet_bin,
+         intramembrane_bin, naturalVariant_bin, dnaBinding_bin,
+         activeSite_bin, nucleotideBinding_bin, lipidation_bin, site_bin,
+         transmembrane_bin, crosslink_bin, mutagenesis_bin, strand_bin,
+         helix_bin, turn_bin, metalBinding_bin, repeat_bin,
+         caBinding_bin, topologicalDomain_bin, bindingSite_bin,
+         region_bin, signalPeptide_bin, modifiedResidue_bin,
+         zincFinger_bin, motif_bin, coiledCoil_bin, peptide_bin,
+         transitPeptide_bin, glycosylation_bin, propeptide_bin | Binary labels for UniProt annotations: 0: not annotated, 1: annotation present, but mutation is not on annotation, 2: mutation is on the annotation :  Binary |
+| disulfide_dist, intMet_dist,
+         intramembrane_dist,
+         naturalVariant_dist, dnaBinding_dist, activeSite_dist,
+         nucleotideBinding_dist, lipidation_dist, site_dist,
+         transmembrane_dist, crosslink_dist, mutagenesis_dist,
+         strand_dist, helix_dist, turn_dist, metalBinding_dist,
+         repeat_dist, caBinding_dist, topologicalDomain_dist,
+         bindingSite_dist, region_dist, signalPeptide_dist,
+         modifiedResidue_dist, zincFinger_dist, motif_dist,
+         coiledCoil_dist, peptide_dist, transitPeptide_dist,
+         glycosylation_dist, propeptide_dist | Minimum distance of annotations from the mutation on protein structure : Real values |
 
 
 
