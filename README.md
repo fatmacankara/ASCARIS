@@ -30,7 +30,7 @@ We quantitatively investigated the relationships between each of these features 
 
 Inside **input_files** folder, users can find files that are necessary to run the code. Below, explanations of the files can be found.
 
-- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structures. Swiss-Model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository, and manually merged into a single file. This file must be unzipped to input_files folder prior to usage.
+- **swissmodel_structures.txt.zip** : Includes summary file for Swiss-Model structures. Swiss-Model summary (INDEX-metadata) files are downloaded separately for each organism from https://swissmodel.expasy.org/repository, and manually merged into a single file. This file must be unzipped to input_files folder prior to usage. Uploaded file is created on June 9, 2022. Please run script create_swissmodelSummary.py to generate the file for new data.
 - **domains.txt** : Includes InterPro domains simplified as in the following order *(tab separated)* --> 
   [uniprotID      domainID        domainStartPosition     domainEndPosition]
 - **significant_domains** :  Selected domains from *domains.txt* file according to Fisher's Exact Test result. Fisher's Exact Test applied to all domains in the training test to assess their significance with respect to the the deleteriousness outcome. p_values is chosen as 0.01.
