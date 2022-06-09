@@ -90,7 +90,7 @@ Q00889	H	85	D
 
 Files in **out_files** folder are created by running the script **main.py** on **sample_input.txt** file. Depending on the input selection, two type of folders are created. 
 
-**PDB-ModBase-SwissModel structures are selected.**
+*If PDB-ModBase-SwissModel structures are selected:*
 
 ```
 python3 main.py -o 1 -i sample_input.txt
@@ -107,7 +107,9 @@ python3 main.py -o 1 -i sample_input.txt
 - **pdb/log.txt** : Log file
 
 
-**AlphaFold structures are selected.**
+
+
+*If AlphaFold structures are selected:*
 
 ```
 python3 main.py -o 2 -i sample_input.txt
