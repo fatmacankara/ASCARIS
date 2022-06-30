@@ -65,9 +65,9 @@ Datasets that are used to create machine learning models are provided in **datas
 Please unzip required files prior to running the code.
 
 ```
-python3 main.py -o 1 -i P13637-T-613-M
-python3 main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'
-python3 main.py -o 2 -i sample_input.txt
+python3 code/main.py -o 1 -i P13637-T-613-M
+python3 code/main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T'
+python3 code/main.py -o 2 -i input_fils/sample_input.txt
 
 ```
 ### Input Arguments
@@ -102,7 +102,7 @@ Files in **out_files** folder are created by running the script **main.py** on *
 *If PDB-ModBase-SwissModel structures are selected:*
 
 ```
-python3 main.py -o 1 -i sample_input.txt
+python3 code/main.py -o 1 -i input_files/sample_input.txt
 ```
 
 - **pdb/pdb_structures** : Contains downloaded structure files from PDB for input proteins when applicable. If the user has a folder wherein PDB structures are stored, this folder might be used to decrease run time. In this case, please change the extension of files in the folder to '.txt' and rename the folder as pdb/pdb_structures.
@@ -121,7 +121,7 @@ python3 main.py -o 1 -i sample_input.txt
 *If AlphaFold structures are selected:*
 
 ```
-python3 main.py -o 2 -i sample_input.txt
+python3 code/main.py -o 2 -i input_files/sample_input.txt
 ```
 
 - **alphafold/alignment_files** : Contains alignment of UniProt sequence files.
