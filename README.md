@@ -67,7 +67,7 @@ Please unzip required files prior to running the code.
 ```
 python3 code/main.py -o 1 -i P13637-T-613-M
 python3 code/main.py -o 2 -i "P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T"
-python3 code/main.py -o 2 -i input_fils/sample_input.txt
+python3 code/main.py -o 2 -i input_files/sample_input.txt
 
 ```
 ### Input Arguments
