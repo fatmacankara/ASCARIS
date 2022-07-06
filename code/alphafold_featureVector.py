@@ -100,6 +100,7 @@ def alphafold(input_set, mode):
     path_to_input_files, path_to_output_files, path_to_domains, fisher_path, path_to_interfaces, alphafold_path, alphafold_summary= manage_files(mode)
     sys.stdout = open(f'{path_to_output_files}/log.txt', 'w')
     print('Creating directories...')
+
     ## Physicochemical properties
     print('Adding physicochemical properties...\n')
     data = add_physicochemical(data)
@@ -132,46 +133,24 @@ def alphafold(input_set, mode):
     for key in change_names.keys():
         not_match_in_uniprot[key] = ''
     not_match_in_uniprot = not_match_in_uniprot.rename(columns=change_names)
+    uniprot_matched = add_annotations(uniprot_matched)
 
-    ## Getting annotations for all proteins in the uniprot_matched set
-    annotation_dict = {}
-    for protein in list(set(uniprot_matched.uniprotID.to_list())):
-        annotation_page = r.get(f'https://www.uniprot.org/uniprot/?query=accession:{protein}&format=gff')
-        uniprot_entry = annotation_page.text.split('\t')
-        annotations = {}
-        for i in range(2, len(uniprot_entry), 9):
-            if uniprot_entry[i] != 'Disulfide bond':
-                if uniprot_entry[i] not in annotations.keys():
-                    if uniprot_entry[i + 1] == uniprot_entry[i + 2]:
-                        annotations[uniprot_entry[i]] = [int(uniprot_entry[i + 1])]
+    for w in uniprot_matched.index:
+        for q in annotation_list:
+            per_protein = []
+            if uniprot_matched.at[w, q] != 'nan':
+                fix = ast.literal_eval(uniprot_matched.at[w, q])
+                for z in fix:
+                    if '-' in z:
+                        per_protein += np.arange(int(z.split('-')[0]), int(z.split('-')[1])+1,1).tolist()
                     else:
-                        all_residues = list(set(list(range(int(uniprot_entry[i + 1]), int(uniprot_entry[i + 2]) + 1))))
-                        all_residues = [int(i) for i in all_residues]
-                        annotations[uniprot_entry[i]] = all_residues
-                else:
-                    if uniprot_entry[i + 1] == uniprot_entry[i + 2]:
-                        annotations[uniprot_entry[i]] += [int(uniprot_entry[i + 1])]
-                    else:
-                        all_residues += list(range(int(uniprot_entry[i + 1]), int(uniprot_entry[i + 2])))
-                        all_residues = [int(i) for i in all_residues]
-                        annotations[uniprot_entry[i]] = all_residues
+                        try:
+                            per_protein.append(int(z))
+                        except:
+                            ValueError
+                uniprot_matched.at[w, q] = per_protein
             else:
-                if uniprot_entry[i] not in annotations.keys():
-                    annotations[uniprot_entry[i]] = [int(uniprot_entry[i + 1])]
-                    annotations[uniprot_entry[i]].append(int(uniprot_entry[i + 2]))
-                else:
-                    annotations[uniprot_entry[i]].append(int(uniprot_entry[i + 1]))
-                    annotations[uniprot_entry[i]].append(int(uniprot_entry[i + 2]))
-        annotations = {key: set(val) for key, val in annotations.items()}
-        annotation_dict[protein] = annotations
-
-    for key in change_names.keys():
-        uniprot_matched[key] = ''
-
-    for key, value in annotation_dict.items():
-        for key2, val2 in value.items():
-            uniprot_matched.loc[uniprot_matched.uniprotID == key, key2] = str(list(val2))
-
+                uniprot_matched.at[w, q] = 'nan'
     uniprot_matched = uniprot_matched.rename(columns=change_names)
     uniprot_matched['wt_sequence_match'] = uniprot_matched['wt_sequence_match'].astype(str)
 
@@ -179,7 +158,6 @@ def alphafold(input_set, mode):
     ## Avoiding downloading files for SASA calculation if already downloaded.
     existing_free_sasa = glob.glob(path_to_output_files + '/freesasa_files' + '/*')
     existing_free_sasa = [i.split('/')[-1].split('.')[0] for i in existing_free_sasa]
-
     ## Decide if the wild type amino acid is on canonical or isoform sequence. Selected sequence will be used for the
     ## sequence alignment.
     for i in uniprot_matched.index:
@@ -294,24 +272,15 @@ def alphafold(input_set, mode):
         uniprotID = uniprot_matched.at[i, 'uniprotID']
         datapoint = uniprot_matched.at[i, 'datapoint']
 
-        ## Get the positions of each attribute as a list
         for k in annotation_list:
             txt = k + 'Binary'
-            uniprot_matched.at[i, txt] = ''
-            if (uniprot_matched.at[i, k] != 'nan') & (uniprot_matched.at[i, k] != ''):
-                uniprot_matched.at[i, k] = ast.literal_eval(uniprot_matched.at[i, k])
-                for position in uniprot_matched.at[i, k]:
-                    if (str(position).strip() != 'nan') & (position != '') & (int(
-                            uniprot_matched.at[i, 'pos']) == int(position)):
-                        uniprot_matched.at[i, txt] = '2'
-                    elif (str(position).strip() != 'nan') & (position != '') & (
-                            int(uniprot_matched.at[i, 'pos']) != int(position)):
-                        uniprot_matched.at[i, txt] = '1'
-                    elif (str(position).strip() != 'nan') | (position != ''):
-                        uniprot_matched.at[i, txt] = '0'
-            else:
+
+            if (str(uniprot_matched.at[i, txt]) == '0') or (str(uniprot_matched.at[i, txt]) == '0.0'):
+                uniprot_matched.at[i, txt] = '1'
+            elif (str(uniprot_matched.at[i, txt]).lower() == 'nan') | (str(uniprot_matched.at[i, txt]) == np.NaN) :
                 uniprot_matched.at[i, txt] = '0'
-                uniprot_matched = uniprot_matched.astype(str)
+            elif (str(uniprot_matched.at[i, txt]) == '1') or (str(uniprot_matched.at[i, txt]) == '1.0'):
+                uniprot_matched.at[i, txt] = '2'
         ## Search in all models.
         models_for_protein = [val for key, val in model_count.items() if
                               uniprotID in key.split(';')]  # We have this many models for the protein.
@@ -324,7 +293,10 @@ def alphafold(input_set, mode):
                     map(str.strip, uniprot_matched.at[i, annot].strip('][').replace('"', '').split(',')))
             models_for_annotations = {}  # Recording which position is found in which model file.
             for annot_position in uniprot_matched.at[i, annot]:
-                models_for_that_position = which_model(int(annot_position))
+                if annot_position != 'nan' and annot_position != '':
+                    models_for_that_position = which_model(int(annot_position))
+                else:
+                    models_for_that_position = {}
                 for key, val in models_for_that_position.items():
                     if key not in models_for_annotations.keys():
                         models_for_annotations[key] = [val]
@@ -370,13 +342,10 @@ def alphafold(input_set, mode):
                         annotation_pos_on_pdb_ = []
                     else:
                         try:
-                            # print(new_dict[annot][mod])
-                            # new_dict[annot][mod] = [i - (1400 + (200 * (mod - 2))) for i in new_dict[annot][mod]]
                             annotation_pos_on_pdb_ = annotation_pos_on_pdb(new_dict[annot][mod], startGap, alignment_to_use,
                                                                            identifier)
                         except:
                             KeyError
-                    # print(annot, annotation_pos_on_pdb_)
                     info_per_model[mod][annot] = annotation_pos_on_pdb_
 
                 pdb_path = f'{alphafold_path}/AF-{uniprotID}-F{mod}-model_v1.pdb.gz'
@@ -403,12 +372,14 @@ def alphafold(input_set, mode):
                         sasa_pos = get_coords(mutationPositionOnPDB, alignments, coords, resnums_for_sasa, mode)[2]
                         sasa_val = sasa('alphafold', 'nan', uniprotID, sasa_pos, uniprot_matched.at[i, 'wt'], mode,
                                         path_to_output_files, file_type='gzip')
+
                         if sasa_val != None:
                             uniprot_matched.at[i, 'sasa'] = sasa_val
                     else:
                         coordMut = 'nan'
                         sasa_val = 'nan'
                         uniprot_matched.at[i, 'sasa'] = sasa_val
+
                     domainPositionOnPDB_list = list(
                         range(int(uniprot_matched.at[i, 'domStart']), int(uniprot_matched.at[i, 'domEnd'])))
                     domain_distances = []
@@ -423,7 +394,6 @@ def alphafold(input_set, mode):
                         minimum_domain = np.NaN
                     all_domain_distances.append(minimum_domain)
                     list_dist_of_annots = []
-
                     for key, val in info_per_model.items():
                         modNum = key
                         min_annots = {}  # Write from scratch for each annotation.
@@ -459,9 +429,7 @@ def alphafold(input_set, mode):
                     print('Model File Not Found')
                     uniprot_matched.at[i, 'sasa'] = np.NaN
 
-            else:
-                uniprot_matched.at[i, 'sasa'] = np.NaN
-                continue
+
         if len(all_domain_distances) != 0:
             uniprot_matched.at[i, 'domaindistance3D'] = min(all_domain_distances)
         else:
@@ -492,6 +460,7 @@ def alphafold(input_set, mode):
             uniprot_matched.at[i, 'sasa'] = float(uniprot_matched.at[i, 'sasa'].strip())
         except:
             TypeError
+
         if float(uniprot_matched.at[i, 'sasa']) < 5:
             uniprot_matched.at[i, 'trsh4'] = 'core'
         elif float(uniprot_matched.at[i, 'sasa']) >= 5:

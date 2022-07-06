@@ -51,7 +51,7 @@ def mutation_position_on_pdb(alignment_list, pos):
                 countResidue += 1
             if int(countResidue) == int(pos):
                 canonicalRes = alignment_uniprot[countResidue + countGap - 1]
-                try:  # Buraya sonradan try except ekledim.
+                try:
                     pdbRes = alignment_pdb[countResidue + countGap - 1]
                 except:
                     IndexError
@@ -70,7 +70,7 @@ def mutation_position_on_pdb(alignment_list, pos):
                     countGap_pdb += 1
             if alignment_pdb[countResidue + countGap - 1] == '.' or alignment_pdb[
                 countResidue + countGap - 1] == '-':
-                mutationPositionOnPDB = 'nan'  # there is no match, so position is Nan.
+                mutationPositionOnPDB = 'nan'
                 posPDB = 'nan'
             else:
                 posPDB = countResidue + countGap - countGap_pdb
@@ -86,7 +86,7 @@ def mutation_position_on_pdb(alignment_list, pos):
             mutationPositionOnPDB = 'nan'
         elif alignment_pdb[countResidue + countGap - 1] == '.' or alignment_pdb[
             countResidue + countGap - 1] == '-':
-            mutationPositionOnPDB = 'nan'  # there is no match, so position is Nan.
+            mutationPositionOnPDB = 'nan'
             posPDB = 'nan'
     return (pdb_alignStatus, mutationPositionOnPDB, startGap, alignment_list[which_alignment_to_go - 1])
 
@@ -195,12 +195,13 @@ def find_position_on_pdb_for_range_annotations(posAnnotation, startGap, alignmen
 
 def annotation_pos_on_pdb(annot_positions, startGap, alignment_to_use, identifier):
     newpos = []
-    if annot_positions != 'nan':  # if not Nan #We need to find up_gap for each annotation position.
+    if annot_positions != 'nan':
         annot_positions = (str(annot_positions).replace("'", ''))
         annot_positions = (str(annot_positions).replace('[', ''))
         annot_positions = (str(annot_positions).replace("]", ''))
         positionList_perAnnotation = annot_positions.split(',')
         positionList_perAnnotation = [h.strip() for h in positionList_perAnnotation]
+
         position_start_on_pdb = 'nan'
         position_end_on_pdb = 'nan'
         try:
@@ -258,7 +259,7 @@ def annotation_pos_on_pdb(annot_positions, startGap, alignment_to_use, identifie
                             annotation_on_pdb = 'nan'
                         else:
                             annotation_on_pdb = int(annotation_on_up) - count_gap_pdb
-                        # annotation_on_pdb = int(annotation_on_up) - count_gap_pdb
+
                         if count_gap_pdb == annotation_on_up:
                             annotation_on_pdb = 'nan'
                         try:
@@ -288,10 +289,9 @@ def annotation_pos_on_pdb(annot_positions, startGap, alignment_to_use, identifie
                 except:
                     ValueError
                 newpositions = str(position_start_on_pdb) + '-' + str(position_end_on_pdb)
-                newpos.append(newpositions)  # positions on the pdb Fasta sequence.
+                newpos.append(newpositions)
             else:
                 pass
-                # print('positionList_perAnnotation[position]', positionList_perAnnotation[position], identifier)
     try:
         newpos = [i for i in newpos if i != 'nan']
     except:

@@ -43,7 +43,7 @@ def run_freesasa(infile, outfile, include_hetatms=True, outdir=None, force_rerun
                                        stderr=subprocess.PIPE,
                                        shell=True)
             out, err = command.communicate()
-    os.remove(infile)
+    #os.remove(infile)
     return outfile
 
 def calculate_freesasa(ID, model_num, existing_free_sasa, path_to_input,path_to_output_files, file_type = 'gzip'):
@@ -51,14 +51,14 @@ def calculate_freesasa(ID, model_num, existing_free_sasa, path_to_input,path_to_
     if file_type == 'gzip':
         if ID not in existing_free_sasa:
             fullID = f'AF-{ID}-F{model_num}-model_v1.pdb.gz'
-            run_freesasa(f'{path_to_input}{fullID}',  # BURDAKİ INPUT PATHİ DEĞİŞMELİ, NORMALDE EXAMPLE INUT BBNUN İÇİNDE DEĞİL. PATH TO OUT YERİNE BİR ÜST FOLDE KULLANILANİLİR.
+            run_freesasa(f'{path_to_input}{fullID}',
                          f'{path_to_output_files}/freesasa_files/{fullID}.txt', include_hetatms=True,
                          outdir=None, force_rerun=False)
     elif file_type == 'pdb':
         if ID not in existing_free_sasa:
             fullID = f'AF-{ID}-F{model_num}-model_v1.pdb'
 
-            run_freesasa(f'{path_to_input}{fullID}',  # BURDAKİ INPUT PATHİ DEĞİŞMELİ, NORMALDE EXAMPLE INUT BBNUN İÇİNDE DEĞİL. PATH TO OUT YERİNE BİR ÜST FOLDE KULLANILANİLİR.
+            run_freesasa(f'{path_to_input}{fullID}',
                          f'{path_to_output_files}/freesasa_files/{fullID}.txt', include_hetatms=True,
                          outdir=None, force_rerun=False)
 
@@ -105,7 +105,7 @@ def sasa(source, pdbID, uniprotID, sasa_pos, wt, mode, path_to_output_files,file
                                 elif wt != threeToOne(residue):
                                     sasa = str(k[22:28]).strip('\n') + '*'
 
-                return sasa  #######
+                return sasa
             elif file_type == 'gzip':
                 for filename in glob.glob(f'{path_to_output_files}/freesasa_files/*'):
                     fname = list(filter(None, filename.split('.')))[0].split('/')[-1].split('-')[1].upper()

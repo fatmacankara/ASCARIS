@@ -34,7 +34,6 @@ def clean_data(input_set):
             data.at[i, 'datapoint'] = data.at[i, 'uniprotID'] + data.at[i, 'wt'] + str(data.at[i, 'pos']) + data.at[i, 'mut']
 
         data = data.astype(str)
-        #data = data[data.uniprotID != 'Q8WZ42']
         return data
     except:
         ValueError

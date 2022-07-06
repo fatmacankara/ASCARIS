@@ -1,37 +1,42 @@
 import ssl
-import requests as r
+import requests
+import time
+import json
 
 def get_pdb_ids(protein_id):
-    # Fetch PDB IDs associated with given UniProtID
-    ssl._create_default_https_context = ssl._create_unverified_context
-    url = 'https://www.uniprot.org/uploadlists/'
-    params_ = {
-        'from': 'ACC+ID',
-        'to': 'PDB_ID',
-        'format': 'tab',
-        'query': protein_id.strip()
-    }
+    POLLING_INTERVAL = 3
+    API_URL = "https://rest.uniprot.org"
 
-    response = r.get(url, params=params_)
-    response = response.text.split('\n')
-    response = list(filter(None, response))
+    def submit_id_mapping(fromDB, toDB, ids):
+        r = requests.post(
+            f"{API_URL}/idmapping/run", data={"from": fromDB, "to": toDB, "ids": ids},
+        )
+        r.raise_for_status()
+        return r.json()["jobId"]
 
+    def get_id_mapping_results(job_id):
+        while True:
+            r = requests.get(f"{API_URL}/idmapping/status/{job_id}")
+            r.raise_for_status()
+            job = r.json()
+            if "jobStatus" in job:
+                if job["jobStatus"] == "RUNNING":
+                    print(f"Retrying in {POLLING_INTERVAL}s")
+                    time.sleep(POLLING_INTERVAL)
+                else:
+                    raise Exception(job["jobStatus"])
+            else:
+                return job
+
+    job_id = submit_id_mapping(
+        fromDB="UniProtKB_AC-ID", toDB="PDB", ids=protein_id
+    )
+    results = get_id_mapping_results(job_id)
     pdbs = {}
-    pdbs_per_protein = []
-    for i in range(len(response)):
-        try:
-            if response[i].split('\t')[0] in pdbs.keys():
-                pdbs_per_protein.append(response[i].split('\t')[1])
-            elif response[i].split('\t')[0] not in pdbs.keys():
-                pdbs_per_protein = []
-                pdbs_per_protein.append(response[i].split('\t')[1])
-        except:
-            IndexError
-
-        pdbs[response[i].split('\t')[0]] = pdbs_per_protein
-    try:
-        pdbs.pop('From')
-    except:
-        KeyError
-        print(pdbs)
+    for i in results['results']:
+        if i['from'] not in pdbs.keys():
+            pdbs[i['from']] = []
+            pdbs[i['from']].append(i['to'])
+        else:
+            pdbs[i['from']].append(i['to'])
     return pdbs

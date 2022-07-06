@@ -1,3 +1,8 @@
+"""
+This code file produces alignments between the structure and the sequence for a given protein.
+
+"""
+
 import math
 import glob
 import numpy as np
@@ -19,7 +24,7 @@ def find_distance(coordMut, coordAnnot):
             dist = distance(float(coordMut[0]), float(coordMut[1]), float(coordMut[2]), float(coordAnnot[0]),
                             float(coordAnnot[1]), float(coordAnnot[2]))
             return "%.2f" % dist
-        except:  # mesela pdbdeki residue seqreste görünemedi kısaydı, koordinat yok o yüzden.
+        except:
             ValueError
             dist = 'nan'
             return dist
@@ -75,7 +80,7 @@ def threeToOne(variant):
     return (variant)
 
 
-def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski halinde alignment = (str(alignments[0]).strip().split('\n'))  yapıyoruz ama şidiki yapışımda alignments liste onjecti gibi o yüzden ana kodda 0. indeii alı burda öyle devam ettim. alignmentsın uzunluğu 1den büyük veya 1den küçük olarak seçeneklendirilebilri.
+def get_coords(annot, alignments, coords, resnums_for_sasa, mode):
     if mode == 1:
         for alignment in alignments[0]:
             alignment = (str(alignment).strip().split('\n'))
@@ -93,7 +98,7 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski 
                     countGap += 1
                 else:
                     countResidue += 1
-                if countResidue == float(annot):  # mutPDB pos on pdb mesela, ya da diğer annor positions
+                if countResidue == float(annot):
                     break
             countGap_pdb = 0
             countResidue_pdb = 0
@@ -125,7 +130,7 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski 
     if mode == 2:
         if annot != 'nan':
             if int(annot) <= 1400:
-                alignment = (str(alignments).strip().split('\n')) # alignments is the input.
+                alignment = (str(alignments).strip().split('\n'))
                 startGap = 0
                 if alignment[0].startswith('.'):
                     for k in alignment[0]:
@@ -140,7 +145,7 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski 
                         countGap += 1
                     else:
                         countResidue += 1
-                    if countResidue == float(annot):  # mutPDB pos on pdb mesela, ya da diğer annor positions
+                    if countResidue == float(annot):
                         break
                 countGap_pdb = 0
                 countResidue_pdb = 0
@@ -154,7 +159,7 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski 
                         realpdbStart += 1
                     else:
                         break
-                if len(alignment[2]) > (countResidue + countGap - 1):  # Bunu Mart 2de ekledim.
+                if len(alignment[2]) > (countResidue + countGap - 1):
                     if (alignment[2][countResidue + countGap - 1] != '-') and (float(annot) >= float(realpdbStart) + 1):
                         try:
                             coordinates = coords
@@ -179,7 +184,7 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode): # burda eski 
             return np.NaN, np.NaN, np.NaN
 
 
-def get_alignments_3D(identifier, model_num, pdb_path, pdbSequence, source, chain, pdbID, mode, path_3D_alignment,file_format = 'gzip'):  # input sayı; output coordinates
+def get_alignments_3D(identifier, model_num, pdb_path, pdbSequence, source, chain, pdbID, mode, path_3D_alignment,file_format = 'gzip'):
     if mode == 1:
         for name in glob.glob(pdb_path):
             atomSequence = ''

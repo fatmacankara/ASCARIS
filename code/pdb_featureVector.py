@@ -9,6 +9,7 @@ import pandas as pd
 import requests
 import os.path as op
 import subprocess
+import shutil
 import ssbio.utils
 import warnings
 import sys
@@ -89,7 +90,7 @@ def pdb(input_set, mode):
 
         data = data.astype(str)
         data = data.replace({'NaN': 'nan'})
-        data.domain = data.domain.replace({'nan': '-1'})  # Domainler nan ise -1 olsun.
+        data.domain = data.domain.replace({'nan': '-1'})
         data.domStart = data.domStart.replace({'nan': '-1'})
         data.domEnd = data.domEnd.replace({'nan': '-1'})
         data.distance = data.distance.replace({'nan': '-1'})
@@ -185,7 +186,6 @@ def pdb(input_set, mode):
         for protein in list(set(uniprot_matched.uniprotID.to_list())):
             dict = get_pdb_ids(protein)
             pdbs.append([dict[k] for k in dict])
-
         print('Processing PDB structures...\n')
         try:
             pdbs = [j.strip('[').strip(']').strip().strip('\'').strip('\"') for j in
@@ -201,7 +201,6 @@ def pdb(input_set, mode):
         parser = PDBParser()
         index = 0
 
-        import shutil
         try:
             shutil.rmtree('obsolete')
         except OSError as e:
@@ -260,8 +259,6 @@ def pdb(input_set, mode):
                               path_to_output_files + 'pdb_structures/' + filename[3:])
             except:
                 FileNotFoundError
-        # pdb_info.to_csv('/Users/fatmacankara/Desktop/new_benchmark/pdb_info.txt', sep='\t', index=False)
-        # pdb_fasta.to_csv('/Users/fatmacankara/Desktop/new_benchmark/pdb_fasta.txt', sep='\t', index=False)
 
         uniprot_matched = pd.merge(uniprot_matched, pdb_info, on='uniprotID', how='left')
         uniprot_matched = uniprot_matched.astype(str)
@@ -306,8 +303,7 @@ def pdb(input_set, mode):
                              'wt_sequence_match',
                              'whichIsoform', 'pdbID', 'resolution', 'chain', 'pdbInfo', 'datapoint']]
 
-        # with_pdb.to_csv('/Users/fatmacankara/Desktop/new_benchmark/with_pdb.txt', sep='\t', index=False)
-        # no_pdb.to_csv('/Users/fatmacankara/Desktop/new_benchmark/no_pdb.txt', sep='\t', index=False)
+
 
         # If the query data points are found in no_match_in_uniprot data frame, it will not give any results.
         # If the query data points are found in no_pdb data frame, it will be searched in the modbase and swiss_model steps.
@@ -354,7 +350,6 @@ def pdb(input_set, mode):
         with_pdb.replace({'nan-nan': 'nan'}, inplace=True)
         with_pdb.replace({'': 'nan'}, inplace=True)
 
-        # with_pdb.to_csv('/Users/fatmacankara/Desktop/new_benchmark/with_pdb_with_annotations.txt', sep='\t', index=False)
         """
         STEP 7
         Do alignment for PDB
@@ -380,8 +375,7 @@ def pdb(input_set, mode):
         dfM.drop(['index'], axis=1, inplace=True)
         dfNM.reset_index(inplace=True)
         dfNM.drop(['index'], axis=1, inplace=True)
-        # dfM.to_csv('/Users/fatmacankara/Desktop/new_benchmark/dfM.txt', sep='\t', index=False)
-        # dfNM.to_csv('/Users/fatmacankara/Desktop/new_benchmark/dfNM.txt', sep='\t', index=False)
+
         uniprot_matched_size = len(uniprot_matched.drop_duplicates(['datapoint']))
         uniprot_matched = None
         pdb_fasta = None
@@ -414,8 +408,6 @@ def pdb(input_set, mode):
         aligned_m = aligned_m.astype(str)
         aligned_nm = aligned_nm.astype(str)
 
-        # aligned_m.to_csv('/Users/fatmacankara/Desktop/new_benchmark/aligned_m.txt', sep='\t', index=False)
-        # aligned_nm.to_csv('/Users/fatmacankara/Desktop/new_benchmark/aligned_nm.txt', sep='\t', index=False)
 
         frames = [aligned_m, aligned_nm]
         after_up_pdb_alignment = pd.concat(frames, sort=False)
@@ -439,7 +431,6 @@ def pdb(input_set, mode):
             (after_up_pdb_alignment.pdbID != 'nan') & (after_up_pdb_alignment.mutationPositionOnPDB == 'nan')]
         no_pdb = no_pdb.copy()
 
-        # len(aligned.drop_duplicates(['datapoint'])) + len(no_pdb.drop_duplicates(['datapoint'])) + len(yes_pdb_no_match.drop_duplicates(['datapoint'])) + len(not_match_in_uniprot.drop_duplicates(['datapoint'])) == len(data)
 
         print('PDB matching is completed...\n')
         print('SUMMARY')
@@ -602,7 +593,7 @@ def pdb(input_set, mode):
         swiss_models_with_data = swiss_models_with_data.astype(str)
 
         # swiss_models_with_data: These data points will be aligned with their corresponding model sequences.
-        # Add sequences  # Burda sayı düşüyor.
+        # Add sequences
 
         no_swiss_models_2.reset_index(inplace=True)
         no_swiss_models_2.drop('index', axis=1, inplace=True)
@@ -615,7 +606,6 @@ def pdb(input_set, mode):
         swiss_model = None
         no_swiss_models = None
         url_nan = None
-        # len(to_swiss.drop_duplicates(['datapoint'])) == len(no_swiss_models_2.drop_duplicates(['datapoint'])) + len(swiss_models_with_data.drop_duplicates(['datapoint']))
 
         # At this point we have:
         # pdb_aligned --- Align in the PDB phase
@@ -670,16 +660,13 @@ def pdb(input_set, mode):
         if len(swissmodels_fasta) == 0:
             swissmodels_fasta = pd.DataFrame(columns=['uniprotID', 'template', 'qmean_norm', 'chain', 'fasta'])
         else:
-            # swissmodels_fasta = no_swiss_models[to_swiss.columns]  bu satır yanlış olabilir mi? bi anlamsız geldii. belki yer değiştirirsekn hata yaptım.25 mart.
             swissmodels_fasta.columns = ['uniprotID', 'template', 'qmean_norm', 'chain', 'fasta']
 
         swissmodels_fasta = swissmodels_fasta.astype(str)
-        # swissmodels_fasta.to_csv('/Users/fatmacankara/Desktop/new_benchmark/swiss_models_fasta.txt', sep='\t', index=False)
 
         swiss_models_with_data.qmean_norm = swiss_models_with_data.qmean_norm.astype(float)
         swissmodels_fasta.qmean_norm = swissmodels_fasta.qmean_norm.astype(float)
 
-        # Bu dosya üerince şunu yap; bazı aynı modellerin sekansı yok.
         swissmodels_fasta = swissmodels_fasta.sort_values(['uniprotID', 'template', 'qmean_norm', 'chain'],
                                                           axis=0)  # example = 3gdh
         swissmodels_fasta.reset_index(inplace=True)
@@ -700,8 +687,7 @@ def pdb(input_set, mode):
                                                                       ascending=[True, False])
         swiss_models_with_data1 = swiss_models_with_data1.drop_duplicates(['datapoint', 'template'])
 
-        # Bazı proteinlere model gelmedi, bunları da modbasee gideceklere ekle. Bunu oluşturmak çok uzun sürdü. O yüzden yazdırıyorum.
-        # swiss_models_with_data1'de sadece tam model bilgisi olanlar var.
+
         swiss_models_with_data1_dp = list(set(swiss_models_with_data1.datapoint.to_list()))
         swiss_models_with_data.reset_index(inplace=True)
         swiss_models_with_data.drop(['index'], axis=1, inplace=True)
@@ -718,8 +704,7 @@ def pdb(input_set, mode):
 
         swiss_models_with_data = swiss_models_with_data1.copy()
 
-        # Bundan sonra bile bazıları hem sekansı olan hem de sekansı olmayan IDlerle eşlenmiş. Bu durumda sekansın olmadığı durumları yok etmek lazım.
-        # Çünkü eşlenmezse zaten sonraki adıma alıcaz.
+
         swiss_models_with_data.qmean_norm = swiss_models_with_data.qmean_norm.astype('float')
         swiss_models_with_data = swiss_models_with_data.sort_values(['uniprotID', 'wt', 'mut', 'qmean_norm'],
                                                                     axis=0, ascending=[True, True, True, False])
@@ -746,9 +731,7 @@ def pdb(input_set, mode):
         swiss_models_with_data = add_annotations(swiss_models_with_data)
         swiss_models_with_data = swiss_models_with_data.astype(str)
         swiss_models_with_data.replace({'NaN': 'nan'}, inplace=True)
-        # swiss_models_with_data.to_csv('/Users/fatmacankara/Desktop/new_benchmark/right_before_alignment.txt', sep='\t', index=False)
         swiss_models_with_data_copy = swiss_models_with_data.copy()
-        #  burda alignment zaten ana dataframei de döndürüyo o yüzden kopya al bunlan önce ve onunla karşılaştır değişimi.
         swiss_models_with_data1_dp = None
         swiss_models_with_data1 = None
         existing_swiss = None
@@ -760,7 +743,6 @@ def pdb(input_set, mode):
         swiss_model_aligned = alignment(swiss_models_with_data, annotation_list, path_to_output_files + '/alignment_files')
         swiss_models_with_data = None
 
-        # swiss_model_aligned.to_csv('/Users/fatmacankara/Desktop/new_benchmark/swiss_alignment.txt', sep='\t', index=False)
 
         if len(swiss_model_aligned) == 0:
             swiss_model_aligned = pd.DataFrame(columns=pdb_aligned.columns)
@@ -794,7 +776,6 @@ def pdb(input_set, mode):
         to_swiss_columns = to_swiss.columns
         to_swiss_size = len(to_swiss.drop_duplicates(['datapoint']))
         to_swiss = None
-        # to_modbase.to_csv('/Users/fatmacankara/Desktop/new_benchmark/to_modbase.txt', sep = '\t', index=False)
 
         # CONTROL
 
@@ -849,6 +830,7 @@ def pdb(input_set, mode):
                 if protein not in existing_modbase_models:
                     print('Downloading Modbase models for ', protein)
                     url = 'https://salilab.org/modbase/retrieve/modbase/?databaseID=' + protein
+                    print(url)
                     req = requests.get(url)
                     name = path_to_output_files + 'modbase_structures/' + protein + '.txt'
                     with open(name, 'wb') as f:
@@ -936,18 +918,14 @@ def pdb(input_set, mode):
                     columns=['UniprotID', 'TargetBeg', 'TargetEnd', 'PDBCode', 'PDBChain', 'PDBBegin', 'PDBEnd',
                              'ModPipeQualityScore', 'ModelID'])
 
-            # modbase_reduced.to_csv('/Users/fatmacankara/Desktop/new_benchmark/modbase_reduced.txt', index=False, sep=' ')
             to_modbase = add_annotations(to_modbase)
+
             to_modbase = to_modbase.astype(str)
             to_modbase.fillna('nan', inplace=True)
             to_modbase = to_modbase.replace({'NaN': 'nan'})
             to_modbase.replace({'[]': 'nan'}, inplace=True)
             to_modbase.replace({'nan-nan': 'nan'}, inplace=True)
             to_modbase.replace({'': 'nan'}, inplace=True)
-
-            # to_modbase.to_csv(
-            #    '/Users/fatmacankara/Desktop/varibench_intermediate_files/to_modbase_varibench_annotations_added.txt', sep='\t',
-            #    index=False)
             model_info_added = to_modbase.merge(modbase_reduced, right_on='UniprotID', left_on='uniprotID',
                                                 how='left')
             modbase_reduced = None
@@ -969,10 +947,9 @@ def pdb(input_set, mode):
             model_info_added = model_info_added.drop_duplicates()
 
             model_info_added = model_info_added.astype(str)
-            # model_info_added.to_csv('/Users/fatmacankara/Desktop/new_benchmark/modbaseInfoAdded.txt', sep='\t', index=False)
             model_info_added = model_info_added.replace({'NaN': 'nan'})
-            no_info = model_info_added[model_info_added.pdbID == 'nan']  # Model gelmedi, inmedi.
-            with_modbase_info = model_info_added[model_info_added.pdbID != 'nan']  # Model gelenler.
+            no_info = model_info_added[model_info_added.pdbID == 'nan']
+            with_modbase_info = model_info_added[model_info_added.pdbID != 'nan']
             model_info_added = None
 
             len(no_info.drop_duplicates(['datapoint'])), len(with_modbase_info.drop_duplicates(['datapoint']))
@@ -985,14 +962,11 @@ def pdb(input_set, mode):
             with_modbase_info.score = with_modbase_info.score.astype(float)
             modbase_fasta.score = modbase_fasta.score.astype(float)
 
-            # Bu dosya üerince şunu yap; bazı aynı modellerin sekansı yok.
             modbase_fasta = modbase_fasta.sort_values(['uniprotID', 'score', 'template', 'chain'],
                                                       ascending=[True, False, True, True], axis=0)  # example = 3gdh
-            # modbase_fasta.to_csv('/Users/fatmacankara/Desktop/new_benchmark/modbase_fasta.txt', sep='\t', index=False)
 
             # I added this newly downloaded ones to the main model file.
 
-            # Gereksiz bir ekstra column ama olmazsa yanlış okıuyo, yani sil.
             modbase_fasta = modbase_fasta.rename(columns={'template': 'pdbID'})
             with_modbase_info.pos = with_modbase_info.pos.astype('int')
             with_modbase_info.score = with_modbase_info.score.astype(float)
@@ -1019,8 +993,7 @@ def pdb(input_set, mode):
             with_modbase_info = with_modbase_info.replace({', \'?\'': ''})
             with_modbase_info = with_modbase_info.replace({'(': ''})
             with_modbase_info = with_modbase_info.replace(
-                {')': ''})  # Bu genelde olmuyo neden bilmiyorum. Manual olarak düzelttim.
-            # Ve düzeltilmiş dosyayı asıl dosyaymış gibi kaydettim. Bu muhtemelen anotasyonları eklediğimiz yerle alakalı.
+                {')': ''})
             with_modbase_info = with_modbase_info.astype(str)
             with_modbase_info.fasta = with_modbase_info.fasta.astype('str')
             with_modbase_info.reset_index(inplace=True)
@@ -1028,9 +1001,9 @@ def pdb(input_set, mode):
 
 
             align = with_modbase_info[
-                with_modbase_info.fasta != 'nan']  # burda bir proteinden bir sürü var sıralanmış halde.
+                with_modbase_info.fasta != 'nan']
             yes_pdb_no_match = with_modbase_info[
-                with_modbase_info.fasta == 'nan']  # modeli geldi ama gelen modelin sekansı yok. burda bir protein için x modelnin fastası olmayabilitr ama aynı protein diğer dataframede de görülebilir çünkü model y için fasta gelmiştir mesela.
+                with_modbase_info.fasta == 'nan']
             yes_pdb_no_match = yes_pdb_no_match[~yes_pdb_no_match.datapoint.isin(align.datapoint.to_list())]
 
             align.rename(columns={'fasta': 'pdbSequence'}, inplace=True)
@@ -1040,14 +1013,11 @@ def pdb(input_set, mode):
             to_modbase_size = len(to_modbase.drop_duplicates(['datapoint']))
             modbase_fasta = None
             to_modbase = None
-
             print('Aligning sequences...\n')
             modbase_aligned = alignment(align, annotation_list, path_to_output_files + '/alignment_files')
             modbase_aligned = modbase_aligned.astype(str)
             modbase_aligned = modbase_aligned.replace({'NaN': 'nan'})
-            # modbase_aligned.to_csv('/Users/fatmacankara/Desktop/new_benchmark/modbase_aligned.txt', sep='\t', index=False)
 
-            # not_present_in_aligned = with_modbase_info[~with_modbase_info.datapoint.isin(modbase_aligned.datapoint.to_list())]
 
             # Get the ones whose models couldn't be found. Add to no_modbase (yani hiçbir şey de eşleşmemiş artık.)
             if len(with_modbase_info) != 0:
@@ -1084,7 +1054,7 @@ def pdb(input_set, mode):
                 not_models = pd.concat([yes_pdb_no_match.drop_duplicates(['datapoint']),
                                         not_in_aligned.drop_duplicates(['datapoint'])]).drop_duplicates(['datapoint'],
                                                                                                         keep='first')
-            # Retain the best model among the aligned ones. # Burayı swissteki gibi düzelt. Her ikisinde de olan ID olabilir.
+            # Retain the best model among the aligned ones.
             else:
                 not_models = pd.DataFrame(columns=not_in_aligned.columns)
 
@@ -1143,19 +1113,18 @@ def pdb(input_set, mode):
             not_nan = None
             nan = None
 
-            # modbase_match.to_csv('/Users/fatmacankara/Desktop/new_benchmark/modbase_aligned_match.txt', sep='\t', index=False)
 
             # merge not_in_align and modbase_not_match as they were both excluded from modbase match.
 
-            # EN baştan modbase modeli yok diye ayırdıklarımız
+            # No model
             no_info = no_info[to_swiss_columns]
             no_info = no_info.drop_duplicates()
 
-            # Modbase'de model olup sekans olmayanlar:
+            # Model present, no sequence
             not_models = not_models[to_swiss_columns]
             not_models = not_models.drop_duplicates()
 
-            # Modbase modeli ve sekansı olup, pdbde eşleşmeyenler
+            # Modbase model and sequence present, no match in PDB
             modbase_not_match = modbase_not_match[to_swiss_columns]
             modbase_not_match = modbase_not_match.drop_duplicates()
             if len(not_in_aligned) != 0 and len(modbase_not_match) != 0 and len(no_info) != 0:
@@ -1183,9 +1152,7 @@ def pdb(input_set, mode):
             rest.reset_index(inplace=True)
             rest.drop(['index'], axis=1, inplace=True)
             rest = rest.astype('str')
-            # est = add_annotations(rest)
-            # pdbyle alakalı cols yok, concat yapucaksan ekle nan olarak.
-            # rest.to_csv('/Users/fatmacankara/Desktop/new_benchmark/rest.txt', sep='\t', index=False)
+
 
         else:
 
@@ -1289,10 +1256,7 @@ def pdb(input_set, mode):
         """
 
         # Fix the axes and  merge all data.
-        # pdb = pd.read_csv('/Users/fatmacankara/Desktop/new_benchmark/pdb_aligned.txt', sep='\t')
-        ##pdb = pdb.drop(['pdbInfo', 'resolution'], axis=1)
-        # swiss = pd.read_csv('/Users/fatmacankara/Desktop/new_benchmark/swiss_aligned_match.txt', sep=' ')
-        # modbase = pd.read_csv('/Users/fatmacankara/Desktop/new_benchmark/modbase_aligned_match.txt', sep='\t')
+
 
         pdb.drop(['pdbInfo'], axis=1, inplace=True)
         pdb.rename(columns={'resolution': 'score'}, inplace=True)
@@ -1305,6 +1269,7 @@ def pdb(input_set, mode):
         swiss['source'] = 'SWISSMODEL'
         modbase['source'] = 'MODBASE'
         data = pd.concat([swiss, modbase, pdb])
+
 
         data.reset_index(inplace=True)
         data.drop(['index'], axis=1, inplace=True)
@@ -1376,9 +1341,8 @@ def pdb(input_set, mode):
         data['uniprotSequence'] = data['uniprotSequence'].str.replace('U', 'C')
         data['pdbSequence'] = data['pdbSequence'].str.replace('U', 'C')
         for i in data.index:
-            print(i,'of', len(data), data.at[i,'uniprotID'])
             if data.at[i, 'source'] == 'PDB':
-                pdb_path = path_to_output_files + 'pdb_structures/' + data.at[i, 'pdbID'] + '.txt'
+                pdb_path = path_to_output_files + 'pdb_structures/' + data.at[i, 'pdbID'].lower() + '.txt'
             elif data.at[i, 'source'] == 'MODBASE':
                 pdb_path = path_to_output_files + 'modbase_structures_individual/' + data.at[i, 'pdbID'] + '.txt'
             elif data.at[i, 'source'] == 'SWISSMODEL':
@@ -1390,7 +1354,7 @@ def pdb(input_set, mode):
             chain = data.at[i, 'chain']
             uniprotID = data.at[i, 'uniprotID']
             pdbID = data.at[i, 'pdbID']
-            alignments = get_alignments_3D(uniprotID, 'nan', pdb_path, pdbSequence, source, chain, pdbID, mode,path_to_output_files + '/3D_alignment/', file_format = 'gzip')
+            alignments = get_alignments_3D(uniprotID, 'nan', pdb_path, pdbSequence, source, chain, pdbID, mode,path_to_output_files + '3D_alignment/', file_format = 'gzip')
             mutPos = data.at[i, 'mutationPositionOnPDB']
             try:
                 coordMut = get_coords(mutPos, alignments , 'nan', 'nan', mode)[0]
@@ -1416,7 +1380,7 @@ def pdb(input_set, mode):
                                 try:
                                     annotx.append(find_distance(coordMut, coordAnnot))
                                 except:
-                                    ValueError  # Herhangi bir distance ekleme
+                                    ValueError
 
                             else:
                                 for r in range(int(pos.split('-')[0]), int(pos.split('-')[1]) + 1):
@@ -1446,13 +1410,11 @@ def pdb(input_set, mode):
                                                  float(data.at[i, 'domainEndonPDB']))
             data.at[i, 'domaindistance3D'] = min(float(data.at[i, 'domainStartonPDB']),
                                                  float(data.at[i, 'domainEndonPDB']))
-            # (data[data.datapoint == data.at[i, 'datapoint']]).astype(str).to_csv(path_to_output_files + 'after_3D_alignment_append.txt',
-            #                                                                     mode='a', index=False, sep='\t', header=False)
+
 
         data = data.astype(str)
         data.replace({'NaN': 'nan'}, inplace=True)
 
-        # data.to_csv(path_to_output_files + 'after_3D_alignment.txt', sep='\t', index=False)
 
         # Now unify all 3 separate data. We have with_pdb. The ones that have pdb structyres, swiss, modbase, the ones didnt match with ant and the ones didnt have wt seq match.
 
@@ -1599,29 +1561,15 @@ def pdb(input_set, mode):
                      'topologicalDomain', 'bindingSite', 'region', 'signalPeptide',
                      'modifiedResidue', 'zincFinger', 'motif', 'coiledCoil', 'peptide',
                      'transitPeptide', 'glycosylation', 'propeptide']
-        # Bu kod binary 2 olup 3ddistanceı 0dan farklı olanların oranını bulmak için.
-        """
-        print('annotationName', 'class2_distanceNot0', 'class2_distance0', 'ratio in total')
-        print('--------------' * 3)
-        for annot in annotCols:
-            countWrong = 0
-            countRight = 0
-            binaryName = str(annot) + 'Binary'
-            for i in data.index:
-                if data.at[i, binaryName] == '2' and (data.at[i, annot] != '0.0' and data.at[i, annot] != '0') and (data.at[i, annot] != 'nan'):
-                    countWrong +=1
-                elif data.at[i, binaryName] == '2' and (data.at[i, annot] == '0.0' or data.at[i, annot] == '0'):
-                    countRight += 1
-            print(annot, countWrong, countRight)
-        """
+
         for i in data.index:
             for annot in annotCols:
                 binaryName = str(annot) + 'Binary'
                 if data.at[i, binaryName] == '2':
                     data.at[i, annot] = '0.0'
         data.replace({'100000': 'nan'}, inplace=True)
-        # data.to_csv(path_to_output_files + 'benchmark_completed4.txt', sep='\t', index=False)
         data = add_physicochemical(data)
+        """
         final_cols_to_keep = ['datapoint', 'composition', 'polarity', 'volume', 'granthamScore','domain', 'domain_fisher',
                               'domaindistance3D', 'disulfide', 'intMet', 'intramembrane', 'naturalVariant',
                               'dnaBinding', 'activeSite', 'nucleotideBinding', 'lipidation', 'site',
@@ -1641,8 +1589,72 @@ def pdb(input_set, mode):
                               'transitPeptideBinary', 'glycosylationBinary', 'propeptideBinary', 'sasa',
                               'transitPeptideBinary', 'glycosylationBinary', 'propeptideBinary', 'sasa',
                               'threeState_trsh4_HQ']
+        """
+        data.rename(
+            columns={'uniprotID': 'prot_uniprotAcc', 'wt': 'wt_residue', 'pos': 'position', 'mut': 'mut_residue',
+                     'datapoint': 'meta_merged', 'datapoint_disease': 'meta-lab_merged', 'label': 'source_db',
+                     'family': 'prot_family', 'domain': 'domains_all', 'domain_fisher': 'domains_sig',
+                     'domaindistance3D': 'domains_3Ddist', 'threeState_trsh4_HQ': 'location_3state',
+                     'disulfideBinary': 'disulfide_bin', 'intMetBinary': 'intMet_bin',
+                     'intramembraneBinary': 'intramembrane_bin',
+                     'naturalVariantBinary': 'naturalVariant_bin', 'dnaBindingBinary': 'dnaBinding_bin',
+                     'activeSiteBinary': 'activeSite_bin',
+                     'nucleotideBindingBinary': 'nucleotideBinding_bin', 'lipidationBinary': 'lipidation_bin',
+                     'siteBinary': 'site_bin',
+                     'transmembraneBinary': 'transmembrane_bin', 'crosslinkBinary': 'crosslink_bin',
+                     'mutagenesisBinary': 'mutagenesis_bin',
+                     'strandBinary': 'strand_bin', 'helixBinary': 'helix_bin', 'turnBinary': 'turn_bin',
+                     'metalBindingBinary': 'metalBinding_bin',
+                     'repeatBinary': 'repeat_bin', 'topologicalDomainBinary': 'topologicalDomain_bin',
+                     'caBindingBinary': 'caBinding_bin',
+                     'bindingSiteBinary': 'bindingSite_bin', 'regionBinary': 'region_bin',
+                     'signalPeptideBinary': 'signalPeptide_bin',
+                     'modifiedResidueBinary': 'modifiedResidue_bin', 'zincFingerBinary': 'zincFinger_bin',
+                     'motifBinary': 'motif_bin',
+                     'coiledCoilBinary': 'coiledCoil_bin', 'peptideBinary': 'peptide_bin',
+                     'transitPeptideBinary': 'transitPeptide_bin',
+                     'glycosylationBinary': 'glycosylation_bin', 'propeptideBinary': 'propeptide_bin',
+                     'disulfide': 'disulfide_dist', 'intMet': 'intMet_dist',
+                     'intramembrane': 'intramembrane_dist', 'naturalVariant': 'naturalVariant_dist',
+                     'dnaBinding': 'dnaBinding_dist', 'activeSite': 'activeSite_dist',
+                     'nucleotideBinding': 'nucleotideBinding_dist', 'lipidation': 'lipidation_dist',
+                     'site': 'site_dist',
+                     'transmembrane': 'transmembrane_dist', 'crosslink': 'crosslink_dist',
+                     'mutagenesis': 'mutagenesis_dist', 'strand': 'strand_dist', 'helix': 'helix_dist',
+                     'turn': 'turn_dist',
+                     'metalBinding': 'metalBinding_dist', 'repeat': 'repeat_dist',
+                     'topologicalDomain': 'topologicalDomain_dist', 'caBinding': 'caBinding_dist',
+                     'bindingSite': 'bindingSite_dist', 'region': 'region_dist',
+                     'signalPeptide': 'signalPeptide_dist', 'modifiedResidue': 'modifiedResidue_dist',
+                     'zincFinger': 'zincFinger_dist', 'motif': 'motif_dist', 'coiledCoil': 'coiledCoil_dist',
+                     'peptide': 'peptide_dist', 'transitPeptide': 'transitPeptide_dist',
+                     'glycosylation': 'glycosylation_dist', 'propeptide': 'propeptide_dist'}, inplace=True)
 
-        ready = data[final_cols_to_keep]
+        data = data[
+            ['prot_uniprotAcc', 'wt_residue', 'mut_residue', 'position', 'meta_merged', 'composition', 'polarity',
+             'volume',
+             'granthamScore', 'domains_all',
+             'domains_sig', 'domains_3Ddist', 'sasa', 'location_3state', 'disulfide_bin', 'intMet_bin',
+             'intramembrane_bin', 'naturalVariant_bin', 'dnaBinding_bin',
+             'activeSite_bin', 'nucleotideBinding_bin', 'lipidation_bin', 'site_bin',
+             'transmembrane_bin', 'crosslink_bin', 'mutagenesis_bin', 'strand_bin',
+             'helix_bin', 'turn_bin', 'metalBinding_bin', 'repeat_bin',
+             'caBinding_bin', 'topologicalDomain_bin', 'bindingSite_bin',
+             'region_bin', 'signalPeptide_bin', 'modifiedResidue_bin',
+             'zincFinger_bin', 'motif_bin', 'coiledCoil_bin', 'peptide_bin',
+             'transitPeptide_bin', 'glycosylation_bin', 'propeptide_bin', 'disulfide_dist', 'intMet_dist',
+             'intramembrane_dist',
+             'naturalVariant_dist', 'dnaBinding_dist', 'activeSite_dist',
+             'nucleotideBinding_dist', 'lipidation_dist', 'site_dist',
+             'transmembrane_dist', 'crosslink_dist', 'mutagenesis_dist',
+             'strand_dist', 'helix_dist', 'turn_dist', 'metalBinding_dist',
+             'repeat_dist', 'caBinding_dist', 'topologicalDomain_dist',
+             'bindingSite_dist', 'region_dist', 'signalPeptide_dist',
+             'modifiedResidue_dist', 'zincFinger_dist', 'motif_dist',
+             'coiledCoil_dist', 'peptide_dist', 'transitPeptide_dist',
+             'glycosylation_dist', 'propeptide_dist']]
+        #ready = data[final_cols_to_keep]
+        ready = data.copy()
         ready.to_csv(path_to_output_files + '/featurevector_pdb.txt', sep='\t', index=False)
         if len(ready) == 0:
             print('No feature vector could be produced for input data. Please check the presence of a structure for the input proteins.')

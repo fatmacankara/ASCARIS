@@ -25,8 +25,6 @@ def add_annotations(dataframe):
 
     for protein in list(set(dataframe.uniprotID.to_list())):
         print('Downloading annotations for ' + protein)
-        #uniprot_entry = urllib.request.urlopen("http://www.uniprot.org/uniprot/" + protein + ".txt").read()
-        #uniprot_entry = uniprot_entry.decode('utf-8').split('\n')
         uniprot_entry = r.get("http://www.uniprot.org/uniprot/" + protein + ".txt")
         uniprot_entry = uniprot_entry.text.split('\n')
 
@@ -41,13 +39,10 @@ def add_annotations(dataframe):
                 dataframe.loc[dataframe.uniprotID == protein, select[0]] = str((select[1] + '; '))
             else:
                 dataframe.loc[dataframe.uniprotID == protein, select[0]] += str((select[1] + '; '))
-
     for i in range(len(original_annot_name)):
         dataframe = dataframe.rename(columns={original_annot_name[i]: annotation_list[i]})
 
     # Fix annotation positions
-
-    print()
     print('Processing positions...\n')
     for i in dataframe.index:
         for annot in dataframe.columns[-30:]:
@@ -85,7 +80,6 @@ def add_annotations(dataframe):
                         dataframe.at[i, txt] = '0'
                     elif position != 'nan' and position != '' and '-' in position:
                         if int(position.split('-')[0]) < int(dataframe.at[i, 'pos']) < int(position.split('-')[1]):
-                            # print(position.split('-')[0], position.split('-')[1])
                             dataframe.at[i, txt] = '1'
                             break
                         else:
