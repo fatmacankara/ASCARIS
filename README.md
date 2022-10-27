@@ -140,21 +140,21 @@ As can be seen in the figure below, dimensions 1-4 correspond to physicochemical
 <img width="1082" alt="Screen Shot 2021-06-24 at 12 32 04 AM" src="https://user-images.githubusercontent.com/26777185/123170836-a640c900-d483-11eb-90eb-473d826a2a75.png">
 
 
-| Column name in the output file  | Description | 
-| ------------- | ------------- |
-| prot_uniprotAcc | UniProt ID |
-| wt_residue | Wild type residue |
-| mut_residue | Mutated residue |
-| position | Variation position |
-| meta_merged | Datapoint identifier (UniProtID-WT Residue-VariationPosition-Mutated Residue) |
-| composition | Change in composition values upon observed variation. Composition is defined as the atomic weight ratio of hetero (non-carbon) elements in end groups or rings to carbons in the side chain.  |
-| polarity | Change in polarity values upon observed variation. |
-| volume | Change in volume values upon observed variation. |
-| granthamScore | Change in Grantham scores values upon observed variation. The Grantham score predicts the distance between two amino acids. Higher Grantham scores are considered more deleterious. The distance scores published by Grantham range from 5 to 215. |
-| domains_all | Domain IDs : Categorical  |
-| domains_sig | Domains that are not found to be significant in Fisher's Exact Test are labelled as DomainX for simplicity.|
-| domains_3Ddist | Euclidian distance between the domains from its closest residue and the mutation site. |
-| sasa | Accessible surface area values :  Real values |
-| location_3state | Classification of surface area values: categorical (surface-core-interface) |
-| disulfide_bin, intMet_bin,intramembrane_bin, naturalVariant_bin, dnaBinding_bin, activeSite_bin, nucleotideBinding_bin, lipidation_bin, site_bin, transmembrane_bin, crosslink_bin, mutagenesis_bin, strand_bin, helix_bin, turn_bin, metalBinding_bin, repeat_bin, caBinding_bin, topologicalDomain_bin, bindingSite_bin, region_bin, signalPeptide_bin, modifiedResidue_bin, zincFinger_bin, motif_bin, coiledCoil_bin, peptide_bin, transitPeptide_bin, glycosylation_bin, propeptide_bin | Binary labels for UniProt annotations: 0: not annotated, 1: annotation present, but mutation is not on annotation, 2: mutation is on the annotation :  Binary |
-| disulfide_dist, intMet_dist, intramembrane_dist, naturalVariant_dist, dnaBinding_dist, activeSite_dist, nucleotideBinding_dist, lipidation_dist, site_dist, transmembrane_dist, crosslink_dist, mutagenesis_dist, strand_dist, helix_dist, turn_dist, metalBinding_dist, repeat_dist, caBinding_dist, topologicalDomain_dist, bindingSite_dist, region_dist, signalPeptide_dist, modifiedResidue_dist, zincFinger_dist, motif_dist, coiledCoil_dist, peptide_dist, transitPeptide_dist, glycosylation_dist, propeptide_dist | Minimum distance of annotations from the mutation on protein structure : Real values |
+| Order of dimension | Column name in the output file  | Description | 
+| ------------- | ------------- | ------------- |
+| 1 | prot_uniprotAcc | UniProt ID |
+| 2 | wt_residue | Wild type residue |
+| 3 | mut_residue | Mutated residue |
+| 4 | position | Variation position |
+| 5 | meta_merged | Datapoint identifier (UniProtID-WT Residue-VariationPosition-Mutated Residue) |
+| 6 | composition | Change in composition values upon observed variation. Composition is defined as the atomic weight ratio of hetero (non-carbon) elements in end groups or rings to carbons in the side chain.  |
+| 7 | polarity | Change in polarity values upon observed variation. |
+| 8 | volume | Change in volume values upon observed variation. |
+| 9 | granthamScore | Change in Grantham scores values upon observed variation. The Grantham score predicts the distance between two amino acids. Higher Grantham scores are considered more deleterious. The distance scores published by Grantham range from 5 to 215. |
+| 10 | domains_all | Domain IDs : Categorical  |
+| 11 | domains_sig | Domains that are not found to be significant in Fisher's Exact Test are labelled as DomainX for simplicity.|
+| 12 | domains_3Ddist | Euclidian distance between the domains from its closest residue and the mutation site. |
+| 13 | sasa | Accessible surface area values :  Real values |
+| 14 | location_3state | Classification of surface area values: categorical (surface-core-interface) |
+| 15-44 |disulfide_bin, intMet_bin,intramembrane_bin, naturalVariant_bin, dnaBinding_bin, activeSite_bin, nucleotideBinding_bin, lipidation_bin, site_bin, transmembrane_bin, crosslink_bin, mutagenesis_bin, strand_bin, helix_bin, turn_bin, metalBinding_bin, repeat_bin, caBinding_bin, topologicalDomain_bin, bindingSite_bin, region_bin, signalPeptide_bin, modifiedResidue_bin, zincFinger_bin, motif_bin, coiledCoil_bin, peptide_bin, transitPeptide_bin, glycosylation_bin, propeptide_bin | Binary labels for UniProt annotations: 0: not annotated, 1: annotation present, but mutation is not on annotation, 2: mutation is on the annotation :  Binary |
+| 45-74 |disulfide_dist, intMet_dist, intramembrane_dist, naturalVariant_dist, dnaBinding_dist, activeSite_dist, nucleotideBinding_dist, lipidation_dist, site_dist, transmembrane_dist, crosslink_dist, mutagenesis_dist, strand_dist, helix_dist, turn_dist, metalBinding_dist, repeat_dist, caBinding_dist, topologicalDomain_dist, bindingSite_dist, region_dist, signalPeptide_dist, modifiedResidue_dist, zincFinger_dist, motif_dist, coiledCoil_dist, peptide_dist, transitPeptide_dist, glycosylation_dist, propeptide_dist | Minimum distance of annotations from the mutation on protein structure : Real values |
