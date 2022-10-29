@@ -135,9 +135,7 @@ python3 code/main.py -o 2 -i input_files/sample_input.txt
 
 ## Description of Output Vector
 
-As can be seen in the figure below, dimensions 1-4 correspond to physicochemical property values, 5-6 correspond to domain-related information, 7-36 correspond to binary information of variations with respect to their presence within annotation regions, 37-66 correspond to Euclidian distance between variation point and closest point of the annotation, 67-68 correspond to information regarding variation's position on the protein in terms of being in the core, interface or on the surface.
-
-
+As can be seen in the figure below, dimensions 1-5 correspond to datapoint identifier, 6-9 correspond to physicochemical property values, 10-12 correspond to domain-related information, 13-14 correspond to information regarding variation's position on the protein (both accessibility value and physical placement), 15-44 correspond to binary information of variations with respect to their presence within annotation regions, 45-74 correspond to Euclidian distance between variation point and closest point of the annotation. 
 
 
 | Order of dimension | Column name in the output file  | Description | 
