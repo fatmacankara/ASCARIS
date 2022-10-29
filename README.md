@@ -131,29 +131,29 @@ python3 code/main.py -o 2 -i input_files/sample_input.txt
 - **alphafold/featurevector_alphafold.txt** : Final feature vector file.
 - **alphafold/log.txt** : Log file
 
+
+## Description of the Dimensions of the Output Representations
+
 <img width="1284" alt="ASCARIS_Representation_Dimensions" src="https://user-images.githubusercontent.com/13165170/198850505-2a493c6a-a55d-43f1-af81-1c2fff5ac7ed.png">
 
-
-## Description of Output Vector
-
-As can be seen in the figure below, dimensions 1-5 correspond to datapoint identifier, 6-9 correspond to physicochemical property values, 10-12 correspond to domain-related information, 13-14 correspond to information regarding variation's position on the protein (both accessibility value and physical placement), 15-44 correspond to binary information of variations with respect to their presence within annotation regions, 45-74 correspond to Euclidian distance between variation point and closest point of the annotation. 
+In ASCARIS representations, dimensions 1-5 correspond to datapoint identifier, 6-9 correspond to physicochemical property values, 10-12 correspond to domain-related information, 13-14 correspond to information regarding variation's position on the protein (both the sasa value and the categorization), 15-44 correspond to binary correspondence between variations and different types of positional annotations (1 dimension for each annotation type), 45-74 correspond to spatial (Euclidian) distances between variations and different types of positional annotations (1 dimension for each annotation type).
 
 
 | Order of dimension | Column name in the output file  | Description | 
 | ------------- | ------------- | ------------- |
-| 1 | prot_uniprotAcc | UniProt ID |
+| 1 | prot_uniprotAcc | UniProt accession |
 | 2 | wt_residue | Wild type residue |
 | 3 | mut_residue | Mutated residue |
 | 4 | position | Variation position |
-| 5 | meta_merged | Datapoint identifier (UniProtID-WT Residue-VariationPosition-Mutated Residue) |
-| 6 | composition | Change in composition values upon observed variation. Composition is defined as the atomic weight ratio of hetero (non-carbon) elements in end groups or rings to carbons in the side chain.  |
-| 7 | polarity | Change in polarity values upon observed variation. |
-| 8 | volume | Change in volume values upon observed variation. |
-| 9 | granthamScore | Change in Grantham scores values upon observed variation. The Grantham score predicts the distance between two amino acids. Higher Grantham scores are considered more deleterious. The distance scores published by Grantham range from 5 to 215. |
-| 10 | domains_all | Domain IDs : Categorical  |
-| 11 | domains_sig | Domains that are not found to be significant in Fisher's Exact Test are labelled as DomainX for simplicity.|
-| 12 | domains_3Ddist | Euclidian distance between the domains from its closest residue and the mutation site. |
-| 13 | sasa | Accessible surface area values :  Real values |
-| 14 | location_3state | Classification of surface area values: categorical (surface-core-interface) |
-| 15-44 |disulfide_bin, intMet_bin,intramembrane_bin, naturalVariant_bin, dnaBinding_bin, activeSite_bin, nucleotideBinding_bin, lipidation_bin, site_bin, transmembrane_bin, crosslink_bin, mutagenesis_bin, strand_bin, helix_bin, turn_bin, metalBinding_bin, repeat_bin, caBinding_bin, topologicalDomain_bin, bindingSite_bin, region_bin, signalPeptide_bin, modifiedResidue_bin, zincFinger_bin, motif_bin, coiledCoil_bin, peptide_bin, transitPeptide_bin, glycosylation_bin, propeptide_bin | Binary labels for UniProt annotations: 0: not annotated, 1: annotation present, but mutation is not on annotation, 2: mutation is on the annotation :  Binary |
-| 45-74 |disulfide_dist, intMet_dist, intramembrane_dist, naturalVariant_dist, dnaBinding_dist, activeSite_dist, nucleotideBinding_dist, lipidation_dist, site_dist, transmembrane_dist, crosslink_dist, mutagenesis_dist, strand_dist, helix_dist, turn_dist, metalBinding_dist, repeat_dist, caBinding_dist, topologicalDomain_dist, bindingSite_dist, region_dist, signalPeptide_dist, modifiedResidue_dist, zincFinger_dist, motif_dist, coiledCoil_dist, peptide_dist, transitPeptide_dist, glycosylation_dist, propeptide_dist | Minimum distance of annotations from the mutation on protein structure : Real values |
+| 5 | meta_merged | Datapoint identifier (UniProt accession-WT Residue-VariationPosition-Mutated Residue) |
+| 6 | composition | Change in composition values upon the occurrence of variation. Composition is defined as the atomic weight ratio of hetero (non-carbon) elements in end groups or rings to carbons in the side chain.  |
+| 7 | polarity | Change in polarity values upon variation. |
+| 8 | volume | Change in volume values upon variation. |
+| 9 | granthamScore | Change in Grantham scores (the combination of composition, polarity and volume) values upon variation. |
+| 10 | domains_all | InterPro Domain IDs of all domains found in the dataset  |
+| 11 | domains_sig | InterPro Domain IDs of significant domains in the dataset. Domains that are not found to be significant in Fisher's Exact Test are labelled as "DomainX". |
+| 12 | domains_3Ddist | Shortest Euclidian distance between the domain and the variation site. |
+| 13 | sasa | Solvent accessible surface area values. |
+| 14 | location_3state | Caterozied location of the variation in the structure: surface, core or interface. |
+| 15-44 |disulfide_bin, intMet_bin,intramembrane_bin, naturalVariant_bin, dnaBinding_bin, activeSite_bin, nucleotideBinding_bin, lipidation_bin, site_bin, transmembrane_bin, crosslink_bin, mutagenesis_bin, strand_bin, helix_bin, turn_bin, metalBinding_bin, repeat_bin, caBinding_bin, topologicalDomain_bin, bindingSite_bin, region_bin, signalPeptide_bin, modifiedResidue_bin, zincFinger_bin, motif_bin, coiledCoil_bin, peptide_bin, transitPeptide_bin, glycosylation_bin, propeptide_bin | Positional sequence annotations, binary correspondence-based (30 different types of annotations, each one on a different dimension). Categories: 0: annotatation does not exist on the protein, 1: annotation is presented, but the variation is not on the annotated site, 2: variation is on the annotated site. |
+| 45-74 |disulfide_dist, intMet_dist, intramembrane_dist, naturalVariant_dist, dnaBinding_dist, activeSite_dist, nucleotideBinding_dist, lipidation_dist, site_dist, transmembrane_dist, crosslink_dist, mutagenesis_dist, strand_dist, helix_dist, turn_dist, metalBinding_dist, repeat_dist, caBinding_dist, topologicalDomain_dist, bindingSite_dist, region_dist, signalPeptide_dist, modifiedResidue_dist, zincFinger_dist, motif_dist, coiledCoil_dist, peptide_dist, transitPeptide_dist, glycosylation_dist, propeptide_dist | Positional sequence annotations, distance-based (the spatial distance between the annotated residue and the mutated residue, in the protein structure, for 30 different types of annotations, each one on a different dimension), in terms of Angstroms. |
