@@ -130,14 +130,14 @@ python3 code/main.py -o 2 -i input_files/sample_input.txt
 - **alphafold/featurevector_alphafold.txt** : Final feature vector file.
 - **alphafold/log.txt** : Log file
 
-
+<img width="942" alt="Fig2" src="https://user-images.githubusercontent.com/26777185/198831532-8ff621fe-d6a6-478c-a71f-9374c006695f.png">
 
 
 ## Description of Output Vector
 
 As can be seen in the figure below, dimensions 1-4 correspond to physicochemical property values, 5-6 correspond to domain-related information, 7-36 correspond to binary information of variations with respect to their presence within annotation regions, 37-66 correspond to Euclidian distance between variation point and closest point of the annotation, 67-68 correspond to information regarding variation's position on the protein in terms of being in the core, interface or on the surface.
 
-<img width="1082" alt="Screen Shot 2021-06-24 at 12 32 04 AM" src="https://user-images.githubusercontent.com/26777185/123170836-a640c900-d483-11eb-90eb-473d826a2a75.png">
+
 
 
 | Order of dimension | Column name in the output file  | Description | 
