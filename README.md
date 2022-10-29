@@ -1,15 +1,16 @@
-# ASCARIS
+# ASCARIS: Positional Feature Annotation and Protein Structure-Based Representation of Single Amino Acid Variations
 
 ## Abstract 
 
-Genomic variations may cause deleterious effects on protein functionality and perturb biological processes. Elucidating the effects of variations is important for developing novel treatments for diseases of genetic origin. Computational approaches have been aiding the work in this field by modeling and analyzing the mutational landscape. However, new approaches are required for accurate/comprehensive representation and cutting-edge data-centric analysis of sequence variations. 
+Genomic variations may cause deleterious effects on protein functionality and perturb biological processes. Elucidating the effects of variations is critical for developing novel treatment strategies for diseases of genetic origin. Computational approaches have been aiding the work in this field by modeling and analyzing the mutational landscape. However, new approaches are required, especially for accurate and comprehensive representation and data-centric analysis of sequence variations. 
 
-In this study, we propose a new method for featurizing single amino acid variations (SAVs) on proteins called ASCARIS (Annotation and StruCture-bAsed RepresentatIon of SAVs) to be used in data-driven modeling of variations for various purposes such as predicting the functions of protein variants or constructing multi-omics-based models. We evaluated variations’ function-related properties by utilizing a combination of sequence annotations from UniProt and 3-D structural information from PDB and AlphaFold-DB. For this, we extracted and analyzed the correspondence between the varied residue and 30 different sequence-based feature annotations (e.g., active/lipidation/glycosylation sites; calcium/metal/DNA binding, inter/transmembrane regions, etc.), together with structural features such as protein domains, the location of variation (e.g., core/interface/surface), and the change in physicochemical properties due to the variation. We also mapped mutated and annotated residues to the 3-D structures of corresponding proteins and calculated the spatial distances in-between since proximity (e.g., sharing an interface) may also effect functionality
+In this study, we propose ASCARIS (Annotation and StruCture-bAsed RepresentatIon of Single amino acid variations - SAVs), a method for the featurization (i.e., quantitative representation) of SAVs, which could be used for a variety of purposes, such as predicting their functional effects or building multi-omics-based integrative models. In ASCARIS representations, we incorporated the correspondence between the location of the SAV on the sequence and 30 different types of positional feature annotations (e.g., active/lipidation/glycosylation sites; calcium/metal/DNA binding, inter/transmembrane regions, etc.) from UniProt, along with structural features such as protein domains, the location of variation (e.g., core/interface/surface), and the change in physico-chemical properties using models from PDB and AlphaFold-DB. We also mapped the mutated and annotated residues to the 3-D plane and calculated the spatial distances between them in order to account for the functional changes caused by variations in positions close to the functionally essential ones. Finally, we constructed a 74-dimensional feature set to represent each SAV in a dataset composed of ~100,000 data points.
 
-We quantitatively investigated the relationships between each of these features and the consequences of variations, and finally constructed 68-dimensional feature vectors to represent SAVs in a large dataset composed of ~100,000 data points. To analyze potential applications of ASCARIS, we trained machine learning-based variant effect predictor models that utilise ASCARIS representations as input. We carried out both an ablation study and comparison against the state-of-the-art methods over well-known benchmark datasets. According to our results, our method displays competing and complementary performance against widely-used predictors. ASCARIS can be used either alone or in combination with other approaches, to universally represent SAVs from a functional perspective, for intensive data-driven analysis of genomic variations.
+We statistically analyzed the relationship between each of these features and the consequences of variations, and found that each of them carries information in this regard. To investigate potential applications of ASCARIS, we trained variant effect predictor models that utilize our SAV representations as input. We carried out both an ablation study and a comparison against the state-of-the-art methods over well-known benchmark datasets. We observed that our method displays a competing performance against widely-used predictors. Also, our predictions were complementary to these methods which is probably due to fact that ASCARIS has a rather unique focus in modeling variations. ASCARIS can be used either alone or in combination with other approaches, to universally represent SAVs from a functional perspective.
 
 <p align="center">
-<img width="706" alt="Screen Shot 2022-06-08 at 7 14 23 PM" src="https://user-images.githubusercontent.com/26777185/172726336-8ccc2914-4253-4ba7-b534-3581526651e0.png">
+
+<img width="1087" alt="ASCARIS_Overall_Workflow" src="https://user-images.githubusercontent.com/13165170/198850423-5d50bde2-f9dd-4600-baae-65830afdb57f.png">
 
  </p>
  
@@ -130,7 +131,7 @@ python3 code/main.py -o 2 -i input_files/sample_input.txt
 - **alphafold/featurevector_alphafold.txt** : Final feature vector file.
 - **alphafold/log.txt** : Log file
 
-<img width="942" alt="Fig2" src="https://user-images.githubusercontent.com/26777185/198831532-8ff621fe-d6a6-478c-a71f-9374c006695f.png">
+<img width="1284" alt="ASCARIS_Representation_Dimensions" src="https://user-images.githubusercontent.com/13165170/198850505-2a493c6a-a55d-43f1-af81-1c2fff5ac7ed.png">
 
 
 ## Description of Output Vector
