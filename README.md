@@ -51,15 +51,18 @@ python3 codes/get_alphafoldStructures.py -file_name UP000005640_9606_HUMAN.tar
 
 ### Datasets
 
-Datasets that are used to create machine learning models are provided in **datasets** folder. 
+Datasets that are used to create machine learning models are provided in **datasets** folder. Each file has a _raw and _imputed version, in which in the latter one the empty values are imputed with the mean values of each property obtained from the training set. Feature vectors that are created using Alphafold proteins and PDB proteins can be found under related folders.
 
 - **training_uptodate_full.txt** : Full training dataset obtained from UniProt, PMD and ClinVar.
 - **training_uptodate_full_2014selected.txt** : 2014 subset of the training set.
-- **swiss_ready.txt** : Benchmark set obtained from SwissVar database.
-- **varibench_ready.txt** : Benchmark set obtained from VariBench database.
-- **psnp_ready.txt** : Benchmark set obtained from PredictSNP database.
-- **test_MT_benchmark_datapoints_wo_training_datapoints** : Benchmark set obtained from MutationTaster data.
-
+- **swiss_test.txt** : Benchmark set obtained from SwissVar database.
+- **varibench_test.txt** : Benchmark set obtained from VariBench database.
+- **psnp_test.txt** : Benchmark set obtained from PredictSNP database.
+- **mutationtaster_test** : Benchmark set obtained from MutationTaster data.
+- **training_uptodate_full_2014selected_wo_swiss** : 2014 subset of the training set, test datapoints from SwissVar removed.
+- **training_uptodate_full_2014selected_wo_varibench** : 2014 subset of the training set, test datapoints from Varibench removed.
+- **training_uptodate_full_2014selected_wo_psnp** : 2014 subset of the training set, test datapoints from PredictSNP removed.
+- **training_uptodate_full_2014selected_wo_mt** : 2014 subset of the training set, test datapoints from MutationTaster removed.
 
 ## Usage
 
