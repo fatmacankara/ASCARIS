@@ -70,7 +70,7 @@ Please unzip required files prior to running the code.
 
 ```
 python3 code/main.py -o 1 -i P13637-T-613-M -impute True
-python3 code/main.py -o 2 -i "P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T" impute False
+python3 code/main.py -o 2 -i 'P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T' impute False
 python3 code/main.py -o 2 -i input_files/sample_input.txt
 
 ```
@@ -82,7 +82,7 @@ python3 code/main.py -o 2 -i input_files/sample_input.txt
 - *Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))*  
 - *Option 2: Enter tab-separated file path*
 
--impute :  imputation. Selection for imputation of the final feature vector. Imputation values are median values of corresponding columns. Default True </br>
+-impute :  imputation of NaN values. Imputation values are median values of corresponding columns. Default True </br>
 
 
 ### Sample Run
