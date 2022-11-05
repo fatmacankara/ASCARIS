@@ -1,5 +1,5 @@
 REM  FreeSASA 2.0.3
-REM  Absolute and relative SASAs for out_files/pdb/pdb_structures/5k5s.txt
+REM  Absolute and relative SASAs for out_files/pdb/pdb_structures/5k5s.pdb
 REM  Atomic radii and reference values for relative SASA: ProtOr
 REM  Chains: AB
 REM  Algorithm: Lee & Richards
