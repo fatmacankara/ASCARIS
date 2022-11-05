@@ -5,7 +5,6 @@ def clean_data(input_set):
     try:
         if ',' in input_set:
             input_set = [i.strip() for i in input_set.split(',')]
-            print('HERE')
             for i in input_set:
                 data = data.append(pd.Series([j.strip() for j in i.split('-')]), ignore_index=True)
             data.columns = ['uniprotID', 'wt', 'pos', 'mut']

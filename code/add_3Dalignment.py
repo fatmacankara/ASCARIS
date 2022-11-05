@@ -8,6 +8,7 @@ import glob
 import numpy as np
 from Bio import Align
 import gzip
+from pathlib import Path
 from Bio.Align import substitution_matrices
 aligner = Align.PairwiseAligner()
 
@@ -186,43 +187,40 @@ def get_coords(annot, alignments, coords, resnums_for_sasa, mode):
 
 def get_alignments_3D(identifier, model_num, pdb_path, pdbSequence, source, chain, pdbID, mode, path_3D_alignment,file_format = 'gzip'):
     if mode == 1:
-        for name in glob.glob(pdb_path):
-            atomSequence = ''
-            coords = []
-            resnums_for_sasa = []
-            with open(name, encoding="utf8") as f:
-                for line in f.readlines():
-                    if source != 'MODBASE':
-                        if line[0:4].strip() == 'ATOM' and line[13:15].strip() == 'CA' and line[21].upper() == chain.upper():
-                            atomSequence += threeToOne(line[17:20].strip())
-                            coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
-                            resnums_for_sasa.append(line[22:26].strip())
-                        elif line[0:4].strip() == 'ATOM' and line[13:15].strip() == 'CA' and line[21] == ' ':
-                            atomSequence += threeToOne(line[17:20].strip())
-                            coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
-                            resnums_for_sasa.append(line[22:26].strip())
-                    else:
-                        if line[0:7].strip() == 'ATOM' and line[13:15].strip() == 'CA':
-                            atomSequence += threeToOne(line[17:20].strip())
-                            coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
-                            resnums_for_sasa.append(line[22:26].strip())
+        atomSequence = ''
+        coords = []
+        resnums_for_sasa = []
+        with open(pdb_path, encoding="utf8") as f:
+            for line in f.readlines():
+                if source != 'MODBASE':
+                    if line[0:4].strip() == 'ATOM' and line[13:15].strip() == 'CA' and line[21].upper() == chain.upper():
+                        atomSequence += threeToOne(line[17:20].strip())
+                        coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
+                        resnums_for_sasa.append(line[22:26].strip())
+                    elif line[0:4].strip() == 'ATOM' and line[13:15].strip() == 'CA' and line[21] == ' ':
+                        atomSequence += threeToOne(line[17:20].strip())
+                        coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
+                        resnums_for_sasa.append(line[22:26].strip())
+                else:
+                    if line[0:7].strip() == 'ATOM' and line[13:15].strip() == 'CA':
+                        atomSequence += threeToOne(line[17:20].strip())
+                        coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
+                        resnums_for_sasa.append(line[22:26].strip())
 
-            f = open(path_3D_alignment+ identifier + '_' + pdbID + '_' + str(chain) + '_alignment' + ".txt",
-                     "w")
+        f = open(Path(path_3D_alignment / f'{identifier}_{pdbID}_{str(chain)}_alignment.txt'),"w")
 
-            aligner.mode = 'local'
-            aligner.substitution_matrix = substitution_matrices.load("BLOSUM62")
-            aligner.open_gap_score = -11
-            aligner.extend_gap_score = -1
-            alignments = aligner.align(pdbSequence, atomSequence)
-            alignments = (list(alignments))
-            for alignment in alignments:
-                f.write(str(alignment))
-                f.write('\n')
-                f.write('\n')
-            return alignments, coords, resnums_for_sasa
+        aligner.mode = 'local'
+        aligner.substitution_matrix = substitution_matrices.load("BLOSUM62")
+        aligner.open_gap_score = -11
+        aligner.extend_gap_score = -1
+        alignments = aligner.align(pdbSequence, atomSequence)
+        alignments = (list(alignments))
+        for alignment in alignments:
+            f.write(str(alignment))
+            f.write('\n')
+            f.write('\n')
+        return alignments, coords, resnums_for_sasa
     elif mode==2:
-        for name in glob.glob(pdb_path):
             atomSequence = ''
             coords = []
             resnums_for_sasa = []
@@ -249,13 +247,11 @@ def get_alignments_3D(identifier, model_num, pdb_path, pdbSequence, source, chai
                             atomSequence += threeToOne(line[17:20].strip())
                             coords.append([line[31:38].strip(), line[39:46].strip(), line[47:54].strip()])
                             resnums_for_sasa.append(line[22:26].strip())
-            f = open(f'{path_3D_alignment}{identifier}_{str(model_num)}_3Dalignment.txt',"w")
-
+            f = open(Path(path_3D_alignment / f'{identifier}_{str(model_num)}_3Dalignment.txt'),"w")
             aligner.mode = 'local'
             aligner.substitution_matrix = substitution_matrices.load("BLOSUM62")
             aligner.open_gap_score = -11
             aligner.extend_gap_score = -1
-
             alignments = aligner.align(pdbSequence, atomSequence)
             alignments = (list(alignments))
             for alignment in alignments:

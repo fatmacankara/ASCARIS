@@ -1,5 +1,6 @@
 from Bio import Align
 from Bio.Align import substitution_matrices
+from pathlib import Path
 
 aligner = Align.PairwiseAligner()
 from Bio.pairwise2 import format_alignment
@@ -8,7 +9,7 @@ from Bio.pairwise2 import format_alignment
 def do_alignment(identifier, uniprotSequence, pdbSequence, alignment_path):
     print(f'Aligning Datapoint: {identifier}')
     if len(pdbSequence) >= 1:
-        f = open(alignment_path + '/'+ identifier + '_alignment' + ".txt",
+        f = open(Path(alignment_path / f'{identifier}_alignment.txt'),
                  "w")
         aligner.mode = 'local'
         aligner.substitution_matrix = substitution_matrices.load("BLOSUM62")

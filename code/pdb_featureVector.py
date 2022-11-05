@@ -14,6 +14,7 @@ import ssbio.utils
 import warnings
 import sys
 import pathlib
+from pathlib import Path
 import os, glob
 import math
 import ssbio
@@ -50,7 +51,7 @@ from process_input import clean_data
 
 
 
-def pdb(input_set, mode):
+def pdb(input_set, mode, impute):
     aligner = Align.PairwiseAligner()
     """
     STEP 1
@@ -59,7 +60,8 @@ def pdb(input_set, mode):
     """
     data = clean_data(input_set)
     path_to_input_files, path_to_output_files, path_to_domains, fisher_path, path_to_interfaces, buffer =  manage_files(mode)
-    sys.stdout = open(f'{path_to_output_files}/log.txt', 'w')
+    out_path = path_to_output_files / 'log.txt'
+    sys.stdout = open(out_path, 'w')
     print('Creating directories...')
 
     annotation_list = ['disulfide', 'intMet', 'intramembrane', 'naturalVariant', 'dnaBinding', 'activeSite',
@@ -205,22 +207,24 @@ def pdb(input_set, mode):
             shutil.rmtree('obsolete')
         except OSError as e:
             pass
-        existing_pdb = glob.glob(path_to_output_files + 'pdb_structures/*')
+        pdb_structures_path = path_to_output_files / 'log.txt'
+        existing_pdb = list(Path(path_to_output_files/'pdb_structures').glob("*"))
+        existing_pdb = [str(i) for i in existing_pdb]
         existing_pdb = [i.split('/')[-1].split('.')[0].lower() for i in existing_pdb]
         cnt = 0
         for search in pdbs:
             try:
                 if search.lower() not in existing_pdb:
-                    file = pdbl.retrieve_pdb_file(search, pdir=path_to_output_files + 'pdb_structures/', file_format="pdb")
+                    file = pdbl.retrieve_pdb_file(search, pdir=Path(path_to_output_files / 'pdb_structures'), file_format="pdb")
                 else:
                     print('PDB structure file exists..')
-                    for filename in os.listdir(path_to_output_files + 'pdb_structures/'):
-                        os.rename(path_to_output_files + 'pdb_structures/' + filename,
-                                      path_to_output_files + 'pdb_structures/' + ''.join(filename.split('.')[0])+ '.pdb')
+                    for filename in list(Path(path_to_output_files / 'pdb_structures').glob("*")):
+                        filename_replace_ext = filename.with_suffix(".pdb")
+                        filename.rename(filename_replace_ext)
 
-                    file = path_to_output_files + 'pdb_structures/' + search + '.pdb'
+                    file = Path(path_to_output_files / 'pdb_structures' / f'{search}.pdb')
 
-                    base = os.path.splitext(file)[0]
+                    base = os.path.splitext(str(file))[0]
                     base = '/'.join(base.split('/')[0:-1]) + '/pdb' + base.split('/')[-1]
                     os.rename(file, base + ".ent")
                     file = base + '.ent'
@@ -245,18 +249,18 @@ def pdb(input_set, mode):
             cnt +=1
         print()
         print('PDB file processing finished..')
-        for filename in os.listdir(path_to_output_files + 'pdb_structures/'):
+        for filename in list(Path(path_to_output_files / 'pdb_structures').glob("*")):
             try:
-                os.rename(path_to_output_files + 'pdb_structures/' + filename,
-                          path_to_output_files + 'pdb_structures/' + filename[:-4] + '.txt')
+                filename_replace_ext = filename.with_suffix(".pdb")
+                filename.rename(filename_replace_ext)
             except:
                 FileNotFoundError
 
-        for filename in os.listdir(path_to_output_files + 'pdb_structures/'):
+        for filename in list(Path(path_to_output_files / 'pdb_structures').glob("*")):
             try:
-                if filename.startswith("pdb"):
-                    os.rename(path_to_output_files + 'pdb_structures/' + filename,
-                              path_to_output_files + 'pdb_structures/' + filename[3:])
+                if filename.stem.startswith("pdb"):
+                    filename_replace_ext = filename.with_name(filename.stem[3:])
+                    filename.rename(filename_replace_ext.with_suffix('.pdb'))
             except:
                 FileNotFoundError
 
@@ -386,8 +390,8 @@ def pdb(input_set, mode):
         with_pdb = None
 
         print('Aligning sequences...\n')
-        aligned_m = final_stage(dfM, annotation_list, path_to_output_files + '/alignment_files')
-        aligned_nm = final_stage(dfNM, annotation_list, path_to_output_files + '/alignment_files')
+        aligned_m = final_stage(dfM, annotation_list, Path(path_to_output_files / 'alignment_files'))
+        aligned_nm = final_stage(dfNM, annotation_list, Path(path_to_output_files / 'alignment_files'))
 
         # When PDB sequence is nan, it is wrongly aligned to the UniProt sequence. Fix them.
         for i in aligned_m.index:
@@ -499,7 +503,7 @@ def pdb(input_set, mode):
         if len(to_swiss) != 0:
             print('Generating SwissModel file...\n')
 
-            swiss_model = pd.read_csv(path_to_input_files + 'swissmodel_structures.txt', sep='\t',
+            swiss_model = pd.read_csv(Path(path_to_input_files / 'swissmodel_structures.txt'), sep='\t',
                                       dtype=str, header=None, skiprows=1,
                                       names=['UniProtKB_ac', 'iso_id', 'uniprot_seq_length', 'uniprot_seq_md5',
                                              'coordinate_id', 'provider', 'from', 'to', 'template', 'qmean', 'qmean_norm','seqid', 'url'])
@@ -621,7 +625,8 @@ def pdb(input_set, mode):
         Download model files.
         """
         print('Beginning SwissModel files download...')
-        existing_swiss = glob.glob(path_to_output_files + 'swissmodel_structures/*')
+        existing_swiss = list(Path(path_to_output_files / 'swissmodel_structures').glob("*"))
+        existing_swiss = [str(i) for i in existing_swiss]
         existing_swiss = ['.'.join(i.split('/')[-1].split('.')[:-1]) for i in existing_swiss]
         swissmodels_fasta = pd.DataFrame()
 
@@ -634,16 +639,13 @@ def pdb(input_set, mode):
                     'https',
                     'https:')
                 req = requests.get(url)
-                name = path_to_output_files + 'swissmodel_structures/' + protein + '_' + template + '_' + qmean_norm + '.txt'
+                name = Path(path_to_output_files / 'swissmodel_structures' / f'{protein}_{template}_{qmean_norm}.txt')
                 print('Downloading for Protein:', protein + ' Model: ' + template)
                 with open(name, 'wb') as f:
                     f.write(req.content)
             else:
                 print('Model exists.')
-                name = glob.glob(
-                    path_to_output_files + 'swissmodel_structures/' + protein + '_' + template + '_' + qmean_norm + '.txt')[
-                    0]
-
+                name = Path(path_to_output_files / 'swissmodel_structures' / f'{protein}_{template}_{qmean_norm}.txt')
             with open(name, encoding="utf8") as f:
                 fasta = ''
                 lines = f.readlines()
@@ -738,9 +740,10 @@ def pdb(input_set, mode):
         swissmodels_fasta = None
 
         print('Aligning sequences...\n')
+
         swiss_models_with_data['uniprotSequence'] = swiss_models_with_data['uniprotSequence'].str.replace('U', 'C')
         swiss_models_with_data['pdbSequence'] = swiss_models_with_data['pdbSequence'].str.replace('U', 'C')
-        swiss_model_aligned = alignment(swiss_models_with_data, annotation_list, path_to_output_files + '/alignment_files')
+        swiss_model_aligned = alignment(swiss_models_with_data, annotation_list, path_to_output_files / 'alignment_files')
         swiss_models_with_data = None
 
 
@@ -817,10 +820,14 @@ def pdb(input_set, mode):
             to_modbase.reset_index(inplace=True)
             to_modbase.drop(['index'], axis=1, inplace=True)
 
-            existing_modbase_models = glob.glob(path_to_output_files + 'modbase_structures/*')
+            existing_modbase_models = list(Path(path_to_output_files / 'modbase_structures').glob("*"))
+            existing_modbase_models = [str(i) for i in existing_modbase_models]
             existing_modbase_models = [i.split('/')[-1].split('.')[0] for i in existing_modbase_models]
-            existing_modbase_models_ind = glob.glob(path_to_output_files + 'modbase_structures_individual/*')
+
+            existing_modbase_models_ind = list(Path(path_to_output_files / 'modbase_structures_individual').glob("*"))
+            existing_modbase_models_ind = [str(i) for i in existing_modbase_models_ind]
             existing_modbase_models_ind = [i.split('/')[-1].split('.')[0] for i in existing_modbase_models_ind]
+
             modbase_reduced = pd.DataFrame()
             modbase_fasta = pd.DataFrame()
 
@@ -832,24 +839,24 @@ def pdb(input_set, mode):
                     url = 'https://salilab.org/modbase/retrieve/modbase/?databaseID=' + protein
                     print(url)
                     req = requests.get(url)
-                    name = path_to_output_files + 'modbase_structures/' + protein + '.txt'
+                    name = path_to_output_files / 'modbase_structures' /  f'{protein}.txt'
                     with open(name, 'wb') as f:
                         f.write(req.content)
                 else:
                     print('Model exists for', protein)
-                    name = glob.glob(path_to_output_files + 'modbase_structures/' + protein + '.txt')[0]
+                    name = Path(path_to_output_files / 'modbase_structures' / f'{protein}.txt')
                 with open(name, encoding="utf8") as f:
                     a = open(name, 'r').read()
                     soup = BeautifulSoup(a, 'lxml')
                     for pdb in soup.findAll('pdbfile'):
                         model_id = str(pdb.contents[1])[10:-11]
                         if model_id not in existing_modbase_models_ind:
-                            with open(path_to_output_files + 'modbase_structures_individual/' + model_id + '.txt', 'w',
+                            with open(path_to_output_files / 'modbase_structures_individual' / f'{model_id}.txt', 'w',
                                       encoding="utf8") as individual:
                                 individual.write(str('UniProt ID: ' + protein))
                                 individual.write('\n')
                                 individual.write(str(pdb.contents[3])[10:-11].strip())
-                        with open(path_to_output_files + 'modbase_structures_individual/' + model_id + '.txt',
+                        with open(path_to_output_files / 'modbase_structures_individual'/ f'{model_id}.txt',
                                   encoding="utf8") as f:
                             fasta = ''
                             chain = ''
@@ -1014,7 +1021,7 @@ def pdb(input_set, mode):
             modbase_fasta = None
             to_modbase = None
             print('Aligning sequences...\n')
-            modbase_aligned = alignment(align, annotation_list, path_to_output_files + '/alignment_files')
+            modbase_aligned = alignment(align, annotation_list, path_to_output_files / 'alignment_files')
             modbase_aligned = modbase_aligned.astype(str)
             modbase_aligned = modbase_aligned.replace({'NaN': 'nan'})
 
@@ -1246,7 +1253,6 @@ def pdb(input_set, mode):
         modbase_match = None
 
         """
-        Fix the columns names for all. 
         WHAT DO WE HAVE NOW?
         - uniprot sequence not found
         - pdb aligned
@@ -1285,15 +1291,17 @@ def pdb(input_set, mode):
         print('------------------------------------\n')
         # Folder to calculated RSA values.
 
-        existing_free_sasa = glob.glob(path_to_output_files + 'freesasa_files/*')
+        existing_free_sasa = list(Path(path_to_output_files / 'freesasa_files').glob("*"))
+        existing_free_sasa = [str(i) for i in existing_free_sasa]
         existing_free_sasa = [i.split('/')[-1].split('.')[0] for i in existing_free_sasa]
 
         print('Calculation RSA for PDB Structure Files...\n')
+
         pdb_only = data[data.source == 'PDB']
         for pdbID in pdb_only.pdbID.to_list():
             if pdbID not in existing_free_sasa:
-                (run_freesasa(path_to_output_files + 'pdb_structures/' + pdbID.lower() + '.txt',
-                              path_to_output_files + 'freesasa_files/' + pdbID.lower() + '.txt', include_hetatms=True,
+                (run_freesasa(Path(path_to_output_files / 'pdb_structures' / f'{pdbID.lower()}.pdb'),
+                              Path(path_to_output_files / 'freesasa_files' / f'{pdbID.lower()}.txt'), include_hetatms=True,
                               outdir=None, force_rerun=False, file_type='pdb'))
 
 
@@ -1305,27 +1313,23 @@ def pdb(input_set, mode):
                 round(float(swiss_only.at[i, 'score']), 2)))
         for pdbID in swiss_dp:
             if pdbID not in existing_free_sasa:
-                (run_freesasa(path_to_output_files + 'swissmodel_structures/' + pdbID + '.txt',
-                              path_to_output_files + 'freesasa_files/' + pdbID + '.txt', include_hetatms=True,
+                (run_freesasa(Path(path_to_output_files / 'swissmodel_structures' / f'{pdbID}.txt'),
+                              Path(path_to_output_files / 'freesasa_files' / f'{pdbID}.txt'), include_hetatms=True,
                               outdir=None, force_rerun=False, file_type='pdb'))
 
         print('Calculation RSA for Modbase Model Files...\n')
         modbase_only = data[data.source == 'MODBASE']
         for pdbID in modbase_only.pdbID.to_list():
             if pdbID not in existing_free_sasa:
-                (run_freesasa(path_to_output_files + 'modbase_structures_individual/' + pdbID.lower() + '.txt',
-                              path_to_output_files + 'freesasa_files/' + pdbID.lower() + '.txt', include_hetatms=True,
+                (run_freesasa(Path(path_to_output_files / 'modbase_structures_individual' / f'{pdbID.lower()}.txt'),
+                              Path(path_to_output_files / 'freesasa_files' / f'{pdbID.lower()}.txt'), include_hetatms=True,
                               outdir=None, force_rerun=False, file_type='pdb'))
 
         # This annotation list is different than the prev one, keep it.
-        annotation_list = ['disulfide', 'intMet', 'intramembrane', 'naturalVariant', 'dnaBinding', 'activeSite',
-                           'nucleotideBinding', 'lipidation', 'site', 'transmembrane', 'crosslink', 'mutagenesis', 'strand',
-                           'turn', 'helix', 'metalBinding', 'repeat', 'caBinding', 'topologicalDomain', 'bindingSite',
-                           'region',
-                           'signalPeptide', 'modifiedResidue', 'zincFinger', 'motif', 'coiledCoil', 'peptide',
-                           'transitPeptide', 'glycosylation', 'propeptide', 'domainStartonPDB', 'domainEndonPDB']
 
-        folder_path = path_to_output_files + 'freesasa_files/'
+        annotation_list += ['domainStartonPDB', 'domainEndonPDB']
+
+        folder_path = path_to_output_files / 'freesasa_files'
 
         aligner = Align.PairwiseAligner()
         print('Proceeding to 3D distance calculation...\n')
@@ -1341,20 +1345,22 @@ def pdb(input_set, mode):
         data['uniprotSequence'] = data['uniprotSequence'].str.replace('U', 'C')
         data['pdbSequence'] = data['pdbSequence'].str.replace('U', 'C')
         for i in data.index:
+            id_ = data.at[i, 'pdbID'].lower()
+            up_id_ = data.at[i, 'uniprotID']
+            score_ = str(data.at[i, 'score'])
             if data.at[i, 'source'] == 'PDB':
-                pdb_path = path_to_output_files + 'pdb_structures/' + data.at[i, 'pdbID'].lower() + '.txt'
+                pdb_path = Path(path_to_output_files / 'pdb_structures' / f'{id_}.pdb')
             elif data.at[i, 'source'] == 'MODBASE':
-                pdb_path = path_to_output_files + 'modbase_structures_individual/' + data.at[i, 'pdbID'] + '.txt'
+                pdb_path = Path(path_to_output_files / 'modbase_structures_individual' / f'{id_}.txt')
             elif data.at[i, 'source'] == 'SWISSMODEL':
-                pdb_path = path_to_output_files + 'swissmodel_structures/' + data.at[i, 'uniprotID'] + '_' + data.at[
-                    i, 'pdbID'] + '_' + str(data.at[i, 'score']) + '.txt'
+                pdb_path = Path(path_to_output_files / 'swissmodel_structures' / f'{up_id_}_{id_}_{score_}.txt')
 
             pdbSequence = data.at[i, 'pdbSequence']
             source = data.at[i, 'source']
             chain = data.at[i, 'chain']
             uniprotID = data.at[i, 'uniprotID']
             pdbID = data.at[i, 'pdbID']
-            alignments = get_alignments_3D(uniprotID, 'nan', pdb_path, pdbSequence, source, chain, pdbID, mode,path_to_output_files + '3D_alignment/', file_format = 'gzip')
+            alignments = get_alignments_3D(uniprotID, 'nan', pdb_path, pdbSequence, source, chain, pdbID, mode, Path(path_to_output_files / '3D_alignment'), file_format = 'gzip')
             mutPos = data.at[i, 'mutationPositionOnPDB']
             try:
                 coordMut = get_coords(mutPos, alignments , 'nan', 'nan', mode)[0]
@@ -1498,28 +1504,12 @@ def pdb(input_set, mode):
 
         data.drop(['positions'], axis=1, inplace=True)
 
-        """
-        print('Counts for HQ, treshold 4:')
-        print('HQ_4_surface: ', len(data[data.threeState_trsh4_HQ == 'surface']))
-        print('HQ_4_core: ', len(data[data.threeState_trsh4_HQ == 'core']))
-        print('HQ_4_interface: ', len(data[data.threeState_trsh4_HQ == 'interface']))
-        print('HQ_4_conflict: ', len(data[data.threeState_trsh4_HQ == 'conflict']))
-        print(len(data[data.threeState_trsh4_HQ == 'surface']) + len(data[data.threeState_trsh4_HQ == 'interface']),
-              'should be equal to', len(finalData[finalData.trsh4 == 'surface']))
-        print(len(data[data.threeState_trsh4_HQ == 'core']) + len(data[data.threeState_trsh4_HQ == 'conflict']), 'should be equal to',
-              len(data[data.trsh4 == 'core']))
-    
-        HQ_4_surface:  202
-        HQ_4_core:  256
-        HQ_4_interface:  90
-        HQ_4_conflict:  35
-        """
 
         # OPTIONAL
         # DOMAIN SELECTION
         # Next step: Delete all other domains with 'Domain X.' R is capable of handling 53 categories. We will keep 52 most
         # significant domains and 53th category will be Domain X.
-        #
+
         fisherResult = pd.read_csv(fisher_path, sep='\t')
 
         significant_domains = fisherResult.domain.to_list()
@@ -1569,27 +1559,6 @@ def pdb(input_set, mode):
                     data.at[i, annot] = '0.0'
         data.replace({'100000': 'nan'}, inplace=True)
         data = add_physicochemical(data)
-        """
-        final_cols_to_keep = ['datapoint', 'composition', 'polarity', 'volume', 'granthamScore','domain', 'domain_fisher',
-                              'domaindistance3D', 'disulfide', 'intMet', 'intramembrane', 'naturalVariant',
-                              'dnaBinding', 'activeSite', 'nucleotideBinding', 'lipidation', 'site',
-                              'transmembrane', 'crosslink', 'mutagenesis', 'strand', 'helix', 'turn',
-                              'metalBinding', 'repeat', 'topologicalDomain', 'caBinding',
-                              'bindingSite', 'region', 'signalPeptide', 'modifiedResidue',
-                              'zincFinger', 'motif', 'coiledCoil', 'peptide', 'transitPeptide',
-                              'glycosylation', 'propeptide', 'disulfideBinary', 'intMetBinary',
-                              'intramembraneBinary', 'naturalVariantBinary', 'dnaBindingBinary',
-                              'activeSiteBinary', 'nucleotideBindingBinary', 'lipidationBinary',
-                              'siteBinary', 'transmembraneBinary', 'crosslinkBinary',
-                              'mutagenesisBinary', 'strandBinary', 'helixBinary', 'turnBinary',
-                              'metalBindingBinary', 'repeatBinary', 'topologicalDomainBinary',
-                              'caBindingBinary', 'bindingSiteBinary', 'regionBinary',
-                              'signalPeptideBinary', 'modifiedResidueBinary', 'zincFingerBinary',
-                              'motifBinary', 'coiledCoilBinary', 'peptideBinary',
-                              'transitPeptideBinary', 'glycosylationBinary', 'propeptideBinary', 'sasa',
-                              'transitPeptideBinary', 'glycosylationBinary', 'propeptideBinary', 'sasa',
-                              'threeState_trsh4_HQ']
-        """
         data.rename(
             columns={'uniprotID': 'prot_uniprotAcc', 'wt': 'wt_residue', 'pos': 'position', 'mut': 'mut_residue',
                      'datapoint': 'meta_merged', 'datapoint_disease': 'meta-lab_merged', 'label': 'source_db',
@@ -1653,14 +1622,27 @@ def pdb(input_set, mode):
              'modifiedResidue_dist', 'zincFinger_dist', 'motif_dist',
              'coiledCoil_dist', 'peptide_dist', 'transitPeptide_dist',
              'glycosylation_dist', 'propeptide_dist']]
-        #ready = data[final_cols_to_keep]
         ready = data.copy()
-        ready.to_csv(path_to_output_files + '/featurevector_pdb.txt', sep='\t', index=False)
+        # Imputation
+        if (impute == 'True') or (impute == 'true'):
+            filler = [17.84, 30.8, 24.96, 13.12, 23.62, 18.97, 20.87, 29.59, 20.7, 12.7, 22.85, 17.21, 9.8, 9, 15.99, 16.82,
+                      20.46, 24.58, 9.99, 17.43, 20.08, 30.91, 20.86, 22.14, 21.91, 28.45, 17.81, 25.12, 20.33, 22.36]
+            col_index = 0
+            for col_ in ready.columns[-30:]:
+                ready[col_] = ready[col_].fillna(filler[col_index])
+                ready[col_] = ready[col_].replace({'nan': filler[col_index]})
+                col_index += 1
+            ready['domains_3Ddist'] = ready['domains_3Ddist'].fillna(24.5)
+            ready['sasa'] = ready['sasa'].fillna(29.5)
+            ready['location_3state'] = ready['location_3state'].fillna('unknown')
+        elif (impute == 'False') or (impute == 'false'):
+            pass
+        ready = ready.replace({'nan': np.NaN})
+        ready.to_csv(path_to_output_files / 'featurevector_pdb.txt', sep='\t', index=False)
         if len(ready) == 0:
             print('No feature vector could be produced for input data. Please check the presence of a structure for the input proteins.')
         return ready
         print('Feature vector successfully created...')
-
     end = timer()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)

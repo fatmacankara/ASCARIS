@@ -24,8 +24,8 @@ def which_model(position):
 
 def modelCount(path_to_models):
     count_list = []
-    for file in glob.glob(path_to_models + '/*'):
-        protein_id = file.split('-')[1]
+    for file in list(path_to_models.glob("*")):
+        protein_id = str(file).split('-')[1]
         count_list.append(protein_id)
     count_dict = Counter(count_list)
     count_dict = {';'.join(sorted(k for k in count_dict.keys() if count_dict[k] == v)): v for v in

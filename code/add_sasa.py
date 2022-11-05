@@ -5,7 +5,7 @@ import ssbio
 import os.path as op
 from add_3Dalignment import *
 import os
-
+from pathlib import Path
 import gzip
 import shutil
 
@@ -43,7 +43,6 @@ def run_freesasa(infile, outfile, include_hetatms=True, outdir=None, force_rerun
                                        stderr=subprocess.PIPE,
                                        shell=True)
             out, err = command.communicate()
-    #os.remove(infile)
     return outfile
 
 def calculate_freesasa(ID, model_num, existing_free_sasa, path_to_input,path_to_output_files, file_type = 'gzip'):
@@ -51,32 +50,31 @@ def calculate_freesasa(ID, model_num, existing_free_sasa, path_to_input,path_to_
     if file_type == 'gzip':
         if ID not in existing_free_sasa:
             fullID = f'AF-{ID}-F{model_num}-model_v1.pdb.gz'
-            run_freesasa(f'{path_to_input}{fullID}',
-                         f'{path_to_output_files}/freesasa_files/{fullID}.txt', include_hetatms=True,
+            run_freesasa(Path(path_to_input / fullID),
+                         Path(path_to_output_files / f'freesasa_files/{fullID}.txt'), include_hetatms=True,
                          outdir=None, force_rerun=False)
     elif file_type == 'pdb':
         if ID not in existing_free_sasa:
             fullID = f'AF-{ID}-F{model_num}-model_v1.pdb'
-
-            run_freesasa(f'{path_to_input}{fullID}',
-                         f'{path_to_output_files}/freesasa_files/{fullID}.txt', include_hetatms=True,
+            run_freesasa(Path(path_to_input / fullID),
+                         Path(path_to_output_files / f'freesasa_files/{fullID}.txt'), include_hetatms=True,
                          outdir=None, force_rerun=False)
 
 def sasa(source, pdbID, uniprotID, sasa_pos, wt, mode, path_to_output_files,file_type = 'gzip'):
     if mode == 1:
         sasa = 'nan'
-        for filename in glob.glob(f'{path_to_output_files}/freesasa_files/*'):
+        for filename in list(Path(path_to_output_files / 'freesasa_files').glob("*")):
             if source == 'PDB':
-                fname = filename.split('.')[0].split('/')[-1].upper()
+                fname = str(filename).split('.')[0].split('/')[-1].upper()
             elif source == 'MODBASE':
-                fname = filename.split('.')[0].split('/')[-1]
+                fname = str(filename).split('.')[0].split('/')[-1]
             elif source == 'SWISSSMODEL':
-                fname = filename.split('_')[2]
-
+                fname = str(filename).split('_')[2]
             if pdbID == fname:
                 files = open(filename, 'r')
                 file = files.readlines()
                 for k in file:
+
                     if k.strip()[10:13] == sasa_pos:
                         residue = str(k[4:7].strip())
                         if wt == threeToOne(residue):
@@ -92,7 +90,7 @@ def sasa(source, pdbID, uniprotID, sasa_pos, wt, mode, path_to_output_files,file
         if sasa_pos != np.NaN:
             sasa = 'nan'
             if file_type == 'pdb':
-                for filename in glob.glob(f'{path_to_output_files}/freesasa_files/*'):
+                for filename in list(Path(path_to_output_files / 'freesasa_files').glob("*")):
                     fname = list(filter(None, filename.split('.'))).split('/')[-1].upper()
                     if uniprotID == fname:
                         files = open(filename, 'r')
@@ -107,8 +105,8 @@ def sasa(source, pdbID, uniprotID, sasa_pos, wt, mode, path_to_output_files,file
 
                 return sasa
             elif file_type == 'gzip':
-                for filename in glob.glob(f'{path_to_output_files}/freesasa_files/*'):
-                    fname = list(filter(None, filename.split('.')))[0].split('/')[-1].split('-')[1].upper()
+                for filename in  list(Path(path_to_output_files / 'freesasa_files').glob("*")):
+                    fname = list(filter(None, str(filename).split('.')))[0].split('/')[-1].split('-')[1].upper()
 
                     if uniprotID == fname:
                         files = open(filename, 'r')

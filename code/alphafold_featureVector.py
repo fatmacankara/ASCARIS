@@ -8,6 +8,7 @@ from decimal import *
 import pandas as pd
 import requests as r
 import os.path as op
+from pathlib import Path
 import subprocess
 import argparse
 import ssbio.utils
@@ -50,7 +51,7 @@ from process_input import clean_data
 from alphafold_model import *
 
 
-def alphafold(input_set, mode):
+def alphafold(input_set, mode, impute):
     start = timer()
     # Necessary lists
     annotation_list = ['disulfide', 'intMet', 'intramembrane', 'naturalVariant', 'dnaBinding', 'activeSite',
@@ -60,25 +61,6 @@ def alphafold(input_set, mode):
                        'signalPeptide', 'modifiedResidue', 'zincFinger', 'motif', 'coiledCoil', 'peptide',
                        'transitPeptide', 'glycosylation', 'propeptide']
 
-    final_cols_to_keep = ['uniprotID', 'wt', 'mut', 'pos', 'datapoint', 'composition', 'polarity', 'volume',
-                          'granthamScore', 'domain', 'domain_fisher',
-                          'domaindistance3D', 'disulfide', 'intMet', 'intramembrane', 'naturalVariant',
-                          'dnaBinding', 'activeSite', 'nucleotideBinding', 'lipidation', 'site',
-                          'transmembrane', 'crosslink', 'mutagenesis', 'strand', 'helix', 'turn',
-                          'metalBinding', 'repeat', 'topologicalDomain', 'caBinding',
-                          'bindingSite', 'region', 'signalPeptide', 'modifiedResidue',
-                          'zincFinger', 'motif', 'coiledCoil', 'peptide', 'transitPeptide',
-                          'glycosylation', 'propeptide', 'disulfideBinary', 'intMetBinary',
-                          'intramembraneBinary', 'naturalVariantBinary', 'dnaBindingBinary',
-                          'activeSiteBinary', 'nucleotideBindingBinary', 'lipidationBinary',
-                          'siteBinary', 'transmembraneBinary', 'crosslinkBinary',
-                          'mutagenesisBinary', 'strandBinary', 'helixBinary', 'turnBinary',
-                          'metalBindingBinary', 'repeatBinary', 'topologicalDomainBinary',
-                          'caBindingBinary', 'bindingSiteBinary', 'regionBinary',
-                          'signalPeptideBinary', 'modifiedResidueBinary', 'zincFingerBinary',
-                          'motifBinary', 'coiledCoilBinary', 'peptideBinary',
-                          'transitPeptideBinary', 'glycosylationBinary', 'propeptideBinary', 'sasa',
-                          'threeState_trsh4_HQ']
     change_names = {'Disulfide bond': 'disulfide', 'Initiator methionine': 'intMet',
                     'Natural variant': 'naturalVariant',
                     'DNA binding': 'dnaBinding',
@@ -98,7 +80,9 @@ def alphafold(input_set, mode):
     data = clean_data(input_set)
 
     path_to_input_files, path_to_output_files, path_to_domains, fisher_path, path_to_interfaces, alphafold_path, alphafold_summary= manage_files(mode)
-    sys.stdout = open(f'{path_to_output_files}/log.txt', 'w')
+    out_path = path_to_output_files / 'log.txt'
+    sys.stdout = open(out_path, 'w')
+
     print('Creating directories...')
 
     ## Physicochemical properties
@@ -156,7 +140,9 @@ def alphafold(input_set, mode):
 
 
     ## Avoiding downloading files for SASA calculation if already downloaded.
-    existing_free_sasa = glob.glob(path_to_output_files + '/freesasa_files' + '/*')
+
+    existing_free_sasa = list(Path(path_to_output_files / 'freesasa_files').glob("*"))
+    existing_free_sasa = [str(i) for i in existing_free_sasa]
     existing_free_sasa = [i.split('/')[-1].split('.')[0] for i in existing_free_sasa]
     ## Decide if the wild type amino acid is on canonical or isoform sequence. Selected sequence will be used for the
     ## sequence alignment.
@@ -329,7 +315,7 @@ def alphafold(input_set, mode):
             if pdbSequence != 'nan':  # The number in models we need might not be present for that protein. Preventng error.
                 pdbSequence = pdb_info.loc[(pdb_info.uniprotID == uniprotID) & (pdb_info.model_num == mod)].sequence.item()
                 alignment_list = do_alignment(uniprot_matched.at[i, 'datapoint'], uniprot_matched.at[i, 'uniprotSequence'],
-                                              pdbSequence, path_to_output_files + '/alignment_files')
+                                              pdbSequence, Path(path_to_output_files / 'alignment_files'))
                 pdb_alignStatus = mutation_position_on_pdb(alignment_list, uniprot_matched.at[i, 'pos'])[0]
                 info_per_model[mod]['pdb_alignStatus'] = pdb_alignStatus
                 mutationPositionOnPDB = mutation_position_on_pdb(alignment_list, uniprot_matched.at[i, 'pos'])[1]
@@ -348,13 +334,12 @@ def alphafold(input_set, mode):
                             KeyError
                     info_per_model[mod][annot] = annotation_pos_on_pdb_
 
-                pdb_path = f'{alphafold_path}/AF-{uniprotID}-F{mod}-model_v1.pdb.gz'
-
-                if get_alignments_3D(uniprotID, mod, pdb_path, pdbSequence, 'nan', 'nan', 'nan', mode, path_to_output_files + '/3D_alignment/',
+                pdb_path = Path(f'{alphafold_path}/AF-{uniprotID}-F{mod}-model_v1.pdb.gz')
+                if get_alignments_3D(uniprotID, mod, pdb_path, pdbSequence, 'nan', 'nan', 'nan', mode, Path(path_to_output_files / '3D_alignment'),
                                      'gzip') != None:
 
                     alignments, coords, resnums_for_sasa = get_alignments_3D(uniprotID, mod, pdb_path, pdbSequence, 'nan',
-                                                                            'nan', 'nan', mode, path_to_output_files + '/3D_alignment/',
+                                                                            'nan', 'nan', mode, Path(path_to_output_files / '3D_alignment'),
                                                                             'gzip')
                     alignments = alignments[0]
 
@@ -489,10 +474,7 @@ def alphafold(input_set, mode):
             uniprot_matched.at[i, 'domain_fisher'] = 'domainX'
         uniprot_matched = uniprot_matched.round(2)
         uniprot_matched = uniprot_matched.astype(str)
-        uniprot_matched[final_cols_to_keep].loc[[i]].to_csv(f'{path_to_output_files}/featurevector_alphafold.txt', mode='a', index=False,
-                                                            sep='\t', header=False, columns=final_cols_to_keep)
 
-    uniprot_matched = pd.read_csv(f'{path_to_output_files}/featurevector_alphafold.txt', sep='\t', names = final_cols_to_keep)
     uniprot_matched[ 'domain'] = uniprot_matched['domain'].replace({'-1': 'domainX'})
     uniprot_matched = uniprot_matched.drop_duplicates()
     uniprot_matched.rename(
@@ -555,13 +537,36 @@ def alphafold(input_set, mode):
          'modifiedResidue_dist', 'zincFinger_dist', 'motif_dist',
          'coiledCoil_dist', 'peptide_dist', 'transitPeptide_dist',
          'glycosylation_dist', 'propeptide_dist']]
-    uniprot_matched.to_csv(f'{path_to_output_files}/featurevector_alphafold.txt', index=False,
-                                                            sep='\t')
+    uniprot_matched = uniprot_matched.reset_index()
+    uniprot_matched = uniprot_matched.drop(columns = {'index'})
+    # Imputation
+    if (impute == 'True') or (impute == 'true'):
+        filler = [20.71, 46.67, 28.13,15.5, 35.94, 21.84, 25.15, 45.15, 29.81, 29.91, 34.67, 24.72, 10.66,11.55, 13.02,
+                  21.54,27.42, 38.39, 30.44, 20.9, 25.82, 46.12, 32.1, 35.96, 35.86, 37.88, 19.09, 35.2, 26.95, 37.48]
+        col_index = 0
+
+        for col_ in uniprot_matched.columns[-30:]:
+            uniprot_matched[col_] = uniprot_matched[col_].fillna(filler[col_index])
+            uniprot_matched[col_] = uniprot_matched[col_].replace({'nan': filler[col_index]})
+            uniprot_matched[col_] = uniprot_matched[col_].replace({'': filler[col_index]})
+            """
+            if uniprot_matched[col_].values == '':
+                uniprot_matched[col_] = filler[col_index]
+            """
+            col_index += 1
+
+        uniprot_matched['domains_3Ddist'] = uniprot_matched['domains_3Ddist'].fillna(29.78)
+        uniprot_matched['sasa'] = uniprot_matched['sasa'].fillna(35.6)
+        uniprot_matched['location_3state'] = uniprot_matched['location_3state'].fillna('unknown')
+    elif (impute == 'False') or (impute == 'false'):
+        pass
+    uniprot_matched = uniprot_matched.replace({'nan': np.NaN})
+    uniprot_matched = uniprot_matched.replace({'['']': np.NaN})
+    uniprot_matched.to_csv(path_to_output_files / 'featurevector_alphafold.txt', index=False, sep='\t')
     if len(uniprot_matched) == 0:
         print(
             'No feature vector could be produced for input data. Please check the presence of a structure for the input proteins.')
 
-    #uniprot_matched.to_csv(f'{path_to_output_files}/featureVector_alphafold.txt', index=False,sep='\t')
     print('Feature vector successfully created...')
     end = timer()
     hours, rem = divmod(end - start, 3600)
