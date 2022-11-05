@@ -69,18 +69,20 @@ Datasets that are used to create machine learning models are provided in **datas
 Please unzip required files prior to running the code.
 
 ```
-python3 code/main.py -o 1 -i P13637-T-613-M
-python3 code/main.py -o 2 -i "P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T"
+python3 code/main.py -o 1 -i P13637-T-613-M -impute True
+python3 code/main.py -o 2 -i "P13637-T-613-M, Q9Y4W6-N-432-T, Q9Y4W6-N-432-T" impute False
 python3 code/main.py -o 2 -i input_files/sample_input.txt
 
 ```
 ### Input Arguments
 
 -o :  selection for input structure data. (1: Use PDB-ModBase-SwissModel structures, 2: Use AlphaFold Structures) </br>
--i :  input variation. Enter datapoint to predict or input file name in the following form:</br>
 
+-i :  input variation. Enter datapoint to predict or input file name in the following form:</br>
 - *Option 1: Comma-separated list of idenfiers (UniProt ID-wt residue-position-mutated residue (e.g. Q9Y4W6-N-432-T or Q9Y4W6-N-432-T, Q9Y4W6-N-432-T))*  
 - *Option 2: Enter tab-separated file path*
+
+-impute :  imputation. Selection for imputation of the final feature vector. Imputation values are median values of corresponding columns. Default True </br>
 
 
 ### Sample Run
@@ -125,7 +127,7 @@ python3 code/main.py -o 1 -i input_files/sample_input.txt
 *If AlphaFold structures are selected:*
 
 ```
-python3 code/main.py -o 2 -i input_files/sample_input.txt
+python3 code/main.py -o 2 -i input_files/sample_input.txt impute False
 ```
 
 - **alphafold/alignment_files** : Contains alignment of UniProt sequence files.
