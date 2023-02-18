@@ -145,7 +145,7 @@ In ASCARIS representations, dimensions 1-5 correspond to datapoint identifier, 6
 
 
 | Order of dimension | Column name in the output file  | Description |  Source | 
-| ------------- | ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- |
 | 1 | prot_uniprotAcc | UniProt accession | UniProtKB/Swiss-Prot (Humsavar), ClinVar, PMD |
 | 2 | wt_residue | Wild type residue | UniProtKB/Swiss-Prot (Humsavar), ClinVar, PMD |
 | 3 | mut_residue | Mutated residue | UniProtKB/Swiss-Prot (Humsavar), ClinVar, PMD |
