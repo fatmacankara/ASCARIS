@@ -47,9 +47,11 @@ def run_freesasa(infile, outfile, include_hetatms=True, outdir=None, force_rerun
 
 def calculate_freesasa(ID, model_num, existing_free_sasa, path_to_input,path_to_output_files, file_type = 'gzip'):
     print('Calculating surface area...\n')
+    file_base = str(Path(path_to_input / '*'))
+    file_str = glob.glob(file_base)[0].split('-')[-1].split('.')[0]
     if file_type == 'gzip':
         if ID not in existing_free_sasa:
-            fullID = f'AF-{ID}-F{model_num}-model_v1.pdb.gz'
+            fullID = f'AF-{ID}-F{model_num}-{file_str }.pdb.gz'
             run_freesasa(Path(path_to_input / fullID),
                          Path(path_to_output_files / f'freesasa_files/{fullID}.txt'), include_hetatms=True,
                          outdir=None, force_rerun=False)

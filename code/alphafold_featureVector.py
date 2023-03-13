@@ -82,9 +82,9 @@ def alphafold(input_set, mode, impute):
     path_to_input_files, path_to_output_files, path_to_domains, fisher_path, path_to_interfaces, alphafold_path, alphafold_summary= manage_files(mode)
     out_path = path_to_output_files / 'log.txt'
     sys.stdout = open(out_path, 'w')
-
     print('Creating directories...')
-
+    file_base = str(Path(alphafold_path / '*'))
+    file_str = glob.glob(file_base)[0].split('-')[-1].split('.')[0]
     ## Physicochemical properties
     print('Adding physicochemical properties...\n')
     data = add_physicochemical(data)
@@ -300,6 +300,7 @@ def alphafold(input_set, mode, impute):
         info_per_model = {}  # her bir datapoint için baştan yazılıyor.
         dist_of_annots = {}
         all_domain_distances = []
+
         for mod in models_we_need:
             print('---------PRINTING FOR MODEL--------', mod)
             dist_of_annots[str(mod)] = {}
@@ -334,7 +335,8 @@ def alphafold(input_set, mode, impute):
                             KeyError
                     info_per_model[mod][annot] = annotation_pos_on_pdb_
 
-                pdb_path = Path(f'{alphafold_path}/AF-{uniprotID}-F{mod}-model_v1.pdb.gz')
+                pdb_path = Path(f'{alphafold_path}/AF-{uniprotID}-F{mod}-{file_str}.pdb.gz')
+
                 if get_alignments_3D(uniprotID, mod, pdb_path, pdbSequence, 'nan', 'nan', 'nan', mode, Path(path_to_output_files / '3D_alignment'),
                                      'gzip') != None:
 
@@ -412,6 +414,7 @@ def alphafold(input_set, mode, impute):
                 #                uniprot_matched.at[i, annotation_type] = minimum_position
                 else:
                     print('Model File Not Found')
+
                     uniprot_matched.at[i, 'sasa'] = np.NaN
 
 
@@ -471,11 +474,11 @@ def alphafold(input_set, mode, impute):
         if uniprot_matched.at[i, 'domain'] in significant_domains:
             uniprot_matched.at[i, 'domain_fisher'] = uniprot_matched.at[i, 'domain']
         else:
-            uniprot_matched.at[i, 'domain_fisher'] = 'domainX'
+            uniprot_matched.at[i, 'domain_fisher'] = 'NULL'
         uniprot_matched = uniprot_matched.round(2)
         uniprot_matched = uniprot_matched.astype(str)
 
-    uniprot_matched[ 'domain'] = uniprot_matched['domain'].replace({'-1': 'domainX'})
+    uniprot_matched[ 'domain'] = uniprot_matched['domain'].replace({'-1': 'NULL'})
     uniprot_matched = uniprot_matched.drop_duplicates()
     uniprot_matched.rename(
         columns={'uniprotID': 'prot_uniprotAcc', 'wt': 'wt_residue', 'pos': 'position', 'mut': 'mut_residue',

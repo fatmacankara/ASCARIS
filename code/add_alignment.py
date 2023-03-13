@@ -7,7 +7,7 @@ from Bio.pairwise2 import format_alignment
 
 
 def do_alignment(identifier, uniprotSequence, pdbSequence, alignment_path):
-    print(f'Aligning Datapoint: {identifier}')
+    #print(f'Aligning Datapoint: {identifier}')
     if len(pdbSequence) >= 1:
         f = open(Path(alignment_path / f'{identifier}_alignment.txt'),
                  "w")
